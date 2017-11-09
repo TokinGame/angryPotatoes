@@ -23,6 +23,8 @@ public class Cannon extends WorldActorGroup {
         addActor(actor);
         addToWorld();
         setPosition(x, y);
+        setSize(100, 100);
+        actor.setSize(100, 100);
     }
 
     @Override

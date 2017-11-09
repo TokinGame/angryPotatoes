@@ -14,6 +14,8 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import hu.tokingame.potatoeskill.GameElements.Cannon;
+import hu.tokingame.potatoeskill.GameElements.Floor;
+import hu.tokingame.potatoeskill.GameElements.Potato;
 import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -26,16 +28,16 @@ import hu.tokingame.potatoeskill.MyGdxGame;
 public class GameStage extends MyStage {
 
     World world;
-    WorldBodyEditorLoader loader;
+    hu.tokingame.potatoeskill.World.WorldBodyEditorLoader loader;
     Box2DDebugRenderer box2DDebugRenderer;
 
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
 
-        world = new World(new Vector2(0,0), false);
+        world = new World(new Vector2(0,-20), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
-        loader = new WorldBodyEditorLoader(Gdx.files.internal("Resources/physics.json"));
+        loader = new hu.tokingame.potatoeskill.World.WorldBodyEditorLoader(Gdx.files.internal("Resources/physics.json"));
 
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
@@ -66,7 +68,9 @@ public class GameStage extends MyStage {
         });
 
 
-        addActor(new Cannon(world, 100, 100));
+        addActor(new Cannon(world, 50, 50));
+        addActor(new Potato(world, loader, 200, 200));
+        addActor(new Floor(world, loader));
 
     }
 

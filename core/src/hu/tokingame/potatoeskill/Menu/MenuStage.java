@@ -1,12 +1,16 @@
 package hu.tokingame.potatoeskill.Menu;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import hu.tokingame.potatoeskill.Game.GameScreen;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
@@ -16,11 +20,29 @@ import hu.tokingame.potatoeskill.MyGdxGame;
 public class MenuStage extends MyStage {
 
     private OneSpriteStaticActor baglogic;
+    MyGdxGame game;
 
-    public MenuStage(Viewport viewport, Batch batch, MyGdxGame game) {
-        super(viewport, batch, game);
+    public MenuStage(Viewport viewport, Batch batch, MyGdxGame gam) {
+        super(viewport, batch, gam);
+
+        game = gam;
 
 
+
+        addActor(new MyTextButton("Jatek"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        game.setScreen(new GameScreen(game));
+                    }
+                });
+            }
+        });
     }
 
     @Override

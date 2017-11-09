@@ -1,5 +1,6 @@
 package hu.tokingame.potatoeskill.Game;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -16,6 +17,8 @@ public class GameStage extends MyStage {
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
+
+
     }
 
     @Override
@@ -23,6 +26,14 @@ public class GameStage extends MyStage {
 
     }
 
+
+    @Override
+    public boolean keyDown(int keycode) {
+        if(keycode == Input.Keys.BACK || keycode == Input.Keys.ESCAPE){
+            game.setScreenBackByStackPop();
+        }
+        return false;
+    }
     @Override
     public void act(float delta) {
         super.act(delta);

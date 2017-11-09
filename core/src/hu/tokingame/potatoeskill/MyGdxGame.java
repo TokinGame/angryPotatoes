@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.assets.AssetErrorListener;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -16,6 +17,8 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import hu.tokingame.potatoeskill.*;
 import hu.tokingame.potatoeskill.Global.Assets;
+import hu.tokingame.potatoeskill.Loading.LoadingScreen;
+import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyScreen;
 
 import java.lang.reflect.InvocationTargetException;
@@ -60,7 +63,7 @@ public class MyGdxGame extends Game {
 	@Override
 	public void create() {
 		Assets.prepare();
-		//setScreen(new LoadingScreen(this));
+		setScreen(new LoadingScreen(this));
 	}
 
 	@Override

@@ -31,46 +31,11 @@ public class Assets {
 		fontParameter.fontParameters.characters = CHARS;
 		fontParameter.fontParameters.color = Color.WHITE;
 	}
-	public static final AssetDescriptor<BitmapFont> CALIBRIL_FONT
-			= new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
+	public static final AssetDescriptor<BitmapFont> CALIBRIL_FONT = new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
 
-	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE
-			= new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
-	public static final AssetDescriptor<Texture> CURSOR_TEXTURE
-			= new AssetDescriptor<Texture>("cursor.png", Texture.class);
-	public static final AssetDescriptor<Texture> TEXTBOX_TEXTURE
-			= new AssetDescriptor<Texture>("textbox.png", Texture.class);
+	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
 
-
-	public static final AssetDescriptor<TextureAtlas> EXPLOSION_TEXTUREATLAS
-			= new AssetDescriptor<TextureAtlas>("explosion.atlas", TextureAtlas.class);
-	public static final AssetDescriptor<TextureAtlas> STAR_TEXTUREATLAS
-			= new AssetDescriptor<TextureAtlas>("star.atlas", TextureAtlas.class);
-
-	/*
-    public static final AssetDescriptor<Music> MUSIC
-            = new AssetDescriptor<Music>("***.mp3", Music.class);
-*/
-    public static final AssetDescriptor<Sound> STAR_SOUND
-            = new AssetDescriptor<Sound>("star.wav", Sound.class);
-
-
-
-    public static final AssetDescriptor<Texture> BLUE_TEXTURE
-            = new AssetDescriptor<Texture>("blue.png", Texture.class);
-
-
-    public static final AssetDescriptor<Texture> GREEN_TEXTURE
-            = new AssetDescriptor<Texture>("green.png", Texture.class);
-
-    public static final AssetDescriptor<Texture> YELLOW_TEXTURE
-            = new AssetDescriptor<Texture>("yellow.png", Texture.class);
-
-
-
-	public static final AssetDescriptor<TextureAtlas> LION_TEXTURE = new AssetDescriptor<TextureAtlas>("mountainlion.atlas", TextureAtlas.class);
-	public static final AssetDescriptor<TextureAtlas> TREE_TEXTURE = new AssetDescriptor<TextureAtlas>("tree.atlas", TextureAtlas.class);
 
 
     public static void prepare() {
@@ -85,22 +50,10 @@ public class Assets {
 		manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
 
 		manager.load(BADLOGIC_TEXTURE);
-		manager.load(TEXTBOX_TEXTURE);
-		manager.load(CURSOR_TEXTURE);
 
-		manager.load(EXPLOSION_TEXTUREATLAS);
-		manager.load(STAR_TEXTUREATLAS);
-		manager.load(LION_TEXTURE);
-		manager.load(TREE_TEXTURE);
-
-		manager.load(STAR_SOUND);
 
 		manager.load(CALIBRIL_FONT);
 
-
-        manager.load(BLUE_TEXTURE);
-        manager.load(GREEN_TEXTURE);
-        manager.load(YELLOW_TEXTURE);
 	}
 
     public static void afterLoaded() {

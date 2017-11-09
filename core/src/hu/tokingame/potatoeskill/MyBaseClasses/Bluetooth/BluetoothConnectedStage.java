@@ -4,7 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.utils.Queue;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.MyGdxGame;
+
+import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
  * Created by tuskeb on 2017. 01. 18..

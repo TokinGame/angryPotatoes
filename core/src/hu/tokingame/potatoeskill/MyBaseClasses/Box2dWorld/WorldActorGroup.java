@@ -11,8 +11,10 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.Shape;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
-import com.mygdx.game.MyBaseClasses.Scene2D.ShapeType;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
+import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.ShapeType;
+
 
 /**
  * Created by tuskeb on 2016. 10. 29..

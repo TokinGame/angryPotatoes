@@ -1,6 +1,7 @@
 package hu.tokingame.potatoeskill;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -14,18 +15,20 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import hu.tokingame.potatoeskill.*;
+import hu.tokingame.potatoeskill.Global.Assets;
+import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyScreen;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Stack;
 
-public class MyGdxGame extends ApplicationAdapter {
+public class MyGdxGame extends Game {
 	public final Stack<Class> backButtonStack = new Stack();
 
 
 	public Label.LabelStyle getLabelStyle() {
 		Label.LabelStyle style;
 		style = new Label.LabelStyle();
-		style.font = Assets.manager.get(Assets.ANTON_FONT);
+		style.font = Assets.manager.get(Assets.CALIBRIL_FONT);
 		style.fontColor = Color.YELLOW;
 		Pixmap p = new Pixmap(1, 1, Pixmap.Format.RGB888);
 		p.setColor(0.4f, 0.2f, 0.8f, 0.5f);
@@ -37,7 +40,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	public TextButton.TextButtonStyle getTextButtonStyle() {
 
 		TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-		textButtonStyle.font = Assets.manager.get(Assets.ANTON_FONT);
+		textButtonStyle.font = Assets.manager.get(Assets.CALIBRIL_FONT);
 
 		Pixmap p = new Pixmap(1, 1, Pixmap.Format.RGB888);
 		p.setColor(0.1f, 0.2f, 0.2f, 0.5f);
@@ -57,7 +60,7 @@ public class MyGdxGame extends ApplicationAdapter {
 	@Override
 	public void create() {
 		Assets.prepare();
-		setScreen(new LoadingScreen(this));
+		//setScreen(new LoadingScreen(this));
 	}
 
 	@Override

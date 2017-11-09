@@ -2,10 +2,12 @@ package hu.tokingame.potatoeskill.MyBaseClasses.Bluetooth;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
-import com.mygdx.game.MyGdxGame;
+
 
 import java.util.ArrayList;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
+import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
  * Created by tuskeb on 2017. 01. 17..

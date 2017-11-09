@@ -1,7 +1,8 @@
 package hu.tokingame.potatoeskill.MyBaseClasses.UI;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
 
 
 /**

@@ -6,8 +6,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
-import com.mygdx.game.MyGdxGame;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
+import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
  * Created by tuskeb on 2016. 09. 30..

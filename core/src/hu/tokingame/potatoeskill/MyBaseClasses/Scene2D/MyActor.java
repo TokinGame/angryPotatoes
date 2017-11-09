@@ -3,7 +3,8 @@ package hu.tokingame.potatoeskill.MyBaseClasses.Scene2D;
 import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
 
 /**
  * Created by tuskeb on 2016. 09. 30..

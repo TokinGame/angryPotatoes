@@ -7,11 +7,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.mygdx.game.MyBaseClasses.UI.MyButton;
-import com.mygdx.game.MyBaseClasses.UI.MyLabel;
-import com.mygdx.game.MyGdxGame;
 
 import java.util.ArrayList;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyButton;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
+import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
  * Created by tuskeb on 2017. 01. 16..

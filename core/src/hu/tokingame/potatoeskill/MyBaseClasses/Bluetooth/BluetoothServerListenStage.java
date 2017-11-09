@@ -4,8 +4,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.mygdx.game.MyBaseClasses.UI.MyLabel;
-import com.mygdx.game.MyGdxGame;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
+import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
  * Created by tuskeb on 2017. 01. 16..

@@ -1,7 +1,8 @@
 package hu.tokingame.potatoeskill.MyBaseClasses.UI;
 
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
+
+import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
 
 /**
  * Created by tuskeb on 2016. 10. 01..

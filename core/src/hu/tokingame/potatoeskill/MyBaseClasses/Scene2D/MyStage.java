@@ -9,8 +9,8 @@ import com.badlogic.gdx.scenes.scene2d.InputListener;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.mygdx.game.MyBaseClasses.Game.InitableInterface;
-import com.mygdx.game.MyGdxGame;
+import hu.tokingame.potatoeskill.*;
+import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
 
 
 /**

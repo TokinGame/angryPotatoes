@@ -6,9 +6,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
-import com.mygdx.game.MyBaseClasses.Scene2D.MyStage;
-import com.mygdx.game.MyBaseClasses.UI.MyButton;
-import com.mygdx.game.MyGdxGame;
+import hu.tokingame.potatoeskill.MyGdxGame;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.*;
+import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 
 /**
  * Created by tuskeb on 2017. 01. 16..

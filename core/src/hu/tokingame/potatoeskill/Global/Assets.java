@@ -35,6 +35,7 @@ public class Assets {
 
 
 	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
+	public static final AssetDescriptor<Texture> CANNON = new AssetDescriptor<Texture>("GameTextures/cannon.png", Texture.class);
 
 
 
@@ -51,6 +52,8 @@ public class Assets {
 
 		manager.load(BADLOGIC_TEXTURE);
 
+
+		manager.load(CANNON);
 
 		manager.load(CALIBRIL_FONT);
 

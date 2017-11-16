@@ -14,8 +14,13 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 import hu.tokingame.potatoeskill.GameElements.AngleActor;
 import hu.tokingame.potatoeskill.GameElements.Cannon;
+import hu.tokingame.potatoeskill.GameElements.Crate;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
 import hu.tokingame.potatoeskill.Global.Globals;
@@ -33,6 +38,7 @@ public class GameStage extends MyStage {
     World world;
     hu.tokingame.potatoeskill.World.WorldBodyEditorLoader loader;
     Box2DDebugRenderer box2DDebugRenderer;
+    MapLoader maploader;
     Matrix4 debugMatrix;
 
     Cannon cannon;
@@ -81,8 +87,10 @@ public class GameStage extends MyStage {
 
 
         addActor(cannon = new Cannon(world, 0, 0));
-        addActor(new Potato(world, loader, 200, 200));
+        addActor(new Potato(world, loader, 400, 200));
         addActor(new Floor(world));
+
+
         addActor(new AngleActor(){
             @Override
             public void onAngelUpdate(float angle) {
@@ -92,6 +100,8 @@ public class GameStage extends MyStage {
         });
 
 
+        load(1);
+
 
 
 
@@ -100,6 +110,31 @@ public class GameStage extends MyStage {
 
     public void setCannonAngle(float degrees){
         cannon.setRotation(degrees-45);
+    }
+
+    public void load(int level){
+        String current = "Loader/";
+        System.out.println("loading "+level);
+        switch(level){
+            case 1:
+                current += "1.txt";
+                break;
+            default:
+                System.out.println("wrong input for load");
+                break;
+        }
+        try {
+            FileInputStream fis = new FileInputStream(current);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            while(br.ready()){
+                String[] thisLine = br.readLine().split(" ");
+                addActor(new Crate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                System.out.println("placed crate at "+thisLine[1]+" "+thisLine[2]);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -121,8 +156,6 @@ public class GameStage extends MyStage {
         super.act(delta);
 
     }
-
-
 
     @Override
     public void draw() {

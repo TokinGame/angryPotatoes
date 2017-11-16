@@ -1,12 +1,10 @@
 package hu.tokingame.potatoeskill.GameElements;
 
 import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.ShapeType;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
-import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
 
 /**
  * Created by davim on 2017. 11. 09..

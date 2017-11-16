@@ -79,7 +79,7 @@ public class GameStage extends MyStage {
 
         addActor(new Cannon(world, 50, 50));
         addActor(new Potato(world, loader, 200, 200));
-        addActor(new Floor(world, loader));
+        addActor(new Floor(world));
 
     }
 

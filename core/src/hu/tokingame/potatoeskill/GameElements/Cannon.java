@@ -8,6 +8,7 @@ import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.ShapeType;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
+import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
 
 /**
  * Created by davim on 2017. 11. 09..
@@ -17,8 +18,8 @@ public class Cannon extends WorldActorGroup {
 
     public OneSpriteStaticActor actor;
 
-    public Cannon(World world, float x, float y) {
-        super(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody, 0, 0, 0, false);
+    public Cannon(World world, WorldBodyEditorLoader loader, float x, float y) {
+        super(world, loader, "cannon", BodyDef.BodyType.StaticBody, 0, 0, 0, false);
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.CANNON));
         addActor(actor);
         addToWorld();
@@ -26,8 +27,8 @@ public class Cannon extends WorldActorGroup {
         actor.setPosition(x,y);
         setSize(10, 10);
         actor.setSize(10, 10);
-        setOrigin(0,0);
-        actor.setOrigin(0, 0);
+        //setOrigin(0,0);
+        //actor.setOrigin(0, 0);
     }
 
     @Override

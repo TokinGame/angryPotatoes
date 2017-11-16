@@ -17,7 +17,7 @@ public class Potato extends WorldActorGroup {
     private OneSpriteStaticActor actor;
 
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
-        super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 0.1f, 1f, 10, true);
+        super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 0.1f, 1f, 10, false);
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.POTATO));
         setSize(50, 50);
         addActor(actor);

@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
 import hu.tokingame.potatoeskill.GameElements.AngleActor;
 import hu.tokingame.potatoeskill.GameElements.Cannon;
 import hu.tokingame.potatoeskill.GameElements.Crate;
+import hu.tokingame.potatoeskill.GameElements.Enemy;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
 import hu.tokingame.potatoeskill.Global.Globals;
@@ -66,7 +67,18 @@ public class GameStage extends MyStage {
         world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
-
+                if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
+                    if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
+                        System.out.println("enemy hit TODO robban vagy valami");
+                    }
+                }
+                else{
+                    if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
+                        if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
+                            System.out.println("enemy hit TODO robbanás vagy valami");
+                        }
+                    }
+                }
             }
 
             @Override
@@ -87,7 +99,7 @@ public class GameStage extends MyStage {
 
 
         addActor(cannon = new Cannon(world, 0, 0));
-        addActor(new Potato(world, loader, 40, 20));
+        addActor(new Potato(world, loader, 50, 30));
         addActor(new Floor(world));
 
 
@@ -114,7 +126,7 @@ public class GameStage extends MyStage {
         cannon.setRotation(degrees-45);
     }
 
-    public void load(int level){
+    public void load(int level){        //TODO ezt esetleg valami effektívebbre
         String current = "Loader/";
         System.out.println("loading "+level);
         switch(level){
@@ -131,8 +143,21 @@ public class GameStage extends MyStage {
             BufferedReader br = new BufferedReader(isr);
             while(br.ready()){
                 String[] thisLine = br.readLine().split(" ");
-                addActor(new Crate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
-                System.out.println("placed crate at "+thisLine[1]+" "+thisLine[2]);
+                switch(thisLine[0].charAt(0)){
+                    case '@':
+                        addActor(new Crate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        System.out.println("placed crate at " + thisLine[1] + " " + thisLine[2]);
+                        break;
+                    case '#':
+                        addActor(new Enemy(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        System.out.println("placed microwave at " + thisLine[1] + " " + thisLine[2]);
+                        break;
+                    default:
+                        System.out.println("!!!!!!!!unknown input!!!!!!!!!!");
+                        break;
+                }
+
+
             }
         }catch(Exception e){
             e.printStackTrace();

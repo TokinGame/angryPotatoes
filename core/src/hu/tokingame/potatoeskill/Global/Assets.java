@@ -39,6 +39,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> POTATO = new AssetDescriptor<Texture>("GameTextures/potato.png", Texture.class);
 	public static final AssetDescriptor<Texture> CRATE = new AssetDescriptor<Texture>("GameTextures/wooden-crate.png", Texture.class);
 	public static final AssetDescriptor<Texture> ZOLISCREENSHOT = new AssetDescriptor<Texture>("GameTextures/empty.png", Texture.class);
+    public static final AssetDescriptor<Texture> ENEMY = new AssetDescriptor<Texture>("GameTextures/enemy.png", Texture.class);
 
 
 
@@ -59,6 +60,7 @@ public class Assets {
 		manager.load(CANNON);
 		manager.load(POTATO);
 		manager.load(CRATE);
+        manager.load(ENEMY);
 
 		manager.load(CALIBRIL_FONT);
 		manager.load(ZOLISCREENSHOT);

@@ -25,5 +25,7 @@ public class Crate extends WorldActorGroup {
         setPosition(X, Y);
         setSize(5, 5);
         actor.setSize(5, 5);
+
+
     }
 }

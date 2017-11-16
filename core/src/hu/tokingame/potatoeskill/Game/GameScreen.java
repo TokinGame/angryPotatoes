@@ -16,7 +16,7 @@ public class GameScreen extends MyScreen {
     private GameStage gameStage;
     public GameScreen(MyGdxGame game) {
         super(game);
-        gameStage = new GameStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), spriteBatch, game);
+        gameStage = new GameStage(new ExtendViewport(Globals.WORLD_WIDTH/10, Globals.WORLD_HEIGHT/10), spriteBatch, game);
         gameStage.addBackEventStackListener();
         Gdx.input.setInputProcessor(gameStage);
 

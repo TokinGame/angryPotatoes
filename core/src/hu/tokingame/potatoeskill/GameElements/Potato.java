@@ -22,16 +22,16 @@ public class Potato extends WorldActorGroup {
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 0.1f, 0.1f, 10, false);
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.POTATO));
-        setSize(50, 50);
+        setSize(5, 5);
         addActor(actor);
-        actor.setSize(50,50);
+        actor.setSize(5,5);
         addToWorld();
         setPosition(x, y);
         actor.addListener(new ClickListener(){
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                launch(500, 500);
+                launch(50, 50);
                 System.out.println("röp");
             }
         });

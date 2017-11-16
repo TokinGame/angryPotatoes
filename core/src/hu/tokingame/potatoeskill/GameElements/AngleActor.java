@@ -13,7 +13,7 @@ import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 public abstract class AngleActor extends OneSpriteStaticActor {
     public AngleActor() {
         super(Assets.manager.get(Assets.ZOLISCREENSHOT));
-        this.setSize(300,300);
+        this.setSize(30,30);
         this.setPosition(0,0);
         this.addListener(new InputListener(){
             @Override

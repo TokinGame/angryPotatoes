@@ -24,8 +24,8 @@ public class Cannon extends WorldActorGroup {
         addToWorld();
         setPosition(x, y);
         actor.setPosition(x,y);
-        setSize(100, 100);
-        actor.setSize(100, 100);
+        setSize(10, 10);
+        actor.setSize(10, 10);
         setOrigin(0,0);
         actor.setOrigin(0, 0);
     }

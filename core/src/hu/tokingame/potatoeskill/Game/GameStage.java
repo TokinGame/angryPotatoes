@@ -87,7 +87,7 @@ public class GameStage extends MyStage {
 
 
         addActor(cannon = new Cannon(world, 0, 0));
-        addActor(new Potato(world, loader, 400, 200));
+        addActor(new Potato(world, loader, 40, 20));
         addActor(new Floor(world));
 
 
@@ -105,6 +105,8 @@ public class GameStage extends MyStage {
 
 
 
+
+        //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN
     }
 
 

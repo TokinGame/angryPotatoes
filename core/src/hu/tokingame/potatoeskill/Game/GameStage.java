@@ -80,7 +80,7 @@ public class GameStage extends MyStage {
         });
 
 
-        addActor(cannon = new Cannon(world, 50, 50));
+        addActor(cannon = new Cannon(world, 0, 0));
         addActor(new Potato(world, loader, 200, 200));
         addActor(new Floor(world));
         addActor(new AngleActor(){

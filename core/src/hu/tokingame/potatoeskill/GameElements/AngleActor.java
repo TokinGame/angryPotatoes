@@ -25,12 +25,15 @@ public abstract class AngleActor extends OneSpriteStaticActor {
             @Override
             public void touchDragged(InputEvent event, float x, float y, int pointer) {
                 super.touchDragged(event, x, y, pointer);
+                System.out.println(x + "djlkjfalkdsjf" + y);
                 onDrag(x,y);
             }
         });
     }
 
     private void onDrag(float x, float y){
+        if(x < 0.0f) x = 0.0f;
+        if(y < 0.0f) y = 0.0f;
         float angle = (float) Math.toDegrees(Math.atan(y/x));
         onAngelUpdate(angle);
     }

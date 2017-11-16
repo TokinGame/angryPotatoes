@@ -21,4 +21,8 @@ public class OneSpriteStaticActor extends OneSpriteActor {
         return sprite.getTexture();
     }
 
+    public void setOriginCenter(){
+        setOrigin(this.getWidth()/2, this.getHeight()/2);
+    }
+
 }

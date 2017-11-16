@@ -34,6 +34,8 @@ public class GameStage extends MyStage {
     Box2DDebugRenderer box2DDebugRenderer;
     Matrix4 debugMatrix;
 
+    Cannon cannon;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -77,10 +79,19 @@ public class GameStage extends MyStage {
         });
 
 
-        addActor(new Cannon(world, 50, 50));
+        addActor(cannon = new Cannon(world, 50, 50));
         addActor(new Potato(world, loader, 200, 200));
         addActor(new Floor(world));
 
+
+
+
+
+    }
+
+
+    public void setCannonAngle(float degrees){
+        cannon.setRotation(degrees-45);
     }
 
     @Override

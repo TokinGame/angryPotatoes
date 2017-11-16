@@ -1,59 +1,60 @@
-package hu.tokingame.potatoeskill.Menu;
+package hu.tokingame.potatoeskill.Exit;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import hu.tokingame.potatoeskill.Exit.ExitScreen;
 import hu.tokingame.potatoeskill.Game.GameScreen;
-import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
+import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
 
+
+
 /**
- * Created by M on 11/9/2017.
+ * Created by zoltan on 11/9/2017.
  */
 
-public class MenuStage extends MyStage {
+public class ExitStage extends MyStage {
 
     private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
-    public MenuStage(Viewport viewport, Batch batch, MyGdxGame gam) {
+    public ExitStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
 
 
 
-        addActor(new MyTextButton("Jatek"){
+        addActor(new MyTextButton("Igen"){
             @Override
             protected void init() {
                 super.init();
-                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
+                setPosition(10,10);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new GameScreen(game));
+                        System.exit(0);
                     }
                 });
             }
         });
-        addActor(new MyTextButton("Exit"){
+        addActor(new MyTextButton("Nem"){
             @Override
             protected void init() {
                 super.init();
-                setPosition(10, 10);
+                setPosition(Globals.WORLD_WIDTH-110, 10);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new ExitScreen(game));
+                        game.setScreen(new MenuScreen(game));
                     }
                 });
             }
@@ -70,3 +71,4 @@ public class MenuStage extends MyStage {
         super.act(delta);
     }
 }
+

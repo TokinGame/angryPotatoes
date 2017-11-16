@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import hu.tokingame.potatoeskill.GameElements.AngleActor;
 import hu.tokingame.potatoeskill.GameElements.Cannon;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
@@ -82,6 +83,13 @@ public class GameStage extends MyStage {
         addActor(cannon = new Cannon(world, 50, 50));
         addActor(new Potato(world, loader, 200, 200));
         addActor(new Floor(world));
+        addActor(new AngleActor(){
+            @Override
+            public void onAngelUpdate(float angle) {
+                setCannonAngle(angle);
+                System.out.println(angle);
+            }
+        });
 
 
 

@@ -37,6 +37,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
 	public static final AssetDescriptor<Texture> CANNON = new AssetDescriptor<Texture>("GameTextures/cannon.png", Texture.class);
 	public static final AssetDescriptor<Texture> POTATO = new AssetDescriptor<Texture>("GameTextures/potato.png", Texture.class);
+	public static final AssetDescriptor<Texture> ZOLISCREENSHOT = new AssetDescriptor<Texture>("GameTextures/empty.png", Texture.class);
 
 
 
@@ -58,7 +59,7 @@ public class Assets {
 		manager.load(POTATO);
 
 		manager.load(CALIBRIL_FONT);
-
+		manager.load(ZOLISCREENSHOT);
 	}
 
     public static void afterLoaded() {

@@ -19,6 +19,6 @@ public class Floor extends WorldActorGroup {
         super(world, ShapeType.Rectangle, BodyDef.BodyType.StaticBody, 0.1f, 0.5f, 10, false);
         addToWorld();
         setPosition(0, 10);
-        setSize(1000, 10);
+        setSize(10000, 10);
     }
 }

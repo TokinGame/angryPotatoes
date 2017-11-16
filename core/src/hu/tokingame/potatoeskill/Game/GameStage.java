@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.Contact;
@@ -16,6 +17,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import hu.tokingame.potatoeskill.GameElements.Cannon;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
+import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
@@ -30,6 +32,7 @@ public class GameStage extends MyStage {
     World world;
     hu.tokingame.potatoeskill.World.WorldBodyEditorLoader loader;
     Box2DDebugRenderer box2DDebugRenderer;
+    Matrix4 debugMatrix;
 
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
@@ -38,6 +41,12 @@ public class GameStage extends MyStage {
         world = new World(new Vector2(0,-20), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
         loader = new hu.tokingame.potatoeskill.World.WorldBodyEditorLoader(Gdx.files.internal("Resources/physics.json"));
+
+        setDebugAll(Globals.DEBUG_ALL);
+
+        debugMatrix = new Matrix4(getCamera().combined);
+
+
 
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
@@ -94,9 +103,12 @@ public class GameStage extends MyStage {
 
     }
 
+
+
     @Override
     public void draw() {
         super.draw();
+        box2DDebugRenderer.render(world, debugMatrix);
     }
 
     @Override

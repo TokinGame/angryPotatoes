@@ -15,9 +15,8 @@ public class Floor extends WorldActorGroup {
 
     public Floor(World world, WorldBodyEditorLoader loader) {
         super(world, loader, "floor", BodyDef.BodyType.StaticBody, 10, 1, 1, false);
-
-        setSize(1000, 1000);
         addToWorld();
-        setPosition(0, -1000);
+        setSize(10000, 10);
+        setPosition(0, 0);
     }
 }

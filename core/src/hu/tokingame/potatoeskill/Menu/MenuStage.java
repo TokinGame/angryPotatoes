@@ -13,6 +13,7 @@ import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
+import hu.tokingame.potatoeskill.Options.OptionsScreen;
 
 /**
  * Created by M on 11/9/2017.
@@ -54,6 +55,20 @@ public class MenuStage extends MyStage {
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
                         game.setScreen(new ExitScreen(game));
+                    }
+                });
+            }
+        });
+        addActor(new MyTextButton("Options"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(Globals.WORLD_WIDTH-170, 10);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        game.setScreen(new OptionsScreen(game));
                     }
                 });
             }

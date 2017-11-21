@@ -24,6 +24,7 @@ import hu.tokingame.potatoeskill.GameElements.Crate;
 import hu.tokingame.potatoeskill.GameElements.Enemy;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
+import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
@@ -45,9 +46,21 @@ public class GameStage extends MyStage {
 
     Cannon cannon;
 
+    GameStage ez;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
+        ez = this;
+
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
+            @Override
+            public void init() {
+                super.init();
+                setPosition(0, 0);
+                setSize(ez.getWidth(), ez.getHeight());
+            }
+        });
 
         world = new World(new Vector2(0,-20), false);
         box2DDebugRenderer = new Box2DDebugRenderer();

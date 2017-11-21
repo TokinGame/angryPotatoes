@@ -45,6 +45,7 @@ public class GameStage extends MyStage {
     Matrix4 debugMatrix;
 
     Cannon cannon;
+    Potato potato;
 
     GameStage ez;
 
@@ -113,7 +114,7 @@ public class GameStage extends MyStage {
 
 
         addActor(cannon = new Cannon(world, loader, 0, 0));
-        addActor(new Potato(world, loader, 50, 30));
+        addActor(potato = new Potato(world, loader, 50, 30));
         addActor(new Floor(world));
 
 
@@ -126,7 +127,7 @@ public class GameStage extends MyStage {
 
             @Override
             public void onTouchUp() {
-                // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban
+                // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
             }
         });
 
@@ -138,7 +139,7 @@ public class GameStage extends MyStage {
 
 
 
-        //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN
+        //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN nem működik
     }
 
 

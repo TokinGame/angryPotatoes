@@ -18,6 +18,9 @@ import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
 public class Potato extends WorldActorGroup {
 
     private OneSpriteStaticActor actor;
+    private boolean canSu = true;
+
+    private float SPEED_MULTIPLYER = 25f;
 
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 0.1f, 0.1f, 10, false);
@@ -42,5 +45,29 @@ public class Potato extends WorldActorGroup {
         System.out.println("potato launched with "+xForce+" ; "+yForce+" forces");
     }
 
+
+    public void shoutThisShit(float x, float y){
+        if(canSu){
+            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x + calcStandardX(x), this.getBody().getLinearVelocity().y + calcStandardY(y));
+            canSu = false;
+        }
+
+    }
+
+    private float calcStandardX(float x){
+        // TODO: 11/21/2017
+        while((int)x > 10){
+            x /= 10.0;
+        }
+        return x * SPEED_MULTIPLYER;
+    }
+
+    private float calcStandardY(float y){
+        // TODO: 11/21/2017
+        while((int)y > 10){
+            y /= 10.0;
+        }
+        return y * SPEED_MULTIPLYER;
+    }
 
 }

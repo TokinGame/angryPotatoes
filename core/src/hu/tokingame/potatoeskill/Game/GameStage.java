@@ -133,8 +133,7 @@ public class GameStage extends MyStage {
             @Override
             public void onTouchUp(float x, float y) {
                 // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
-                potato.getBody().setLinearVelocity(potato.getBody().getLinearVelocity().x + x, potato.getBody().getLinearVelocity().y + y);
-
+                potato.shoutThisShit(x,y);
             }
         });
 

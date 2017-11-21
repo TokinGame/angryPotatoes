@@ -28,6 +28,7 @@ import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
@@ -105,11 +106,17 @@ public class GameStage extends MyStage {
 
         addActor(new AngleActor(){
             @Override
-            public void onAngelUpdate(float angle) {
+            public void onAngleUpdate(float angle) {
                 setCannonAngle(angle);
                 System.out.println(angle);
             }
+
+            @Override
+            public void onTouchUp() {
+                // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban
+            }
         });
+
 
 
         load(1);

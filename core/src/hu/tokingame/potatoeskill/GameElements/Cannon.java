@@ -23,12 +23,10 @@ public class Cannon extends WorldActorGroup {
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.CANNON));
         addActor(actor);
         addToWorld();
-        setPosition(x, y);
-        actor.setPosition(x,y);
         setSize(10, 10);
         actor.setSize(10, 10);
-        //setOrigin(0,0);
-        //actor.setOrigin(0, 0);
+        setPosition(x, y);
+        actor.setPosition(x,y);
     }
 
     @Override

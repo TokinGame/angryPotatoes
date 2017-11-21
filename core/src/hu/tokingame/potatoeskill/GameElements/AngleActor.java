@@ -32,7 +32,7 @@ public abstract class AngleActor extends OneSpriteStaticActor {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
-                onTouchUp();
+                onTouchUp(x, y);
             }
         });
     }
@@ -46,6 +46,6 @@ public abstract class AngleActor extends OneSpriteStaticActor {
 
     public abstract void onAngleUpdate(float angle);
 
-    public abstract void onTouchUp();
+    public abstract void onTouchUp(float x, float y);
 
 }

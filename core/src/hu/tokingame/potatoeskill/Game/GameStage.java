@@ -114,7 +114,7 @@ public class GameStage extends MyStage {
 
 
         addActor(cannon = new Cannon(world, loader, 0, 0));
-        addActor(potato = new Potato(world, loader, 50, 30));
+        addActor(potato = new Potato(world, loader, 20, 10));
         addActor(new Floor(world));
 
 
@@ -123,11 +123,13 @@ public class GameStage extends MyStage {
             public void onAngleUpdate(float angle) {
                 setCannonAngle(angle);
                 System.out.println(angle);
+                potato.getBody().setAngularVelocity(-angle);
             }
 
             @Override
-            public void onTouchUp() {
+            public void onTouchUp(float x, float y) {
                 // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
+
             }
         });
 

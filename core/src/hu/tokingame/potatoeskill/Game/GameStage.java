@@ -24,6 +24,7 @@ import hu.tokingame.potatoeskill.GameElements.Crate;
 import hu.tokingame.potatoeskill.GameElements.Enemy;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
+import hu.tokingame.potatoeskill.GameElements.XssppolsinosssActor;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
@@ -85,12 +86,14 @@ public class GameStage extends MyStage {
                 if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
                     if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
                         System.out.println("enemy hit TODO robban vagy valami");
+                        //addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
                     }
                 }
                 else{
                     if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
                         if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
                             System.out.println("enemy hit TODO robbanás vagy valami");
+                            //addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY())); TODO ezeket megcsinálni mert crashel
                         }
                     }
                 }
@@ -116,6 +119,7 @@ public class GameStage extends MyStage {
         addActor(cannon = new Cannon(world, loader, 0, 0));
         addActor(potato = new Potato(world, loader, 20, 10));
         addActor(new Floor(world));
+        addActor(new XssppolsinosssActor(world, 80, 50));
 
 
         addActor(new AngleActor(){

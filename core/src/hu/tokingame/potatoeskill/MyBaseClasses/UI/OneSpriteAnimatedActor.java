@@ -13,6 +13,12 @@ public class OneSpriteAnimatedActor extends OneSpriteActor{
     protected float fps = 30;
     protected boolean running = true;
 
+    public int getCurrentFrame() {
+        return currentFrame;
+    }
+
+    protected int currentFrame = 0;
+
     public OneSpriteAnimatedActor(String file) {
         super(null);
         textureAtlas = new TextureAtlas(Gdx.files.internal(file));
@@ -46,6 +52,7 @@ public class OneSpriteAnimatedActor extends OneSpriteActor{
         super.act(delta);
         if (running) {
             setFrame(((int) (elapsedTime * fps)));
+            currentFrame = (int) (elapsedTime * fps);
         }
     }
 

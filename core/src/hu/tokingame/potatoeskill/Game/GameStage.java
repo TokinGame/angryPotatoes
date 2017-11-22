@@ -50,6 +50,8 @@ public class GameStage extends MyStage {
 
     GameStage ez;
 
+    private boolean shitHole = false;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -86,14 +88,16 @@ public class GameStage extends MyStage {
                 if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
                     if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
                         System.out.println("enemy hit TODO robban vagy valami");
-                        //addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
+                        //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
+                        shitHole = true;
                     }
                 }
                 else{
-                    if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
-                        if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
+                    if(contact.getFixtureB().getBody().getUserData() instanceof Potato){
+                        if(contact.getFixtureA().getBody().getUserData() instanceof Enemy){
                             System.out.println("enemy hit TODO robbanás vagy valami");
-                            //addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY())); TODO ezeket megcsinálni mert crashel
+                            //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY())); //TODO ezeket megcsinálni mert crashel
+                            shitHole = true;
                         }
                     }
                 }
@@ -212,6 +216,10 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         world.step(delta, 10, 10);
         super.act(delta);
+        if(shitHole){
+            GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
+            shitHole = !shitHole;
+        }
 
     }
 

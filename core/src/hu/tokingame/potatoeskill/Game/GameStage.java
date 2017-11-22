@@ -127,13 +127,17 @@ public class GameStage extends MyStage {
             public void onAngleUpdate(float angle) {
                 setCannonAngle(angle);
                 System.out.println(angle);
-                //potato.getBody().setAngularVelocity(-angle);
             }
 
             @Override
             public void onTouchUp(float x, float y) {
                 // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
-                potato.shoutThisShit(x,y);
+                potato.setLaunchAngle(this.getRadAngle());
+                try {
+                    potato.shoutThisShit();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 

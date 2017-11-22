@@ -20,7 +20,9 @@ public class Potato extends WorldActorGroup {
     private OneSpriteStaticActor actor;
     private boolean canSu = true;
 
-    private float SPEED_MULTIPLYER = 25f;
+    private static final float SPEED_MULTIPLYER = 25f, x = 1f;
+
+    private float y = -666;
 
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 0.1f, 0.1f, 10, false);
@@ -30,14 +32,6 @@ public class Potato extends WorldActorGroup {
         actor.setSize(5,5);
         addToWorld();
         setPosition(x, y);
-        actor.addListener(new ClickListener(){
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                super.clicked(event, x, y);
-                launch(50, 50);
-                System.out.println("röp");
-            }
-        });
     }
 
     public void launch(float xForce, float yForce){
@@ -46,11 +40,19 @@ public class Potato extends WorldActorGroup {
     }
 
 
-    public void shoutThisShit(float x, float y){
+    public void shoutThisShit() throws Exception{
+        if(y == -666){
+            throw new Exception("A kilövés elött be kell álítani a szöget");
+        }
         if(canSu){
-            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x + calcStandardX(x), this.getBody().getLinearVelocity().y + calcStandardY(y));
+            this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x + x * SPEED_MULTIPLYER, this.getBody().getLinearVelocity().y + y * SPEED_MULTIPLYER);
             canSu = false;
         }
+
+    }
+
+    public void setLaunchAngle(float radAngle){
+        y = (float) Math.tan(radAngle) / x;
 
     }
 

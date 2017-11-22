@@ -11,6 +11,9 @@ import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
  */
 
 public abstract class AngleActor extends OneSpriteStaticActor {
+
+    private float angle, radAngle;
+
     public AngleActor() {
         super(Assets.manager.get(Assets.ZOLISCREENSHOT));
         this.setSize(30,30);
@@ -40,8 +43,17 @@ public abstract class AngleActor extends OneSpriteStaticActor {
     private void onDrag(float x, float y){
         if(x < 0.0f) x = 0.0f;
         if(y < 0.0f) y = 0.0f;
-        float angle = (float) Math.toDegrees(Math.atan(y/x));
+        radAngle = (float) Math.atan(y/x);
+        angle = (float) Math.toDegrees(radAngle);
         onAngleUpdate(angle);
+    }
+
+    public float getAngle() {
+        return angle;
+    }
+
+    public float getRadAngle() {
+        return radAngle;
     }
 
     public abstract void onAngleUpdate(float angle);

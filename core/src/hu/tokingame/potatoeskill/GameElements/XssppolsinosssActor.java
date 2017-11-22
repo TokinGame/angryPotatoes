@@ -18,7 +18,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
     float elapsedTime = 0;
 
     public XssppolsinosssActor(World world, float X, float Y) {
-        super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, true);
+        super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, false);
         actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
         setSize(15, 15);
         actor.setSize(15,15);

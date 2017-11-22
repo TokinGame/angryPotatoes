@@ -18,7 +18,7 @@ public class Crate extends WorldActorGroup {
     OneSpriteStaticActor actor;
 
     public Crate(World world, float X, float Y) {
-        super(world, ShapeType.Rectangle, BodyDef.BodyType.DynamicBody, 1000, 0.01f, 10, false);
+        super(world, ShapeType.Rectangle, BodyDef.BodyType.DynamicBody, 1000, 0.01f, 8, false);
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.CRATE));
         addActor(actor);
         addToWorld();

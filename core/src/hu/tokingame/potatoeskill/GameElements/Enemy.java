@@ -16,6 +16,10 @@ public class Enemy extends WorldActorGroup {
 
     OneSpriteStaticActor actor;
 
+    private XssppolsinosssActor xplosion;
+
+    private boolean xplosionFollow = false;
+
     public Enemy(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "floor", BodyDef.BodyType.DynamicBody, 1000, 0.01f, 10, false); //TODO change to nem padló
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.ENEMY));
@@ -26,6 +30,19 @@ public class Enemy extends WorldActorGroup {
         actor.setSize(5, 5);
 
 
+    }
+
+    public void setupXplosion(XssppolsinosssActor actor){
+        xplosion = actor;
+        xplosionFollow = true;
+    }
+
+    @Override
+    public void act(float delta) {
+        super.act(delta);
+        if(xplosionFollow){
+            xplosion.setPosition(this.getX(), this.getY());
+        }
     }
 
     public void die(){

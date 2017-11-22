@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.io.BufferedReader;
@@ -28,6 +29,7 @@ import hu.tokingame.potatoeskill.GameElements.XssppolsinosssActor;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
+import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
@@ -217,7 +219,14 @@ public class GameStage extends MyStage {
         world.step(delta, 10, 10);
         super.act(delta);
         if(shitHole){
-            GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
+            for (Actor actor: this.getActors()) {
+                if(actor instanceof Enemy){
+                    XssppolsinosssActor xpl = new XssppolsinosssActor(world, actor.getX(), actor.getY());
+                    this.addActor(xpl);
+                    ((Enemy)actor).setupXplosion(xpl);
+                }
+
+            }
             shitHole = !shitHole;
         }
 

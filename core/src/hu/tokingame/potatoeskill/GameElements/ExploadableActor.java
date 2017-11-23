@@ -56,4 +56,8 @@ public class ExploadableActor extends WorldActorGroup{
     }
 
 
+    public boolean isExploading() {
+        return exploading;
+    }
+
 }

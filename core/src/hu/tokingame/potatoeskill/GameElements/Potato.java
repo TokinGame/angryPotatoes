@@ -56,9 +56,6 @@ public class Potato extends ExploadableActor {
 
     }
 
-    @Override
-
-
     public void act(float delta) {
         super.act(delta);
         if (getBody()!= null && getBody().getLinearVelocity().len()<0.01f){

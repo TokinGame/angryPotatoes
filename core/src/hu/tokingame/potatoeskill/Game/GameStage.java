@@ -28,11 +28,8 @@ import hu.tokingame.potatoeskill.GameElements.Potato;
 import hu.tokingame.potatoeskill.GameElements.XssppolsinosssActor;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
-import hu.tokingame.potatoeskill.MyBaseClasses.Box2dWorld.WorldBodyEditorLoader;
-import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
-import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
 
 /**
@@ -92,6 +89,7 @@ public class GameStage extends MyStage {
                         System.out.println("enemy hit TODO robban vagy valami");
                         //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
                         shitHole = true;
+                        newPotato();
                     }
                 }
                 else{
@@ -100,6 +98,7 @@ public class GameStage extends MyStage {
                             System.out.println("enemy hit TODO robbanás vagy valami");
                             //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY())); //TODO ezeket megcsinálni mert crashel
                             shitHole = true;
+                            newPotato();
                         }
                     }
                 }
@@ -123,7 +122,7 @@ public class GameStage extends MyStage {
 
 
         addActor(cannon = new Cannon(world, loader, 0, 0));
-        addActor(potato = new Potato(world, loader, 20, 10));
+        //addActor(potato = new Potato(world, loader, 2000, 1));
         addActor(new Floor(world));
         addActor(new XssppolsinosssActor(world, 80, 50));
 
@@ -138,9 +137,12 @@ public class GameStage extends MyStage {
             @Override
             public void onTouchUp(float x, float y) {
                 // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
+                addActor(potato = new Potato(world, loader, 2000, 10));
                 potato.setLaunchAngle(this.getRadAngle());
                 try {
-                    potato.shoutThisShit();
+                    potato.setPosition(8,8);
+                    addActor(new XssppolsinosssActor(world, 8,8));
+                    potato.shootThisShit();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -155,7 +157,12 @@ public class GameStage extends MyStage {
 
 
 
+
         //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN nem működik
+    }
+
+    public void newPotato(){
+
     }
 
 

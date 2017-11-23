@@ -38,7 +38,7 @@ public class Potato extends WorldActorGroup {
     }
 
 
-    public void shoutThisShit() throws Exception{
+    public void shootThisShit() throws Exception{
         if(y == -666){
             throw new Exception("A kilövés elött be kell álítani a szöget");
         }

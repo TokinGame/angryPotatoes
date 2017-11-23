@@ -58,6 +58,7 @@ public class Potato extends ExploadableActor {
     }
 
     public float underHundredify(float n){
+        // TODO: 11/23/2017 Ennek adni egy értelmes nevet
         while(n > 100){
             n /= 10;
         }

@@ -39,7 +39,6 @@ public class Enemy extends ExploadableActor {
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
-        //Mikró csinál valamit
         if (another instanceof Potato){
             System.out.println("Mikró");
             setupXplosion();

@@ -56,20 +56,4 @@ public class Potato extends WorldActorGroup {
 
     }
 
-    private float calcStandardX(float x){
-        // TODO: 11/21/2017
-        while((int)x > 10){
-            x /= 10.0;
-        }
-        return x * SPEED_MULTIPLIER;
-    }
-
-    private float calcStandardY(float y){
-        // TODO: 11/21/2017
-        while((int)y > 10){
-            y /= 10.0;
-        }
-        return y * SPEED_MULTIPLIER;
-    }
-
 }

@@ -12,15 +12,11 @@ import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
  * Created by davimatyi on 2017. 11. 16..
  */
 
-public class Enemy extends WorldActorGroup {
+public class Enemy extends ExploadableActor {
 
     OneSpriteStaticActor actor;
 
-    private XssppolsinosssActor xplosion;
 
-    private boolean exp = false;
-
-    private boolean xplosionFollow = false;
 
     public Enemy(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "floor", BodyDef.BodyType.DynamicBody, 500, 0.01f, 4, false); //TODO change to nem padló
@@ -35,22 +31,6 @@ public class Enemy extends WorldActorGroup {
 
     }
 
-    public void setupXplosion(){
-        exp = true;
-    }
-
-    @Override
-    public void act(float delta) {
-        super.act(delta);
-        if(xplosionFollow){
-            xplosion.setPosition(this.getX(), this.getY());
-        }
-        if (exp){
-            exp = false;
-            xplosion = new XssppolsinosssActor(world, getX(), getY());
-            getStage().addActor(xplosion);
-        }
-    }
 
     public void die(){
         System.out.println("ded");

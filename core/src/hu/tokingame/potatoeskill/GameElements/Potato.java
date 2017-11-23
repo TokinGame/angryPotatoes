@@ -14,7 +14,7 @@ import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
  * Created by davim on 2017. 11. 09..
  */
 
-public class Potato extends WorldActorGroup {
+public class Potato extends ExploadableActor {
 
     private OneSpriteStaticActor actor;
     private boolean canSu = true;
@@ -57,6 +57,8 @@ public class Potato extends WorldActorGroup {
     }
 
     @Override
+
+
     public void act(float delta) {
         super.act(delta);
         if (getBody()!= null && getBody().getLinearVelocity().len()<0.01f){
@@ -68,5 +70,9 @@ public class Potato extends WorldActorGroup {
     public void contact(WorldActorGroup another) {
         super.contact(another);
         //Krumpli csinál valamit
+        if (another instanceof Enemy){
+            System.out.println("Krumpli");
+            setupXplosion();
+        }
     }
 }

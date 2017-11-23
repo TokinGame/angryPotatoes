@@ -31,6 +31,7 @@ import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyGdxGame;
+import hu.tokingame.potatoeskill.World.WorldActorGroup;
 
 /**
  * Created by M on 11/9/2017.
@@ -84,6 +85,7 @@ public class GameStage extends MyStage {
         world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
+                /*
                 if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
                     if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
                         System.out.println("enemy hit TODO robban vagy valami");
@@ -104,6 +106,9 @@ public class GameStage extends MyStage {
                         }
                     }
                 }
+                */
+                ((WorldActorGroup)contact.getFixtureA().getBody().getUserData()).contact((WorldActorGroup)contact.getFixtureB().getBody().getUserData());
+                ((WorldActorGroup)contact.getFixtureB().getBody().getUserData()).contact((WorldActorGroup)contact.getFixtureA().getBody().getUserData());
             }
 
             @Override
@@ -227,17 +232,17 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         world.step(delta, 10, 10);
         super.act(delta);
-        if(shitHole){
+        /*if(shitHole){
             for (Actor actor: this.getActors()) {
                 if(actor instanceof Enemy){
-                    XssppolsinosssActor xpl = new XssppolsinosssActor(world, actor.getX(), actor.getY());
-                    this.addActor(xpl);
-                    ((Enemy)actor).setupXplosion(xpl);
+                    //XssppolsinosssActor xpl = new XssppolsinosssActor(world, actor.getX(), actor.getY());
+                    //this.addActor(xpl);
+                    ((Enemy)actor).setupXplosion();
                 }
 
             }
             shitHole = !shitHole;
-        }
+        }*/
 
     }
 

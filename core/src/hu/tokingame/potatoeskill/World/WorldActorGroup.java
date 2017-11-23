@@ -313,4 +313,8 @@ public class WorldActorGroup extends Group implements WorldInterface, InitableIn
         return getY()-getOriginY();
     }
 
+
+    public void contact(WorldActorGroup another){
+
+    }
 }

@@ -19,9 +19,9 @@ public class Potato extends ExploadableActor {
     private OneSpriteStaticActor actor;
     private boolean canSu = true;
 
-    private static final float SPEED_MULTIPLIER = 25f, x = 1f;
+    private static final float SPEED_MULTIPLIER = 25f;
 
-    private float y = -666;
+    private float y = -666, x = 1f;
 
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 100, 0.1f, 25, false);
@@ -40,7 +40,7 @@ public class Potato extends ExploadableActor {
     }
 
 
-    public void shootThisShit() throws Exception{
+    public void shootMe() throws Exception{
         if(y == -666){
             throw new Exception("A kilövés elött be kell álítani a szöget");
         }
@@ -48,12 +48,20 @@ public class Potato extends ExploadableActor {
             this.getBody().setLinearVelocity(this.getBody().getLinearVelocity().x + x * SPEED_MULTIPLIER, this.getBody().getLinearVelocity().y + y * SPEED_MULTIPLIER);
             canSu = false;
         }
-
     }
 
     public void setLaunchAngle(float radAngle){
-        y = (float) Math.tan(radAngle) / x;
+        y = underHundredify(Math.abs((float) Math.tan(radAngle) / x));
+        System.out.println("asdklfjkl;asdfj   "  + Math.toDegrees(radAngle));
+        if(Math.toDegrees(radAngle) >= 90.0)  x = 0f;
+        System.out.println("Krumpli: " + x + " ------ " + y);
+    }
 
+    public float underHundredify(float n){
+        while(n > 100){
+            n /= 10;
+        }
+        return n;
     }
 
     public void act(float delta) {
@@ -66,7 +74,6 @@ public class Potato extends ExploadableActor {
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
-        //Krumpli csinál valamit
         if (another instanceof Enemy){
             System.out.println("Krumpli");
             setupXplosion();

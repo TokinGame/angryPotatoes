@@ -12,7 +12,6 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.io.BufferedReader;
@@ -25,7 +24,6 @@ import hu.tokingame.potatoeskill.GameElements.Crate;
 import hu.tokingame.potatoeskill.GameElements.Enemy;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
-import hu.tokingame.potatoeskill.GameElements.XssppolsinosssActor;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
@@ -49,8 +47,6 @@ public class GameStage extends MyStage {
     Potato potato;
 
     GameStage ez;
-
-    private boolean shitHole = false;
 
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
@@ -131,7 +127,7 @@ public class GameStage extends MyStage {
         addActor(cannon = new Cannon(world, loader, 0, 0));
         //addActor(potato = new Potato(world, loader, 2000, 1));
         addActor(new Floor(world));
-        addActor(new XssppolsinosssActor(world, 80, 50));
+        //addActor(new XssppolsinosssActor(world, 80, 50));
 
 
         addActor(new AngleActor(){
@@ -148,8 +144,8 @@ public class GameStage extends MyStage {
                 potato.setLaunchAngle(this.getRadAngle());
                 try {
                     potato.setPosition(8,8);
-                    addActor(new XssppolsinosssActor(world, 8,8));
-                    potato.shootThisShit();
+                    //TODO KAPCSOLJAD VISSZA  addActor(new XssppolsinosssActor(world, 8,8));
+                    potato.shootMe();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -232,18 +228,6 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         world.step(delta, 10, 10);
         super.act(delta);
-        /*if(shitHole){
-            for (Actor actor: this.getActors()) {
-                if(actor instanceof Enemy){
-                    //XssppolsinosssActor xpl = new XssppolsinosssActor(world, actor.getX(), actor.getY());
-                    //this.addActor(xpl);
-                    ((Enemy)actor).setupXplosion();
-                }
-
-            }
-            shitHole = !shitHole;
-        }*/
-
     }
 
     @Override

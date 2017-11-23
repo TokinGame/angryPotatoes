@@ -3,6 +3,7 @@ package hu.tokingame.potatoeskill.GameElements;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
@@ -30,6 +31,7 @@ public class Potato extends WorldActorGroup {
         actor.setSize(5,5);
         addToWorld();
         setPosition(x, y);
+        setTouchable(Touchable.disabled);
     }
 
     public void launch(float xForce, float yForce){

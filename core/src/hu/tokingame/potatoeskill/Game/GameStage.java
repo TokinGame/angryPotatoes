@@ -90,6 +90,7 @@ public class GameStage extends MyStage {
                         //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
                         shitHole = true;
                         newPotato();
+                        ((Potato)contact.getFixtureA().getBody().getUserData()).removeFromWorld();
                     }
                 }
                 else{
@@ -99,6 +100,7 @@ public class GameStage extends MyStage {
                             //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY())); //TODO ezeket megcsinálni mert crashel
                             shitHole = true;
                             newPotato();
+                            ((Potato)contact.getFixtureB().getBody().getUserData()).removeFromWorld();
                         }
                     }
                 }

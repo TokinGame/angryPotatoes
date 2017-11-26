@@ -18,6 +18,8 @@ public class ExploadableActor extends WorldActorGroup{
 
     private boolean exp = false, exploading = false;
 
+    private float explWidht = 15f, explHeight = 15f;
+
 
 
     public ExploadableActor(World world, ShapeType shapeType, BodyDef.BodyType bodyType, FixtureDef fixtureDef) {
@@ -41,6 +43,11 @@ public class ExploadableActor extends WorldActorGroup{
         exp = true;
     }
 
+    public void setupXplosion(float explWidht, float explHeight){
+        setExplSize(explWidht, explHeight);
+        exp = true;
+    }
+
     @Override
     public void act(float delta) {
         super.act(delta);
@@ -49,7 +56,7 @@ public class ExploadableActor extends WorldActorGroup{
         }
         if (exp && !exploading){
             exp = false;
-            xplosion = new XssppolsinosssActor(world, getX(), getY());
+            xplosion = new XssppolsinosssActor(world, getX(), getY(), explWidht, explHeight, false);
             getStage().addActor(xplosion);
             exploading  = true;
         }
@@ -67,6 +74,26 @@ public class ExploadableActor extends WorldActorGroup{
     public void hitByExplosion(){
         this.removeFromWorld();
     }
+
+
+    public float getExplWidht() {
+        return explWidht;
+    }
+
+    public float getExplHeight() {
+        return explHeight;
+    }
+
+
+    public void setExplSize(float explWidht, float explHeight) {
+        this.explWidht = explWidht;
+        this.explHeight = explHeight;
+        if(xplosion != null){
+            xplosion.setSize(explWidht, explHeight);
+            xplosion.actor.setSize(explWidht, explHeight);
+        }
+    }
+
 
     public boolean isExploading() {
         return exploading;

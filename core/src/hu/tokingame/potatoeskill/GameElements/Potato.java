@@ -80,5 +80,5 @@ public class Potato extends ExploadableActor {
             setupXplosion();
         }
     }
-    
+
 }

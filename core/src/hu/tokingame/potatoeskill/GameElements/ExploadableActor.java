@@ -56,6 +56,18 @@ public class ExploadableActor extends WorldActorGroup{
     }
 
 
+    @Override
+    public void contact(WorldActorGroup another) {
+        super.contact(another);
+        if(another instanceof XssppolsinosssActor){
+            hitByExplosion();
+        }
+    }
+
+    public void hitByExplosion(){
+        this.removeFromWorld();
+    }
+
     public boolean isExploading() {
         return exploading;
     }

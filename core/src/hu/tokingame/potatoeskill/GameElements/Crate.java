@@ -13,9 +13,11 @@ import hu.tokingame.potatoeskill.World.WorldActorGroup;
  * Created by davimatyi on 2017. 11. 15..
  */
 
-public class Crate extends WorldActorGroup {
+public class Crate extends ExploadableActor {
 
     OneSpriteStaticActor actor;
+
+    private float hitCount = 0;
 
     public Crate(World world, float X, float Y) {
         super(world, ShapeType.Rectangle, BodyDef.BodyType.DynamicBody, 1000, 0.01f, 8, false);
@@ -25,7 +27,15 @@ public class Crate extends WorldActorGroup {
         setPosition(X, Y);
         setSize(5, 5);
         actor.setSize(5, 5);
+    }
 
-
+    @Override
+    public void hitByExplosion() {
+        //super.hitByExplosion();
+        // TODO: 11/26/2017 Ez ne legyen 3
+        hitCount++;
+        if(hitCount > 3){
+            this.removeFromWorld();
+        }
     }
 }

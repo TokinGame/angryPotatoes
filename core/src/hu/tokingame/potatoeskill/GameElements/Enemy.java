@@ -41,8 +41,6 @@ public class Enemy extends ExploadableActor {
         super.contact(another);
         if (another instanceof Potato){
             System.out.println("Mikró");
-            setupXplosion();
         }
-
     }
 }

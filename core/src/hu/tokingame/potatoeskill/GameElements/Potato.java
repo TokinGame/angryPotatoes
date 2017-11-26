@@ -75,7 +75,7 @@ public class Potato extends ExploadableActor {
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
-        if (another instanceof Enemy){
+        if (another instanceof Enemy || another instanceof Crate){
             System.out.println("Krumpli");
             setupXplosion();
         }

@@ -24,6 +24,7 @@ import hu.tokingame.potatoeskill.GameElements.Crate;
 import hu.tokingame.potatoeskill.GameElements.Enemy;
 import hu.tokingame.potatoeskill.GameElements.Floor;
 import hu.tokingame.potatoeskill.GameElements.Potato;
+import hu.tokingame.potatoeskill.GameElements.XssppolsinosssActor;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
@@ -144,7 +145,7 @@ public class GameStage extends MyStage {
                 potato.setLaunchAngle(this.getRadAngle());
                 try {
                     potato.setPosition(8,8);
-                    //TODO KAPCSOLJAD VISSZA  addActor(new XssppolsinosssActor(world, 8,8));
+                    addActor(new XssppolsinosssActor(world, 8,8,5,5, true));
                     potato.shootMe();
                 } catch (Exception e) {
                     e.printStackTrace();

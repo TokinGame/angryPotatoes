@@ -59,7 +59,7 @@ public class ExploadableActor extends WorldActorGroup{
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
-        if(another instanceof XssppolsinosssActor){
+        if(another instanceof XssppolsinosssActor && !((XssppolsinosssActor)another).isDecorative()){
             hitByExplosion();
         }
     }

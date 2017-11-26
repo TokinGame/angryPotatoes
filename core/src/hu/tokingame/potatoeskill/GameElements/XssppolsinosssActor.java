@@ -16,12 +16,25 @@ public class XssppolsinosssActor extends WorldActorGroup {
 
     OneSpriteAnimatedActor actor;
     float elapsedTime = 0;
+    private boolean decorative = false;
 
     public XssppolsinosssActor(World world, float X, float Y) {
         super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, true);
         actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
         setSize(15, 15);
         actor.setSize(15,15);
+        actor.setFps(10);
+        addActor(actor);
+        setPosition(X, Y);
+        addToWorld();
+    }
+
+    public XssppolsinosssActor(World world, float X, float Y, float width, float height, boolean decorative) {
+        super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, true);
+        actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
+        this.decorative = decorative;
+        setSize(width, height);
+        actor.setSize(width, height);
         actor.setFps(10);
         addActor(actor);
         setPosition(X, Y);
@@ -36,6 +49,9 @@ public class XssppolsinosssActor extends WorldActorGroup {
             removeFromStage();
             removeFromWorld();
         }
+    }
 
+    public boolean isDecorative() {
+        return decorative;
     }
 }

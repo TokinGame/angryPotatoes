@@ -14,6 +14,8 @@ public abstract class AngleActor extends OneSpriteStaticActor {
 
     private float angle, radAngle;
 
+    private boolean pressed = false;
+
     public AngleActor() {
         super(Assets.manager.get(Assets.ZOLISCREENSHOT));
         this.setSize(30,30);
@@ -22,6 +24,7 @@ public abstract class AngleActor extends OneSpriteStaticActor {
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
                 onDrag(x,y);
+                pressed = true;
                 return true;
             }
 
@@ -35,6 +38,7 @@ public abstract class AngleActor extends OneSpriteStaticActor {
             @Override
             public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
                 super.touchUp(event, x, y, pointer, button);
+                pressed = false;
                 onTouchUp(x, y);
             }
         });
@@ -60,4 +64,7 @@ public abstract class AngleActor extends OneSpriteStaticActor {
 
     public abstract void onTouchUp(float x, float y);
 
+    public boolean isPressed() {
+        return pressed;
+    }
 }

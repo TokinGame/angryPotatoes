@@ -23,7 +23,11 @@ public class Potato extends ExploadableActor {
     private boolean removeEffect = false;
     private float removeTime = 0;
 
-    private static final float SPEED_MULTIPLIER = 25f;
+    public static void setSpeedMultiplier(float speedMultiplier) {
+        SPEED_MULTIPLIER = speedMultiplier;
+    }
+
+    private static float SPEED_MULTIPLIER = 5f;
 
     private float y = -666, x = 1f;
 

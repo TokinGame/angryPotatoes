@@ -51,6 +51,8 @@ public class GameStage extends MyStage {
     GameStage ez;
     ControlStage controlStage;
 
+    AngleActor angleActor;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -135,7 +137,7 @@ public class GameStage extends MyStage {
         //addActor(new XssppolsinosssActor(world, 80, 50));
 
 
-        addActor(new AngleActor(){
+        addActor(angleActor = new AngleActor(){
             @Override
             public void onAngleUpdate(float angle) {
                 setCannonAngle(angle);
@@ -152,6 +154,8 @@ public class GameStage extends MyStage {
                     Vector2 rotateVector2 = vector2.setAngleRad(this.getRadAngle());
                     potato.setPosition(rotateVector2.x, rotateVector2.y);
                     addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y,5,5, true));
+                    potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
+                    System.out.println(controlStage.getCurrenLaunchMultiplier());
                     potato.shootMe();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -178,6 +182,11 @@ public class GameStage extends MyStage {
 
     public void setCannonAngle(float degrees){
         cannon.setRotation(degrees-45);
+    }
+
+    public boolean getPressedState(){
+        if(angleActor != null)return angleActor.isPressed();
+        else return false;
     }
 
     public void load(int level){        //TODO ezt esetleg valami effektívebbre

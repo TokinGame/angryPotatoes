@@ -16,7 +16,9 @@ public class ControlStage extends MyStage {
 
     OneSpriteStaticActor speedIndicator;
     GameStage gameStage;
-    float elapsedTime = 0;
+    float forceTimer = 0;
+
+
     float currenLaunchMultiplier = 0;
 
     public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gStage) {
@@ -25,6 +27,7 @@ public class ControlStage extends MyStage {
         speedIndicator.setSize(50, 50);
         addActor(speedIndicator);
         speedIndicator.setPosition(100, 650);
+        gameStage = gStage;
     }
 
     @Override
@@ -36,11 +39,21 @@ public class ControlStage extends MyStage {
     @Override
     public void act(float delta) {
         super.act(delta);
-        elapsedTime += delta;
-        if(true) {
-            speedIndicator.setSize(50*Math.abs((float)Math.sin(elapsedTime)*8), 50);
-            currenLaunchMultiplier = speedIndicator.getWidth()/50;
+
+        if(gameStage.getPressedState()) {
+            forceTimer += delta/2;
+            speedIndicator.setSize(50*Math.abs((float)Math.sin(forceTimer)*8), 50);
+            currenLaunchMultiplier = speedIndicator.getWidth()/2/50;
+        }
+        else{
+            currenLaunchMultiplier = 0.5f;
+            speedIndicator.setWidth(50);
+            forceTimer = 0;
         }
 
     }
+    public float getCurrenLaunchMultiplier() {
+        return currenLaunchMultiplier;
+    }
+
 }

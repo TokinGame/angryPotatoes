@@ -16,6 +16,8 @@ public class ControlStage extends MyStage {
 
     OneSpriteStaticActor speedIndicator;
     GameStage gameStage;
+    float elapsedTime = 0;
+    float currenLaunchMultiplier = 0;
 
     public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gStage) {
         super(viewport, batch, game);
@@ -34,6 +36,11 @@ public class ControlStage extends MyStage {
     @Override
     public void act(float delta) {
         super.act(delta);
-        if(gameStage.)
+        elapsedTime += delta;
+        if(true) {
+            speedIndicator.setSize(50*Math.abs((float)Math.sin(elapsedTime)*8), 50);
+            currenLaunchMultiplier = speedIndicator.getWidth()/50;
+        }
+
     }
 }

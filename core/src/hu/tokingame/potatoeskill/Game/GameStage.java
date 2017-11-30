@@ -53,6 +53,8 @@ public class GameStage extends MyStage {
 
     AngleActor angleActor;
 
+    boolean finishedLoading = false;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -224,7 +226,10 @@ public class GameStage extends MyStage {
             }
         }catch(Exception e){
             e.printStackTrace();
+        }finally{
+            finishedLoading = true;
         }
+
     }
 
     @Override
@@ -242,9 +247,15 @@ public class GameStage extends MyStage {
     }
     @Override
     public void act(float delta) {
+        if(finishedLoading){
+            if(Enemy.getCount() == 0){
+                //game.setScreen(new LevelEndScreen(game));
+            }
+        }
         world.step(delta, 10, 10);
         super.act(delta);
         controlStage.act(delta);
+
         //System.out.println(Enemy.getCount());
     }
 

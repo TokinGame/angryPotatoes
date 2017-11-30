@@ -39,9 +39,9 @@ public class ExploadableActor extends WorldActorGroup{
     }
 
 
-    public void setupXplosion(float velocity){
+    public void setupXplosion(){
         exp = true;
-        this.projVelocity = velocity;
+        //this.projVelocity = velocity;
     }
 
     public void setupXplosion(float explWidht, float explHeight){

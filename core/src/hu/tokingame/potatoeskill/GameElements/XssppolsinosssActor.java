@@ -56,7 +56,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
 
 
     public float getHitStrength(){
-        // TODO: 11/30/2017 már lehet hogz jó
+        // TODO: 11/30/2017 kalibri
         if(projVelocity == 0) return 0;
         else if(isBetween(projVelocity, 1,15)) return 1;
         else if (isBetween(projVelocity, 16, 20)) return 2;

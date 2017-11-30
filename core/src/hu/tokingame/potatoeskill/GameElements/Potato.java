@@ -1,5 +1,6 @@
 package hu.tokingame.potatoeskill.GameElements;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
@@ -18,6 +19,9 @@ public class Potato extends ExploadableActor {
 
     private OneSpriteStaticActor actor;
     private boolean canSu = true;
+
+    private boolean removeEffect = false;
+    private float removeTime = 0;
 
     private static final float SPEED_MULTIPLIER = 25f;
 
@@ -65,10 +69,26 @@ public class Potato extends ExploadableActor {
         return n;
     }
 
+    public void setRemoveEffect(){
+        removeEffect = true;
+    }
+
+
     public void act(float delta) {
         super.act(delta);
         if (getBody()!= null && getBody().getLinearVelocity().len()<0.01f){
+            setVisibilityControl(false);
             removeFromWorld();
+            setRemoveEffect();
+        }
+        if (removeEffect){
+            removeTime += delta;
+            Color c = actor.getColor();
+            c.a = 1f - removeTime;
+            actor.setColor(c);
+            if (removeTime > 1){
+                removeFromStage();
+            }
         }
     }
 

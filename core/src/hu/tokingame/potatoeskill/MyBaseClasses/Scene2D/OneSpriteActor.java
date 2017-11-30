@@ -1,5 +1,6 @@
 package hu.tokingame.potatoeskill.MyBaseClasses.Scene2D;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
@@ -55,5 +56,17 @@ abstract public class OneSpriteActor extends MyActor implements InitableInterfac
         super.sizeChanged();
         sprite.setSize(getWidth(), getHeight());
         sprite.setOrigin(getWidth()/2, getHeight()/2);
+    }
+
+    @Override
+    public void setColor(Color color) {
+        super.setColor(color);
+        sprite.setColor(color);
+    }
+
+    @Override
+    public void setColor(float r, float g, float b, float a) {
+        super.setColor(r, g, b, a);
+        sprite.setColor(r, g, b, a);
     }
 }

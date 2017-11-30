@@ -144,8 +144,10 @@ public class GameStage extends MyStage {
                 addActor(potato = new Potato(world, loader, 2000, 10));
                 potato.setLaunchAngle(this.getRadAngle());
                 try {
-                    potato.setPosition(8,8);
-                    addActor(new XssppolsinosssActor(world, 8,8,5,5, true));
+                    Vector2 vector2 = new Vector2(13,0);
+                    Vector2 rotateVector2 = vector2.setAngleRad(this.getRadAngle());
+                    potato.setPosition(rotateVector2.x, rotateVector2.y);
+                    addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y,5,5, true));
                     potato.shootMe();
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -229,6 +231,7 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         world.step(delta, 10, 10);
         super.act(delta);
+        //System.out.println(Enemy.getCount());
     }
 
     @Override

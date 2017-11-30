@@ -16,6 +16,12 @@ public class Enemy extends ExploadableActor {
 
     OneSpriteStaticActor actor;
 
+    public static int getCount() {
+        return count;
+    }
+
+    private static int count = 0;
+
 
 
     public Enemy(World world, WorldBodyEditorLoader loader, float x, float y) {
@@ -31,6 +37,17 @@ public class Enemy extends ExploadableActor {
 
     }
 
+    @Override
+    protected void afterAddToWorld() {
+        super.afterAddToWorld();
+        count++;
+    }
+
+    @Override
+    protected void afterRemoveFromWorld() {
+        super.afterRemoveFromWorld();
+        count--;
+    }
 
     public void die(){
         System.out.println("ded");

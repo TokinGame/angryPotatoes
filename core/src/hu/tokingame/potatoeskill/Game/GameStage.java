@@ -249,6 +249,8 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         if(finishedLoading){
             if(Enemy.getCount() == 0){
+                //TODO a staget átállítani 
+                //world.dispose();
                 //game.setScreen(new LevelEndScreen(game));
             }
         }

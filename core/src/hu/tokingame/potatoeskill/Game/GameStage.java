@@ -12,6 +12,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.io.BufferedReader;
@@ -48,11 +49,13 @@ public class GameStage extends MyStage {
     Potato potato;
 
     GameStage ez;
+    ControlStage controlStage;
 
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         ez = this;
+        controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), batch, game, this);
 
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
             @Override
@@ -76,6 +79,7 @@ public class GameStage extends MyStage {
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(this);
+        inputMultiplexer.addProcessor(controlStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
 
 
@@ -231,12 +235,14 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         world.step(delta, 10, 10);
         super.act(delta);
+        controlStage.act(delta);
         //System.out.println(Enemy.getCount());
     }
 
     @Override
     public void draw() {
         super.draw();
+        controlStage.draw();
         box2DDebugRenderer.render(world, debugMatrix);
     }
 

@@ -101,7 +101,7 @@ public class Potato extends ExploadableActor {
         super.contact(another);
         if (another instanceof Enemy || another instanceof Crate){
             System.out.println("Krumpli");
-            setupXplosion();
+            setupXplosion(this.getBody().getLinearVelocity().len());
         }
     }
 

@@ -17,7 +17,7 @@ public class Crate extends ExploadableActor {
 
     OneSpriteStaticActor actor;
 
-    private float hitCount = 0;
+    private float hp = 3;
 
     public Crate(World world, float X, float Y) {
         super(world, ShapeType.Rectangle, BodyDef.BodyType.DynamicBody, 1000, 0.01f, 8, false);
@@ -30,11 +30,11 @@ public class Crate extends ExploadableActor {
     }
 
     @Override
-    public void hitByExplosion() {
+    public void hitByExplosion(XssppolsinosssActor actor) {
         //super.hitByExplosion();
-        // TODO: 11/26/2017 Ez ne legyen 3
-        hitCount++;
-        if(hitCount > 3){
+        hp -= actor.getHitStrength();
+        System.out.println("Strength: >>> " + actor.getHitStrength());
+        if(hp <= 0){
             this.removeFromWorld();
         }
     }

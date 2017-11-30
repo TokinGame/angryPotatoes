@@ -17,8 +17,9 @@ public class XssppolsinosssActor extends WorldActorGroup {
     OneSpriteAnimatedActor actor;
     float elapsedTime = 0;
     private boolean decorative = false;
+    private float projVelocity = 0;
 
-    public XssppolsinosssActor(World world, float X, float Y) {
+    public XssppolsinosssActor(World world, float X, float Y, float projVelocity) {
         super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, true);
         actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
         setSize(15, 15);
@@ -27,9 +28,10 @@ public class XssppolsinosssActor extends WorldActorGroup {
         addActor(actor);
         setPosition(X, Y);
         addToWorld();
+        this.projVelocity = projVelocity;
     }
 
-    public XssppolsinosssActor(World world, float X, float Y, float width, float height, boolean decorative) {
+    public XssppolsinosssActor(World world, float X, float Y, float width, float height, boolean decorative, float projVelocity) {
         super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, true);
         actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
         this.decorative = decorative;
@@ -39,6 +41,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
         addActor(actor);
         setPosition(X, Y);
         addToWorld();
+        this.projVelocity = projVelocity;
     }
 
     @Override
@@ -50,6 +53,28 @@ public class XssppolsinosssActor extends WorldActorGroup {
             removeFromWorld();
         }
     }
+
+
+    public float getHitStrength(){
+        // TODO: 11/30/2017 már lehet hogz jó
+        if(projVelocity == 0) return 0;
+        else if(isBetween(projVelocity, 1,15)) return 1;
+        else if (isBetween(projVelocity, 16, 20)) return 2;
+        else if (isBetween(projVelocity, 21, 25)) return 3;
+        else if (isBetween(projVelocity, 26, 30)) return 4;
+        else if (isBetween(projVelocity, 31, 35)) return 5;
+        else if (isBetween(projVelocity, 36, 40)) return 6;
+        else if (isBetween(projVelocity, 41, 45)) return 7;
+        else if (isBetween(projVelocity, 46, 50)) return 8;
+        else if (isBetween(projVelocity, 51, 55)) return 9;
+        else if (isBetween(projVelocity, 56, 60)) return 10;
+        else return 11;
+    }
+
+    private static boolean isBetween(float num, float min, float max){
+        return num >= min && num <= max;
+    }
+
 
     public boolean isDecorative() {
         return decorative;

@@ -18,7 +18,7 @@ public class ExploadableActor extends WorldActorGroup{
 
     private boolean exp = false, exploading = false;
 
-    private float explWidht = 15f, explHeight = 15f, projVelocity;
+    private float explWidht = 15f, explHeight = 15f, projVelocity = 0f;
 
 
 
@@ -39,9 +39,9 @@ public class ExploadableActor extends WorldActorGroup{
     }
 
 
-    public void setupXplosion(){
+    public void setupXplosion(float velocity){
         exp = true;
-        //this.projVelocity = velocity;
+        this.projVelocity = velocity;
     }
 
     public void setupXplosion(float explWidht, float explHeight){
@@ -57,7 +57,7 @@ public class ExploadableActor extends WorldActorGroup{
         }
         if (exp && !exploading){
             exp = false;
-            xplosion = new XssppolsinosssActor(world, getX(), getY(), explWidht, explHeight, false);
+            xplosion = new XssppolsinosssActor(world, getX(), getY(), explWidht, explHeight, false, projVelocity);
             getStage().addActor(xplosion);
             exploading  = true;
         }
@@ -68,11 +68,11 @@ public class ExploadableActor extends WorldActorGroup{
     public void contact(WorldActorGroup another) {
         super.contact(another);
         if(another instanceof XssppolsinosssActor && !((XssppolsinosssActor)another).isDecorative()){
-            hitByExplosion();
+            hitByExplosion((XssppolsinosssActor)another);
         }
     }
 
-    public void hitByExplosion(){
+    public void hitByExplosion(XssppolsinosssActor actor){
         this.removeFromWorld();
     }
 

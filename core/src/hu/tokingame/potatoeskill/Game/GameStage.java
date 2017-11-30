@@ -153,7 +153,7 @@ public class GameStage extends MyStage {
                     Vector2 vector2 = new Vector2(13,0);
                     Vector2 rotateVector2 = vector2.setAngleRad(this.getRadAngle());
                     potato.setPosition(rotateVector2.x, rotateVector2.y);
-                    addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y,5,5, true));
+                    addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y,5,5, true, 0f));
                     potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
                     System.out.println(controlStage.getCurrenLaunchMultiplier());
                     potato.shootMe();

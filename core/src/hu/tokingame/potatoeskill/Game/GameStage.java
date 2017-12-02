@@ -56,6 +56,8 @@ public class GameStage extends MyStage {
 
     boolean finishedLoading = false;
 
+    private int enemyCount = 0;
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -218,6 +220,7 @@ public class GameStage extends MyStage {
                     case '#':
                         addActor(new Enemy(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
                         System.out.println("placed microwave at " + thisLine[1] + " " + thisLine[2]);
+                        enemyCount++;
                         break;
                     case '&':
                         addActor(new LongCrate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
@@ -253,18 +256,19 @@ public class GameStage extends MyStage {
     }
     @Override
     public void act(float delta) {
-        if(finishedLoading){
-            if(Enemy.getCount() == 0){
-                //TODO a staget átállítani 
-                //world.dispose();
-                //game.setScreen(new LevelEndScreen(game));
-            }
-        }
-        world.step(delta, 10, 10);
         super.act(delta);
         controlStage.act(delta);
+        world.step(delta, 10, 10);
 
-        //System.out.println(Enemy.getCount());
+
+        if(finishedLoading){
+            if(enemyCount == 0){
+                //TODO a staget átállítani
+                //world.dispose();
+                //game.setScreen(new LevelEndScreen(game), false);
+            }
+        }
+
     }
 
     @Override
@@ -277,5 +281,9 @@ public class GameStage extends MyStage {
     @Override
     public void resize(int screenWidth, int screenHeight) {
         super.resize(screenWidth, screenHeight);
+    }
+
+    public void enemyRemoved(){
+        enemyCount--;
     }
 }

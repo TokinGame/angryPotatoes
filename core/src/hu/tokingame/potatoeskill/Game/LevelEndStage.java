@@ -18,9 +18,9 @@ public class LevelEndStage extends MyStage {
 
     MyGdxGame game;
 
-    public LevelEndStage(Viewport viewport, Batch batch, MyGdxGame gam) {
-        super(viewport, batch, gam);
-        this.game = gam;
+    public LevelEndStage(Viewport viewport, Batch batch, MyGdxGame game) {
+        super(viewport, batch, game);
+        this.game = game;
         addActor(new MyTextButton("k"){
             @Override
             protected void init() {
@@ -30,7 +30,7 @@ public class LevelEndStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new GameScreen(game));
+                        //LevelEndStage.this.game.setScreen(new GameScreen(LevelEndStage.this.game));
                     }
                 });
             }

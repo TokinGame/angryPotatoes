@@ -3,6 +3,7 @@ package hu.tokingame.potatoeskill.GameElements;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 
+import hu.tokingame.potatoeskill.Game.GameStage;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
@@ -15,13 +16,6 @@ import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
 public class Enemy extends ExploadableActor {
 
     OneSpriteStaticActor actor;
-
-    public static int getCount() {
-        return count;
-    }
-
-    private static int count = 0;
-
 
 
     public Enemy(World world, WorldBodyEditorLoader loader, float x, float y) {
@@ -40,13 +34,19 @@ public class Enemy extends ExploadableActor {
     @Override
     protected void afterAddToWorld() {
         super.afterAddToWorld();
-        count++;
+    }
+
+    @Override
+    protected void beforeRemoveFromWorld() {
+        super.beforeRemoveFromWorld();
+        if(getStage() instanceof GameStage){
+            ((GameStage) getStage()).enemyRemoved();
+        }
     }
 
     @Override
     protected void afterRemoveFromWorld() {
         super.afterRemoveFromWorld();
-        count--;
     }
 
     public void die(){

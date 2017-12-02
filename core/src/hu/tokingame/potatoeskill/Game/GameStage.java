@@ -24,6 +24,7 @@ import hu.tokingame.potatoeskill.GameElements.Cannon;
 import hu.tokingame.potatoeskill.GameElements.Crate;
 import hu.tokingame.potatoeskill.GameElements.Enemy;
 import hu.tokingame.potatoeskill.GameElements.Floor;
+import hu.tokingame.potatoeskill.GameElements.LongCrate;
 import hu.tokingame.potatoeskill.GameElements.Potato;
 import hu.tokingame.potatoeskill.GameElements.XssppolsinosssActor;
 import hu.tokingame.potatoeskill.Global.Assets;
@@ -167,7 +168,7 @@ public class GameStage extends MyStage {
 
 
 
-        load(1);
+        load(0);
 
 
 
@@ -195,11 +196,12 @@ public class GameStage extends MyStage {
         String current = "Loader/";
         System.out.println("loading "+level);
         switch(level){
-            case 1:
-                current += "5.txt";
+            case 0:
+                current += "test.txt";
                 break;
+
             default:
-                System.out.println("wrong input for load");
+                current += level+".txt";
                 break;
         }
         try {
@@ -216,6 +218,10 @@ public class GameStage extends MyStage {
                     case '#':
                         addActor(new Enemy(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
                         System.out.println("placed microwave at " + thisLine[1] + " " + thisLine[2]);
+                        break;
+                    case '&':
+                        addActor(new LongCrate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        System.out.println("placed triple crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     default:
                         System.out.println("!!!!!!!!unknown input!!!!!!!!!!");

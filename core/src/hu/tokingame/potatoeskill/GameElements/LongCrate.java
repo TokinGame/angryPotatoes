@@ -4,27 +4,25 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 
 import hu.tokingame.potatoeskill.Global.Assets;
-import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.ShapeType;
-import hu.tokingame.potatoeskill.World.WorldActorGroup;
 
 /**
  * Created by davimatyi on 2017. 11. 15..
  */
 
-public class Crate extends ExploadableActor {
+public class LongCrate extends ExploadableActor {
 
     OneSpriteStaticActor actor;
 
     private float hp = 3;
 
-    public Crate(World world, float X, float Y) {
+    public LongCrate(World world, float X, float Y) {
         super(world, ShapeType.Rectangle, BodyDef.BodyType.DynamicBody, 1000, 0.01f, 8, false);
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.CRATE));
         addActor(actor);
-        setSize(5, 5);
-        actor.setSize(5, 5);
+        actor.setSize(15, 5);
+        setSize(15, 5);
         setOrigin(0, 0);
         addToWorld();
         setPosition(X, Y);

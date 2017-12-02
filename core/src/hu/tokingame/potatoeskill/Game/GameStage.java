@@ -196,7 +196,7 @@ public class GameStage extends MyStage {
         System.out.println("loading "+level);
         switch(level){
             case 1:
-                current += "1.txt";
+                current += "5.txt";
                 break;
             default:
                 System.out.println("wrong input for load");

@@ -41,6 +41,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> ZOLISCREENSHOT = new AssetDescriptor<Texture>("GameTextures/empty.png", Texture.class);
     public static final AssetDescriptor<Texture> ENEMY = new AssetDescriptor<Texture>("GameTextures/enemy.png", Texture.class);
 	public static final AssetDescriptor<Texture> EARTH_BG = new AssetDescriptor<Texture>("GameTextures/earth_bg.jpg", Texture.class);
+	public static final AssetDescriptor<Texture> POWERBAR_BG = new AssetDescriptor<Texture>("GameTextures/powerbar_bg.png", Texture.class);
+	public static final AssetDescriptor<Texture> POWERBAR = new AssetDescriptor<Texture>("GameTextures/powerbar.png", Texture.class);
+
 
 
 
@@ -63,6 +66,8 @@ public class Assets {
 		manager.load(CRATE);
         manager.load(ENEMY);
 		manager.load(EARTH_BG);
+		manager.load(POWERBAR);
+		manager.load(POWERBAR_BG);
 
 		manager.load(CALIBRIL_FONT);
 		manager.load(ZOLISCREENSHOT);

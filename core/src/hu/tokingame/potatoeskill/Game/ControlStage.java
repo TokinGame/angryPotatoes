@@ -23,11 +23,21 @@ public class ControlStage extends MyStage {
 
     public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gStage) {
         super(viewport, batch, game);
-        speedIndicator = new OneSpriteStaticActor(Assets.manager.get(Assets.ENEMY));
+        gameStage = gStage;
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.POWERBAR_BG)){
+            @Override
+            protected void init() {
+                super.init();
+                setSize(450, 100);
+                setPosition(75, 625);
+            }
+        });
+        speedIndicator = new OneSpriteStaticActor(Assets.manager.get(Assets.POWERBAR));
         speedIndicator.setSize(50, 50);
         addActor(speedIndicator);
         speedIndicator.setPosition(100, 650);
-        gameStage = gStage;
+
+
     }
 
     @Override
@@ -41,7 +51,7 @@ public class ControlStage extends MyStage {
         super.act(delta);
 
         if(gameStage.getPressedState()) {
-            forceTimer += delta/2;
+            forceTimer += delta;
             speedIndicator.setSize(50*Math.abs((float)Math.sin(forceTimer)*8), 50);
             currenLaunchMultiplier = speedIndicator.getWidth()/2/50;
         }

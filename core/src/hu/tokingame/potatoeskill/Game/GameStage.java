@@ -57,6 +57,7 @@ public class GameStage extends MyStage {
     boolean finishedLoading = false;
 
     private int enemyCount = 0;
+    private boolean enemiesAlive = true;
 
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
@@ -262,10 +263,13 @@ public class GameStage extends MyStage {
 
 
         if(finishedLoading){
-            if(enemyCount == 0){
+            if(enemyCount == 0 && enemiesAlive){
+                enemiesAlive = false;
                 //TODO a staget átállítani
-                //world.dispose();
+                System.out.println("end game");
                 //game.setScreen(new LevelEndScreen(game), false);
+                //world.dispose();
+
             }
         }
 

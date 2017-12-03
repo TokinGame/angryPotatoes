@@ -24,7 +24,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
         actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
         setSize(15, 15);
         actor.setSize(15,15);
-        actor.setFps(10);
+        actor.setFps(24);
         addActor(actor);
         setPosition(X, Y);
         addToWorld();
@@ -37,7 +37,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
         this.decorative = decorative;
         setSize(width, height);
         actor.setSize(width, height);
-        actor.setFps(10);
+        actor.setFps(24);
         addActor(actor);
         setPosition(X, Y);
         addToWorld();

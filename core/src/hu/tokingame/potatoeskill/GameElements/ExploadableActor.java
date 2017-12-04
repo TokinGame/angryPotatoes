@@ -21,7 +21,7 @@ public class ExploadableActor extends WorldActorGroup{
 
     private float explWidht = 15f, explHeight = 15f, projVelocity = 0f;
 
-    private int scoreValue;
+    private int scoreValue = 0;
 
 
 

@@ -185,8 +185,7 @@ public class GameStage extends MyStage {
                 break;
         }
         try {
-            FileInputStream fis = new FileInputStream(current);
-            InputStreamReader isr = new InputStreamReader(fis);
+            InputStreamReader isr = new InputStreamReader(Gdx.files.internal(current).read());
             BufferedReader br = new BufferedReader(isr);
             while(br.ready()){
                 String[] thisLine = br.readLine().split(" ");

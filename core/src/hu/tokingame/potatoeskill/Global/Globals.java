@@ -11,4 +11,8 @@ public class Globals {
 
 
     public static boolean DEBUG_ALL = true;
+
+    public static int currentLevel = 1;
+
+    public static boolean[] unlocked = {true, false, false, false, false, false, false, false, false, false, false, false, false, false, false};
 }

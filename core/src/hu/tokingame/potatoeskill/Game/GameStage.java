@@ -34,6 +34,8 @@ import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyGdxGame;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
 
+import static hu.tokingame.potatoeskill.Global.Globals.currentLevel;
+
 /**
  * Created by M on 11/9/2017.
  */
@@ -146,7 +148,7 @@ public class GameStage extends MyStage {
 
 
 
-        load(0);
+        load(Globals.currentLevel);
 
 
 
@@ -245,6 +247,10 @@ public class GameStage extends MyStage {
                 enemiesAlive = false;
                 //TODO a staget átállítani
                 System.out.println("end game");
+                if(currentLevel < 15){
+                    Globals.unlocked[currentLevel] = true;
+                    currentLevel++;
+                }
                 game.setScreen(new LevelEndScreen(game), false);
 
 

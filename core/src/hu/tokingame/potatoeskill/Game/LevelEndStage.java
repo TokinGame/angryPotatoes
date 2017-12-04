@@ -45,7 +45,7 @@ public class LevelEndStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        LevelEndStage.this.game.setScreen(new LevelSelectScreen(LevelEndStage.this.game));
+                        LevelEndStage.this.game.setScreen(new LevelSelectScreen(LevelEndStage.this.game),false);
                     }
                 });
             }

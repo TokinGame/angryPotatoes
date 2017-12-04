@@ -4,9 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
 import hu.tokingame.potatoeskill.Global.Assets;
+import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyScreen;
 import hu.tokingame.potatoeskill.MyGdxGame;
+
+import static hu.tokingame.potatoeskill.Global.Globals.getPrefs;
+import static hu.tokingame.potatoeskill.Global.Globals.unlocked;
 
 /**
  * Created by M on 11/9/2017.
@@ -24,6 +28,9 @@ public class LoadingScreen extends MyScreen {
     public void show() {
         Assets.manager.finishLoading();
         Assets.load();
+        for (int i = 1; i < unlocked.length; i++) {
+            unlocked[i] = getPrefs().getBoolean("l"+i,false);
+        }
     }
 
     @Override

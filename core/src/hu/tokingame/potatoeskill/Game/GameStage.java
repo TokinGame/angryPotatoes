@@ -259,6 +259,8 @@ public class GameStage extends MyStage {
                 System.out.println("end game");
                 if(currentLevel < 15){
                     Globals.unlocked[currentLevel] = true;
+                    Globals.getPrefs().putBoolean("l"+currentLevel, true);
+                    Globals.getPrefs().flush();
                     currentLevel++;
                 }
                 game.setScreen(new LevelEndScreen(game), false);

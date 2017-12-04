@@ -68,7 +68,7 @@ public class LevelSelectStage extends MyStage {
                                 public void clicked(InputEvent event, float x, float y) {
                                     super.clicked(event, x, y);
                                     currentLevel = cl;
-                                    game.setScreen(new GameScreen(game));
+                                    game.setScreen(new GameScreen(game),false);
                                 }
                             });
                         }

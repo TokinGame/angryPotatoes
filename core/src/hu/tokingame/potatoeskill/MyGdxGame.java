@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 
 import hu.tokingame.potatoeskill.*;
 import hu.tokingame.potatoeskill.Global.Assets;
+import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Loading.LoadingScreen;
 import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyScreen;
@@ -75,6 +76,7 @@ public class MyGdxGame extends Game {
 	@Override
 	public void dispose() {
 		super.dispose();
+        Globals.getPrefs().flush();
 		Assets.unload();
 	}
 
@@ -82,8 +84,10 @@ public class MyGdxGame extends Game {
 
 	@Override
 	public void pause() {
+        Globals.getPrefs().flush();
 		super.pause();
 	}
+
 
 	@Override
 	public void setScreen(Screen screen) {

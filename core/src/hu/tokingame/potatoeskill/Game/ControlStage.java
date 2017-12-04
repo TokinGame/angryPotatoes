@@ -17,12 +17,14 @@ import hu.tokingame.potatoeskill.MyGdxGame;
 
 public class ControlStage extends MyStage {
 
-    OneSpriteStaticActor speedIndicator;
+    private OneSpriteStaticActor speedIndicator, prevSpeedIndicator;
     GameStage gameStage;
     private MyLabel score;
+
     float forceTimer = 0;
 
     private static final String SCORE_LABLE_TEXT = "Pont: ";
+    private float prev_power = 0;
 
 
     float currenLaunchMultiplier = 0;
@@ -38,10 +40,14 @@ public class ControlStage extends MyStage {
                 setPosition(75, 625);
             }
         });
+        prevSpeedIndicator = new OneSpriteStaticActor(Assets.manager.get(Assets.PREV_POWERBAR));
         speedIndicator = new OneSpriteStaticActor(Assets.manager.get(Assets.POWERBAR));
         speedIndicator.setSize(50, 50);
+        prevSpeedIndicator.setSize(50, 50);
+        addActor(prevSpeedIndicator);
         addActor(speedIndicator);
         speedIndicator.setPosition(100, 650);
+        prevSpeedIndicator.setPosition(100, 650);
         addActor(score = new MyLabel(SCORE_LABLE_TEXT + "0", game.getLabelStyle()){
             @Override
             public void init() {
@@ -67,9 +73,11 @@ public class ControlStage extends MyStage {
             forceTimer += delta;
             speedIndicator.setSize(50*Math.abs((float)Math.sin(forceTimer)*8), 50);
             currenLaunchMultiplier = speedIndicator.getWidth()/2/50;
+            prev_power = currenLaunchMultiplier;
         }
         else{
             currenLaunchMultiplier = 0.5f;
+            prevSpeedIndicator.setWidth(prev_power * 2 * 50);
             speedIndicator.setWidth(50);
             forceTimer = 0;
         }

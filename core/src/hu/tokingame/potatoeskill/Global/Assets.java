@@ -43,7 +43,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> EARTH_BG = new AssetDescriptor<Texture>("GameTextures/earth_bg.jpg", Texture.class);
 	public static final AssetDescriptor<Texture> POWERBAR_BG = new AssetDescriptor<Texture>("GameTextures/powerbar_bg.png", Texture.class);
 	public static final AssetDescriptor<Texture> POWERBAR = new AssetDescriptor<Texture>("GameTextures/powerbar.png", Texture.class);
-
+	public static final AssetDescriptor<Texture> PREV_POWERBAR = new AssetDescriptor<Texture>("GameTextures/prevpowerbar.png", Texture.class);
 
 
 
@@ -68,6 +68,7 @@ public class Assets {
 		manager.load(EARTH_BG);
 		manager.load(POWERBAR);
 		manager.load(POWERBAR_BG);
+        manager.load(PREV_POWERBAR);
 
 		manager.load(CALIBRIL_FONT);
 		manager.load(ZOLISCREENSHOT);

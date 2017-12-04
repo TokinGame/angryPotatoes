@@ -172,7 +172,7 @@ public class GameStage extends MyStage {
         else return false;
     }
 
-    public void load(int level){        //TODO ezt esetleg valami effektívebbre
+    public void load(int level){
         String current = "Loader/";
         System.out.println("loading "+level);
         switch(level){

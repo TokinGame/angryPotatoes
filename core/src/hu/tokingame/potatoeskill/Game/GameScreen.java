@@ -33,4 +33,10 @@ public class GameScreen extends MyScreen {
         gameStage.act(delta);
         gameStage.draw();
     }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        gameStage.dispose();
+    }
 }

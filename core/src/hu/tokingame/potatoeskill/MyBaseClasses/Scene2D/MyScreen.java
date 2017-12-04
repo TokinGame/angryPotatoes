@@ -15,7 +15,8 @@ import hu.tokingame.potatoeskill.MyGdxGame;
  */
 abstract public class MyScreen implements Screen, InitableInterface {
 
-    protected SpriteBatch spriteBatch = new SpriteBatch();
+    //Todo: Ha esetleg gond lenne, akkor ez ne legyen static
+    protected static SpriteBatch spriteBatch = new SpriteBatch();
 
     public float r=0,g=0,b=0;
 
@@ -30,7 +31,8 @@ abstract public class MyScreen implements Screen, InitableInterface {
 
     @Override
     public void dispose() {
-        spriteBatch.dispose();
+        //Todo: kiszedve...
+        //spriteBatch.dispose();
     }
 
     @Override

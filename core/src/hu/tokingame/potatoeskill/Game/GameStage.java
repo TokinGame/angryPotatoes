@@ -236,7 +236,9 @@ public class GameStage extends MyStage {
     public void act(float delta) {
         super.act(delta);
         controlStage.act(delta);
-        world.step(delta, 10, 10);
+        if (world != null) {
+            world.step(delta, 10, 10);
+        }
 
 
         if(finishedLoading){
@@ -244,8 +246,8 @@ public class GameStage extends MyStage {
                 enemiesAlive = false;
                 //TODO a staget átállítani
                 System.out.println("end game");
-                //game.setScreen(new LevelEndScreen(game), false);
-                //world.dispose();
+                game.setScreen(new LevelEndScreen(game), false);
+
 
             }
         }
@@ -256,7 +258,9 @@ public class GameStage extends MyStage {
     public void draw() {
         super.draw();
         controlStage.draw();
-        box2DDebugRenderer.render(world, debugMatrix);
+        if (world != null) {
+            box2DDebugRenderer.render(world, debugMatrix);
+        }
     }
 
     @Override
@@ -271,5 +275,14 @@ public class GameStage extends MyStage {
 
     public void enemyRemoved(){
         enemyCount--;
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        if (world != null) {
+            world.dispose();
+            world = null;
+        }
     }
 }

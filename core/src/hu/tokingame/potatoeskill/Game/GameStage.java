@@ -61,6 +61,9 @@ public class GameStage extends MyStage {
     private int enemyCount = 0;
     private boolean enemiesAlive = true;
     private int score = 0;
+    private int potatoesLeft = 0;
+
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -130,18 +133,23 @@ public class GameStage extends MyStage {
             @Override
             public void onTouchUp(float x, float y) {
                 // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
-                addActor(potato = new Potato(world, loader, 2000, 10));
-                potato.setLaunchAngle(this.getRadAngle());
-                try {
-                    Vector2 vector2 = new Vector2(13,0);
-                    Vector2 rotateVector2 = vector2.setAngleRad(this.getRadAngle());
-                    potato.setPosition(rotateVector2.x, rotateVector2.y);
-                    addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y,5,5, true, 0f));
-                    potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
-                    System.out.println(controlStage.getCurrenLaunchMultiplier());
-                    potato.shootMe();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if(potatoesLeft > 0) {
+                    addActor(potato = new Potato(world, loader, 2000, 10));
+                    potato.setLaunchAngle(this.getRadAngle());
+                    try {
+                        Vector2 vector2 = new Vector2(13, 0);
+                        Vector2 rotateVector2 = vector2.setAngleRad(this.getRadAngle());
+                        potato.setPosition(rotateVector2.x, rotateVector2.y);
+                        addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y, 5, 5, true, 0f));
+                        potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
+                        System.out.println(controlStage.getCurrenLaunchMultiplier());
+                        potato.shootMe();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    } finally {
+                        potatoesLeft--;
+                        controlStage.setCounter(potatoesLeft);
+                    }
                 }
             }
         });
@@ -189,6 +197,7 @@ public class GameStage extends MyStage {
         try {
             InputStreamReader isr = new InputStreamReader(Gdx.files.internal(current).read());
             BufferedReader br = new BufferedReader(isr);
+            potatoesLeft = Integer.parseInt(br.readLine());
             while(br.ready()){
                 String[] thisLine = br.readLine().split(" ");
                 switch(thisLine[0].charAt(0)){
@@ -216,6 +225,7 @@ public class GameStage extends MyStage {
             e.printStackTrace();
         }finally{
             finishedLoading = true;
+            controlStage.setCounter(potatoesLeft);
         }
 
     }

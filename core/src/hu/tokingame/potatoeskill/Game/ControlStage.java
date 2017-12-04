@@ -10,6 +10,7 @@ import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextField;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyGdxGame;
+import jdk.nashorn.internal.objects.Global;
 
 /**
  * Created by davim on 2017. 11. 23..
@@ -20,6 +21,8 @@ public class ControlStage extends MyStage {
     private OneSpriteStaticActor speedIndicator, prevSpeedIndicator;
     GameStage gameStage;
     private MyLabel score;
+
+    private MyLabel potatoCounter;
 
     float forceTimer = 0;
 
@@ -54,6 +57,14 @@ public class ControlStage extends MyStage {
                 super.init();
                 setSize(400,100);
                 setPosition(Globals.WORLD_WIDTH-getWidth(), Globals.WORLD_HEIGHT-getHeight());
+            }
+        });
+        addActor(potatoCounter = new MyLabel("0", game.getLabelStyle()){
+            @Override
+            public void init() {
+                super.init();
+                setSize(100, 100);
+                setPosition(Globals.WORLD_WIDTH-getWidth()-score.getWidth(), Globals.WORLD_HEIGHT-getHeight());
             }
         });
 
@@ -91,6 +102,10 @@ public class ControlStage extends MyStage {
 
     public void updateScore(int newScore){
         score.setText(SCORE_LABLE_TEXT + newScore);
+    }
+
+    public void setCounter(int potatoes){
+        potatoCounter.setText(potatoes+"");
     }
 
 }

@@ -4,6 +4,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.World;
 
+import hu.tokingame.potatoeskill.Game.GameStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.ShapeType;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
 import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
@@ -19,6 +20,8 @@ public class ExploadableActor extends WorldActorGroup{
     private boolean exp = false, exploading = false;
 
     private float explWidht = 15f, explHeight = 15f, projVelocity = 0f;
+
+    private int scoreValue;
 
 
 
@@ -63,7 +66,6 @@ public class ExploadableActor extends WorldActorGroup{
         }
     }
 
-
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
@@ -85,6 +87,13 @@ public class ExploadableActor extends WorldActorGroup{
         return explHeight;
     }
 
+    @Override
+    protected void beforeRemoveFromWorld() {
+        super.beforeRemoveFromWorld();
+        if(getStage() instanceof GameStage){
+            ((GameStage) getStage()).addToScore(getScoreValue());
+        }
+    }
 
     public void setExplSize(float explWidht, float explHeight) {
         this.explWidht = explWidht;
@@ -100,4 +109,11 @@ public class ExploadableActor extends WorldActorGroup{
         return exploading;
     }
 
+    public int getScoreValue() {
+        return scoreValue;
+    }
+
+    protected void setScoreValue(int scoreValue) {
+        this.scoreValue = scoreValue;
+    }
 }

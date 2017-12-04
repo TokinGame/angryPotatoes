@@ -32,7 +32,7 @@ public class MyGdxGame extends Game {
 		Label.LabelStyle style;
 		style = new Label.LabelStyle();
 		style.font = Assets.manager.get(Assets.CALIBRIL_FONT);
-		style.fontColor = Color.YELLOW;
+		style.fontColor = Color.WHITE;
 		Pixmap p = new Pixmap(1, 1, Pixmap.Format.RGB888);
 		p.setColor(0.4f, 0.2f, 0.8f, 0.5f);
 		p.fill();

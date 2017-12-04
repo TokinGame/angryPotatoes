@@ -16,5 +16,6 @@ public class LongCrate extends Crate{
         super(world, X, Y);
         setWidth(15);
         actor.setWidth(15);
+        setScoreValue(3000);
     }
 }

@@ -99,7 +99,7 @@ public class Potato extends ExploadableActor {
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
-        if (another instanceof Enemy || another instanceof Crate){
+        if (another instanceof Enemy || another instanceof Crate || another instanceof LongCrate){
             System.out.println("Krumpli");
             setupXplosion(this.getBody().getLinearVelocity().len());
         }

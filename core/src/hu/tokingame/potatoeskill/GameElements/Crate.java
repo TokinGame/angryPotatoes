@@ -28,7 +28,7 @@ public class Crate extends ExploadableActor {
         setOrigin(0, 0);
         addToWorld();
         setPosition(X, Y);
-
+        setScoreValue(1000);
     }
 
     @Override

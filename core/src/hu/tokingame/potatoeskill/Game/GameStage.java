@@ -58,7 +58,7 @@ public class GameStage extends MyStage {
 
     private int enemyCount = 0;
     private boolean enemiesAlive = true;
-
+    private int score = 0;
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -94,45 +94,20 @@ public class GameStage extends MyStage {
         world.setContactListener(new ContactListener() {
             @Override
             public void beginContact(Contact contact) {
-                /*
-                if(contact.getFixtureA().getBody().getUserData() instanceof Potato){
-                    if(contact.getFixtureB().getBody().getUserData() instanceof Enemy){
-                        System.out.println("enemy hit TODO robban vagy valami");
-                        //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY()));
-                        shitHole = true;
-                        newPotato();
-                        ((Potato)contact.getFixtureA().getBody().getUserData()).removeFromWorld();
-                    }
-                }
-                else{
-                    if(contact.getFixtureB().getBody().getUserData() instanceof Potato){
-                        if(contact.getFixtureA().getBody().getUserData() instanceof Enemy){
-                            System.out.println("enemy hit TODO robbanás vagy valami");
-                            //GameStage.this.addActor(new XssppolsinosssActor(world, potato.getX(), potato.getY())); //TODO ezeket megcsinálni mert crashel
-                            shitHole = true;
-                            newPotato();
-                            ((Potato)contact.getFixtureB().getBody().getUserData()).removeFromWorld();
-                        }
-                    }
-                }
-                */
                 ((WorldActorGroup)contact.getFixtureA().getBody().getUserData()).contact((WorldActorGroup)contact.getFixtureB().getBody().getUserData());
                 ((WorldActorGroup)contact.getFixtureB().getBody().getUserData()).contact((WorldActorGroup)contact.getFixtureA().getBody().getUserData());
             }
 
             @Override
             public void endContact(Contact contact) {
-
             }
 
             @Override
             public void preSolve(Contact contact, Manifold oldManifold) {
-
             }
 
             @Override
             public void postSolve(Contact contact, ContactImpulse impulse) {
-
             }
         });
 
@@ -184,6 +159,8 @@ public class GameStage extends MyStage {
     public void newPotato(){
 
     }
+
+
 
 
     public void setCannonAngle(float degrees){
@@ -285,6 +262,11 @@ public class GameStage extends MyStage {
     @Override
     public void resize(int screenWidth, int screenHeight) {
         super.resize(screenWidth, screenHeight);
+    }
+
+    public void addToScore(int scoreToAdd){
+        score += scoreToAdd;
+        controlStage.updateScore(score);
     }
 
     public void enemyRemoved(){

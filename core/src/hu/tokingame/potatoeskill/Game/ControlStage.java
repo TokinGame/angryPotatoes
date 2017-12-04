@@ -4,7 +4,10 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import hu.tokingame.potatoeskill.Global.Assets;
+import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextField;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyGdxGame;
 
@@ -16,7 +19,10 @@ public class ControlStage extends MyStage {
 
     OneSpriteStaticActor speedIndicator;
     GameStage gameStage;
+    private MyLabel score;
     float forceTimer = 0;
+
+    private static final String SCORE_LABLE_TEXT = "Pont: ";
 
 
     float currenLaunchMultiplier = 0;
@@ -36,7 +42,14 @@ public class ControlStage extends MyStage {
         speedIndicator.setSize(50, 50);
         addActor(speedIndicator);
         speedIndicator.setPosition(100, 650);
-
+        addActor(score = new MyLabel(SCORE_LABLE_TEXT + "0", game.getLabelStyle()){
+            @Override
+            public void init() {
+                super.init();
+                setSize(400,100);
+                setPosition(Globals.WORLD_WIDTH-getWidth(), Globals.WORLD_HEIGHT-getHeight());
+            }
+        });
 
     }
 
@@ -62,8 +75,14 @@ public class ControlStage extends MyStage {
         }
 
     }
+
     public float getCurrenLaunchMultiplier() {
         return currenLaunchMultiplier;
+    }
+
+
+    public void updateScore(int newScore){
+        score.setText(SCORE_LABLE_TEXT + newScore);
     }
 
 }

@@ -15,36 +15,25 @@ import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
 import hu.tokingame.potatoeskill.Options.OptionsScreen;
 
+import static hu.tokingame.potatoeskill.Global.Globals.currentLevel;
+import static hu.tokingame.potatoeskill.Global.Globals.unlocked;
+
 /**
  * Created by M on 11/9/2017.
  */
 
-public class MenuStage extends MyStage {
+public class LevelSelectStage extends MyStage {
 
     private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
-    public MenuStage(Viewport viewport, Batch batch, MyGdxGame gam) {
+    public LevelSelectStage(final Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
 
 
 
-        addActor(new MyTextButton("Jatek"){
-            @Override
-            protected void init() {
-                super.init();
-                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
-                addListener(new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        game.setScreen(new LevelSelectScreen(game));
-                    }
-                });
-            }
-        });
         addActor(new MyTextButton("Exit"){
             @Override
             protected void init() {
@@ -54,25 +43,41 @@ public class MenuStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        game.setScreen(new ExitScreen(game));
+                        game.setScreenBackByStackPop();
                     }
                 });
             }
         });
-        addActor(new MyTextButton("Options"){
-            @Override
-            protected void init() {
-                super.init();
-                setPosition(Globals.WORLD_WIDTH-170, 10);
-                addListener(new ClickListener(){
+
+
+        final int firstX = 190, firstY = 510;
+        int whichLevel = 1;
+        for(int s = 0; s < 3; s ++){
+            for(int o = 0; o < 5; o++){
+                final int co = o, cs = s, cl = whichLevel;
+                addActor(new MyTextButton(whichLevel+""){
                     @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        game.setScreen(new OptionsScreen(game));
+                    protected void init() {
+                        super.init();
+                        setSize(100, 100);
+                        setPosition(firstX+co*200, firstY-cs*200);
+                        setTexture(unlocked[cl-1] ? Assets.manager.get(Assets.CRATE) : Assets.manager.get(Assets.ENEMY));
+                        if(unlocked[cl-1]){
+                            addListener(new ClickListener(){
+                                @Override
+                                public void clicked(InputEvent event, float x, float y) {
+                                    super.clicked(event, x, y);
+                                    currentLevel = cl;
+                                    game.setScreen(new GameScreen(game));
+                                }
+                            });
+                        }
                     }
                 });
+                whichLevel++;
             }
-        });
+        }
+
     }
 
     @Override

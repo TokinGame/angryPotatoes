@@ -6,6 +6,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 
+import hu.tokingame.potatoeskill.Game.GameStage;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
@@ -71,6 +72,14 @@ public class Potato extends ExploadableActor {
             n /= 10;
         }
         return n;
+    }
+
+    @Override
+    protected void beforeRemoveFromWorld() {
+        super.beforeRemoveFromWorld();
+        if(getStage() instanceof GameStage){
+            ((GameStage) getStage()).potatoRemoved();
+        }
     }
 
     public void setRemoveEffect(){

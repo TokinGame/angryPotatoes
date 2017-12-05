@@ -1,12 +1,15 @@
 package hu.tokingame.potatoeskill.Game;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextField;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyGdxGame;
@@ -18,7 +21,7 @@ import jdk.nashorn.internal.objects.Global;
 
 public class ControlStage extends MyStage {
 
-    private OneSpriteStaticActor speedIndicator, prevSpeedIndicator;
+    private OneSpriteStaticActor speedIndicator, prevSpeedIndicator, powerBG;
     GameStage gameStage;
     private MyLabel score;
 
@@ -35,7 +38,7 @@ public class ControlStage extends MyStage {
     public ControlStage(Viewport viewport, Batch batch, MyGdxGame game, GameStage gStage) {
         super(viewport, batch, game);
         gameStage = gStage;
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.POWERBAR_BG)){
+        addActor(powerBG = new OneSpriteStaticActor(Assets.manager.get(Assets.POWERBAR_BG)){
             @Override
             protected void init() {
                 super.init();

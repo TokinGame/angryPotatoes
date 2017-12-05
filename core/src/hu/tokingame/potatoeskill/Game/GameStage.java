@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
@@ -53,6 +54,7 @@ public class GameStage extends MyStage {
 
     GameStage ez;
     ControlStage controlStage;
+    private LostStage lostStage;
 
     AngleActor angleActor;
 
@@ -61,14 +63,16 @@ public class GameStage extends MyStage {
     private int enemyCount = 0;
     private boolean enemiesAlive = true;
     private int score = 0;
-    private int potatoesLeft = 0;
+    private int potatoesLeft = 0, potatoesStillAlive = 0;
 
 
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         ez = this;
-        controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), batch, game, this);
+        // TODO: 12/5/2017 Megvan hogy mért crashelt! 2 stage használta ugyan azt a sprite batch-et !!!!!
+        controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
+        lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
 
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
             @Override
@@ -174,7 +178,9 @@ public class GameStage extends MyStage {
 
 
     public void setCannonAngle(float degrees){
-        cannon.setRotation(degrees-45);
+        if(potatoesLeft != 0){
+            cannon.setRotation(degrees-45);
+        }
     }
 
     public boolean getPressedState(){
@@ -198,6 +204,7 @@ public class GameStage extends MyStage {
             InputStreamReader isr = new InputStreamReader(Gdx.files.internal(current).read());
             BufferedReader br = new BufferedReader(isr);
             potatoesLeft = Integer.parseInt(br.readLine());
+            potatoesStillAlive = potatoesLeft;
             while(br.ready()){
                 String[] thisLine = br.readLine().split(" ");
                 switch(thisLine[0].charAt(0)){
@@ -246,11 +253,15 @@ public class GameStage extends MyStage {
     @Override
     public void act(float delta) {
         super.act(delta);
-        controlStage.act(delta);
+        if(potatoesLeft != 0){
+            controlStage.act(delta);
+        }else{
+            lostStage.act(delta);
+        }
+
         if (world != null) {
             world.step(delta, 10, 10);
         }
-
 
         if(finishedLoading){
             if(enemyCount == 0 && enemiesAlive){
@@ -264,8 +275,9 @@ public class GameStage extends MyStage {
                     currentLevel++;
                 }
                 game.setScreen(new LevelEndScreen(game), false);
-
-
+            }
+            if(potatoesStillAlive == 0){
+                lostStage.lostGame(enemyCount);
             }
         }
 
@@ -274,7 +286,11 @@ public class GameStage extends MyStage {
     @Override
     public void draw() {
         super.draw();
-        controlStage.draw();
+        if(potatoesStillAlive != 0){
+            controlStage.draw();
+        }else{
+            lostStage.draw();
+        }
         if (world != null) {
             box2DDebugRenderer.render(world, debugMatrix);
         }
@@ -293,6 +309,11 @@ public class GameStage extends MyStage {
     public void enemyRemoved(){
         enemyCount--;
     }
+
+    public void potatoRemoved(){
+        potatoesStillAlive--;
+    }
+
 
     @Override
     public void dispose() {

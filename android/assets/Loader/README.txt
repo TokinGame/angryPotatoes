@@ -1,4 +1,5 @@
+﻿A szám a legelső sorban a krumplik száma
 @ x y
-@: l�da
+@: láda
 #: enemy
-&: tripla l�da
+&: tripla láda

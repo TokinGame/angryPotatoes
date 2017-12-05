@@ -158,14 +158,7 @@ public class GameStage extends MyStage {
             }
         });
 
-
-
         load(Globals.currentLevel);
-
-
-
-
-
 
         //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN nem működik
     }
@@ -274,7 +267,7 @@ public class GameStage extends MyStage {
                     Globals.getPrefs().flush();
                     currentLevel++;
                 }
-                game.setScreen(new LevelEndScreen(game), false);
+                game.setScreen(new LevelEndScreen(game,score), false);
             }
             if(potatoesStillAlive == 0){
                 lostStage.lostGame(enemyCount);

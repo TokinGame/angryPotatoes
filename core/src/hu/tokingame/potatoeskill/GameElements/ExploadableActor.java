@@ -25,6 +25,8 @@ public class ExploadableActor extends WorldActorGroup{
 
 
 
+
+
     public ExploadableActor(World world, ShapeType shapeType, BodyDef.BodyType bodyType, FixtureDef fixtureDef) {
         super(world, shapeType, bodyType, fixtureDef);
     }

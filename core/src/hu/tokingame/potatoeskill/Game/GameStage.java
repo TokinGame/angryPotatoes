@@ -149,6 +149,7 @@ public class GameStage extends MyStage {
                         potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
                         System.out.println(controlStage.getCurrenLaunchMultiplier());
                         potato.shootMe();
+                        Assets.manager.get(Assets.LAUNCH_SOUND).play();
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {

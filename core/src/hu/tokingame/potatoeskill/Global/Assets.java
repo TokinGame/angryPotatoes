@@ -48,6 +48,11 @@ public class Assets {
 
 
 
+    public static final AssetDescriptor<Sound> LAUNCH_SOUND = new AssetDescriptor<Sound>("Sounds/rpg_cut.wav", Sound.class);
+    public static final AssetDescriptor<Sound> EXPLOSION_SOUND1 = new AssetDescriptor<Sound>("Sounds/blast.wav", Sound.class);
+    public static final AssetDescriptor<Sound> EXPLOSION_SOUND2 = new AssetDescriptor<Sound>("Sounds/grenade_explosion_alt.wav", Sound.class);
+    public static final AssetDescriptor<Sound> EXPLOSION_SOUND3 = new AssetDescriptor<Sound>("Sounds/grenade_explosion.wav", Sound.class);
+
     public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -71,6 +76,12 @@ public class Assets {
 		manager.load(POWERBAR_BG);
         manager.load(PREV_POWERBAR);
 		manager.load(BANANA);
+
+        manager.load(LAUNCH_SOUND);
+        manager.load(EXPLOSION_SOUND1);
+        manager.load(EXPLOSION_SOUND2);
+        manager.load(EXPLOSION_SOUND3);
+
 
 		manager.load(CALIBRIL_FONT);
 		manager.load(ZOLISCREENSHOT);

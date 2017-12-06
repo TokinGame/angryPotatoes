@@ -32,6 +32,9 @@ public class Potato extends ExploadableActor {
 
     private float y = -666, x = 1f;
 
+
+    private int rand(int a, int b){return (int)(Math.random()*(b-a+1)+a);}
+
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 100, 0.1f, 25, false);
         actor = new OneSpriteStaticActor(Assets.manager.get(Assets.POTATO));
@@ -114,6 +117,15 @@ public class Potato extends ExploadableActor {
         if (another instanceof Enemy || another instanceof Crate || another instanceof LongCrate){
             System.out.println("Krumpli");
             setupXplosion(this.getBody().getLinearVelocity().len());
+            explosionSound();
+        }
+    }
+
+    void explosionSound(){
+        switch(rand(0, 2)){
+            case 0: Assets.manager.get(Assets.EXPLOSION_SOUND1).play(); break;
+            case 1: Assets.manager.get(Assets.EXPLOSION_SOUND2).play(); break;
+            case 2: Assets.manager.get(Assets.EXPLOSION_SOUND3).play(); break;
         }
     }
 

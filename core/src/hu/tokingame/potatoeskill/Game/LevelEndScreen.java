@@ -23,8 +23,6 @@ public class LevelEndScreen extends MyScreen {
         super(game);
         levelEndStage = new LevelEndStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), spriteBatch, game, finalScore);
         levelEndStage.addBackEventStackListener();
-        Gdx.input.setInputProcessor(levelEndStage);
-
     }
 
     @Override

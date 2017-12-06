@@ -89,7 +89,10 @@ public class Potato extends ExploadableActor {
 
     public void act(float delta) {
         super.act(delta);
-        if (getBody()!= null && getBody().getLinearVelocity().len()<0.01f){
+        if(getX() > getStage().getViewport().getWorldWidth()){
+            System.out.println("szar>>>>>>>>>>>>>>>>>>>>>>>>> " + (getX() - getStage().getViewport().getWorldWidth()));
+        }
+        if (getBody()!= null && getBody().getLinearVelocity().len()<0.01f || getBody()!= null && getX() > getStage().getViewport().getWorldWidth()+35){
             setVisibilityControl(false);
             removeFromWorld();
             setRemoveEffect();

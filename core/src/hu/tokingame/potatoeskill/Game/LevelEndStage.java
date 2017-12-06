@@ -1,5 +1,6 @@
 package hu.tokingame.potatoeskill.Game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
@@ -23,6 +24,7 @@ public class LevelEndStage extends MyStage {
 
     public LevelEndStage(Viewport viewport, Batch batch, MyGdxGame game, int finalScore) {
         super(viewport, batch, game);
+        Gdx.input.setInputProcessor(this);
         this.game = game;
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
             @Override
@@ -37,13 +39,6 @@ public class LevelEndStage extends MyStage {
             protected void init() {
                 super.init();
                 setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
-                addListener(new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        //LevelEndStage.this.game.setScreen(new GameScreen(LevelEndStage.this.game));
-                    }
-                });
             }
         });
         addActor(new MyTextButton("Következő"){
@@ -55,6 +50,7 @@ public class LevelEndStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
+                        System.out.println(">>?>>?>>>>>?>>>?>>??>>?>?>?clicked");
                         LevelEndStage.this.game.setScreen(new GameScreen(LevelEndStage.this.game),false);
                     }
                 });

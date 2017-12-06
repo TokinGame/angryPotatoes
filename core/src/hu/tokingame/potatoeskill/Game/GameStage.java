@@ -74,6 +74,7 @@ public class GameStage extends MyStage {
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
         lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
 
+
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
             @Override
             public void init() {

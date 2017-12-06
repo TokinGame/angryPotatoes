@@ -43,7 +43,7 @@ public class ControlStage extends MyStage {
             protected void init() {
                 super.init();
                 setSize(450, 100);
-                setPosition(75, 625);
+                setPosition(275, 625);
             }
         });
         prevSpeedIndicator = new OneSpriteStaticActor(Assets.manager.get(Assets.PREV_POWERBAR));
@@ -52,8 +52,8 @@ public class ControlStage extends MyStage {
         prevSpeedIndicator.setSize(50, 50);
         addActor(prevSpeedIndicator);
         addActor(speedIndicator);
-        speedIndicator.setPosition(100, 650);
-        prevSpeedIndicator.setPosition(100, 650);
+        speedIndicator.setPosition(300, 650);
+        prevSpeedIndicator.setPosition(300, 650);
         addActor(score = new MyLabel(SCORE_LABLE_TEXT + "0", game.getLabelStyle()){
             @Override
             public void init() {
@@ -68,6 +68,21 @@ public class ControlStage extends MyStage {
                 super.init();
                 setSize(100, 100);
                 setPosition(Globals.WORLD_WIDTH-getWidth()-score.getWidth(), Globals.WORLD_HEIGHT-getHeight());
+            }
+        });
+        addActor(new MyTextButton("Újraindítás"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(10, Globals.WORLD_HEIGHT-getHeight());
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        System.out.println("restart");
+                        ControlStage.this.game.setScreen(new GameScreen(ControlStage.this.game),false);
+                    }
+                });
             }
         });
 

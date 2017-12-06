@@ -21,7 +21,9 @@ import hu.tokingame.potatoeskill.Options.OptionsScreen;
 
 public class MenuStage extends MyStage {
 
-    private OneSpriteStaticActor baglogic;
+    private OneSpriteStaticActor baglogic; // táskalogika?
+    OneSpriteStaticActor flyingPotato, macskura;
+    boolean falling = false, big = false;
     MyGdxGame game;
 
     public MenuStage(Viewport viewport, Batch batch, MyGdxGame gam) {
@@ -29,6 +31,61 @@ public class MenuStage extends MyStage {
 
         game = gam;
 
+        addActor(flyingPotato = new OneSpriteStaticActor(Assets.manager.get(Assets.POTATO)){
+            @Override
+            public void init() {
+                super.init();
+                setSize(200, 200);
+                setPosition(-200, 50);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        triggerEasterEgg();
+                    }
+                });
+            }
+
+            @Override
+            public void act(float delta) {
+                super.act(delta);
+                setRotation(getRotation()-1);
+                setPosition(getX()+0.8f, getY()+0.2f);
+            }
+        });
+
+        addActor(macskura = new OneSpriteStaticActor(Assets.manager.get(Assets.BANANA)) {
+
+                    @Override
+                    public void init() {
+                        super.init();
+                        setSize(400, 400);
+                        setPosition(Globals.WORLD_WIDTH / 2 - this.getWidth() / 2, 800);
+                        addListener(new ClickListener() {
+                            @Override
+                            public void clicked(InputEvent event, float x, float y) {
+                                super.clicked(event, x, y);
+                                setSize(1000, 1000);
+                                big = true;
+                                setX(Globals.WORLD_WIDTH / 2 - getWidth() / 2);
+                            }
+                        });
+                    }
+
+                    @Override
+                    public void act(float delta) {
+                        super.act(delta);
+                        if (falling) setY(getY() - 10);
+                        if ((getY() < -400 && !big) || (big && getY() < -1000)) {
+                            setSize(400, 400);
+                            setY(800);
+                            setX(Globals.WORLD_WIDTH / 2 - getWidth() / 2);
+                            falling = false;
+                            big = false;
+                        }
+
+                    }
+        });
 
 
         addActor(new MyTextButton("Jatek"){
@@ -83,5 +140,12 @@ public class MenuStage extends MyStage {
     @Override
     public void act(float delta) {
         super.act(delta);
+
+    }
+
+
+    void triggerEasterEgg(){
+        System.out.println("easter egg");
+        falling = true;
     }
 }

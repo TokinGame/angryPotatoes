@@ -50,6 +50,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> POWERBAR = new AssetDescriptor<Texture>("GameTextures/powerbar.png", Texture.class);
 	public static final AssetDescriptor<Texture> PREV_POWERBAR = new AssetDescriptor<Texture>("GameTextures/prevpowerbar.png", Texture.class);
 	public static final AssetDescriptor<Texture> BANANA= new AssetDescriptor<Texture>("GameTextures/banana_for_scale.png", Texture.class);
+	public static final AssetDescriptor<Texture> CAT= new AssetDescriptor<Texture>("GameTextures/cat_cut.png", Texture.class);
 	public static final AssetDescriptor<Texture> REDX= new AssetDescriptor<Texture>("GameTextures/redx.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);
@@ -106,6 +107,7 @@ public class Assets {
 		manager.load(POWERBAR_BG);
         manager.load(PREV_POWERBAR);
 		manager.load(BANANA);
+		manager.load(CAT);
 		manager.load(REDX);
 
 		manager.load(NUKE);

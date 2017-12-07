@@ -209,7 +209,7 @@ public class GameStage extends MyStage {
                 String[] thisLine = br.readLine().split(" ");
                 switch(thisLine[0].charAt(0)){
                     case '@':
-                        addActor(new Crate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        addActor(new Crate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
                         System.out.println("placed crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     case '#':
@@ -218,7 +218,7 @@ public class GameStage extends MyStage {
                         enemyCount++;
                         break;
                     case '&':
-                        addActor(new LongCrate(world, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        addActor(new LongCrate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
                         System.out.println("placed triple crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     default:

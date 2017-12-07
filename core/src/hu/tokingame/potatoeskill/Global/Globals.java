@@ -14,7 +14,7 @@ public class Globals {
 
     public static final Preferences prefs = Gdx.app.getPreferences("main");
 
-    public static boolean DEBUG_ALL = false;
+    public static boolean DEBUG_ALL = true;
 
     public static boolean soundFX = true, music = true;
 

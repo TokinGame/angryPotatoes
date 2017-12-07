@@ -303,6 +303,8 @@ public class GameStage extends MyStage {
                         Globals.getPrefs().flush();
                         currentLevel++;
                     }
+                    score += (potatoesLeft * 10000);
+                    controlStage.updateScore(score);
                     game.setScreen(new LevelEndScreen(game,score), false);
                 }
             }

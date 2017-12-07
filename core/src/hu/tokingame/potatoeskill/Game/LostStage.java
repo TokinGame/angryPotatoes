@@ -47,7 +47,7 @@ public class LostStage extends MyStage {
             @Override
             protected void init() {
                 super.init();
-                this.setPosition(Globals.WORLD_WIDTH - getWidth(), 0);
+                this.setPosition(Globals.WORLD_WIDTH - getWidth()-10, 10);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
@@ -61,7 +61,7 @@ public class LostStage extends MyStage {
             @Override
             protected void init() {
                 super.init();
-                this.setPosition(0,0);
+                this.setPosition(10,10);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {

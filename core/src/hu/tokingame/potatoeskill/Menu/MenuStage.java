@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import hu.tokingame.potatoeskill.About.AboutScreen;
 import hu.tokingame.potatoeskill.Demo.DemoScreen;
 import hu.tokingame.potatoeskill.Exit.ExitScreen;
 import hu.tokingame.potatoeskill.Game.GameScreen;
@@ -154,6 +155,20 @@ public class MenuStage extends MyStage {
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
                         game.setScreen(new HowToScreen(game));
+                    }
+                });
+            }
+        });
+        addActor(new MyTextButton("Készítők"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(10, 110);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        game.setScreen(new AboutScreen(game));
                     }
                 });
             }

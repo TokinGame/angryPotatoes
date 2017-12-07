@@ -1,4 +1,4 @@
-package hu.tokingame.potatoeskill.HowTo;
+package hu.tokingame.potatoeskill.About;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -6,9 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-
 import hu.tokingame.potatoeskill.Global.Assets;
-
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
@@ -23,55 +21,45 @@ import jdk.nashorn.internal.objects.Global;
  * Created by zoltan on 11/9/2017.
  */
 
-public class HowToStage extends MyStage {
+public class AboutStage extends MyStage {
 
+    private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
-    public HowToStage(Viewport viewport, Batch batch, MyGdxGame gam) {
+    public AboutStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
 
-
-
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.WOOD_BG)){
+        addActor(new hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor(Assets.manager.get(Assets.WOOD_BG)){
             @Override
-            public void init() {
+            protected void init() {
                 super.init();
                 setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
                 setPosition(0,0);
             }
         });
 
-
-        addActor(new MyLabel("Hogyan Játssz", game.getLabelStyle()){
+        addActor(new MyLabel("Angry Potatoes\nKészítette a Tökin Game\nTagok:\nBálint Dániel\nDávid Mátyás\nKovács Zoltán\nSchuh Marcell", game.getLabelStyle()){
             @Override
             public void init() {
                 super.init();
-                setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 650);
+                setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 200);
+                setAlignment(2);
             }
         });
-
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TABLET)){
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TOKIN)){
             @Override
             public void init() {
                 super.init();
-                setPosition(750, 50);
-                setSize(500,400);
-            }
-        });
-        addActor(new MyLabel("Az ágyú dőlésszögét húzással lehet állítani:\nAz ágyú az ujjad felé fog dőlni.\n"+
-                "A kilövéshez tartsd nyomva a kívánt dőlésszögnél,\nmajd ha a fenti erősségjelső jó helyen jár, engedd el.\n"+
-                "Ha bekapcsolod a nehéz módot, akkor a szél is fúj.\nA szél irányát és erősségét kék nyíl jelzi.", game.getLabelStyle()){
-            @Override
-            public void init() {
-                super.init();
-                setPosition(20, 200);
+                setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 50);
+                setSize(100, 100);
             }
         });
 
 
-        addActor(new MyTextButton("Vissza"){
+
+        addActor(new MyTextButton("Nem"){
             @Override
             protected void init() {
                 super.init();

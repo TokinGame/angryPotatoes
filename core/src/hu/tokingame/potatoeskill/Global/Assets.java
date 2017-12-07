@@ -38,7 +38,7 @@ public class Assets {
 	public static final AssetDescriptor<TextureAtlas> EXPLOSION_TEXTUREATLAS = new AssetDescriptor<TextureAtlas>("GameTextures/explosion.txt", TextureAtlas.class);
 
 
-	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
+	public static final AssetDescriptor<Texture> TOKIN = new AssetDescriptor<Texture>("GameTextures/tokin.png", Texture.class);
 	public static final AssetDescriptor<Texture> CANNON = new AssetDescriptor<Texture>("GameTextures/cannon.png", Texture.class);
 	public static final AssetDescriptor<Texture> POTATO = new AssetDescriptor<Texture>("GameTextures/potato.png", Texture.class);
 	public static final AssetDescriptor<Texture> CRATE = new AssetDescriptor<Texture>("GameTextures/wooden-crate.png", Texture.class);
@@ -105,7 +105,7 @@ public class Assets {
 		manager.setLoader(BitmapFont.class, ".ttf", new FreetypeFontLoader(resolver));
 		manager.setLoader(BitmapFont.class, ".otf", new FreetypeFontLoader(resolver));
 
-		manager.load(BADLOGIC_TEXTURE);
+		manager.load(TOKIN);
 
 
 		manager.load(CANNON);

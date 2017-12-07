@@ -25,7 +25,6 @@ import static hu.tokingame.potatoeskill.Global.Globals.unlocked;
 
 public class LevelSelectStage extends MyStage {
 
-    private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
     public LevelSelectStage(final Viewport viewport, Batch batch, MyGdxGame gam) {
@@ -35,7 +34,7 @@ public class LevelSelectStage extends MyStage {
 
 
 
-        addActor(new MyTextButton("Exit"){
+        addActor(new MyTextButton("Vissza"){
             @Override
             protected void init() {
                 super.init();
@@ -56,14 +55,16 @@ public class LevelSelectStage extends MyStage {
         for(int s = 0; s < 3; s ++){
             for(int o = 0; o < 5; o++){
                 final int co = o, cs = s, cl = whichLevel;
-                addActor(new MyTextButton(whichLevel+""){
+                addActor(new MyTextButton(whichLevel+"", game.getBlackTextButtonStyle()){
                     @Override
                     protected void init() {
                         super.init();
                         setSize(100, 100);
                         setPosition(firstX+co*200, firstY-cs*200);
-                        setTexture(unlocked[cl-1] ? Assets.manager.get(Assets.) : Assets.manager.get(Assets.ENEMY));
+                        setTexture(Assets.manager.get(Assets.ICONS[cl-1]));
+
                         if(unlocked[cl-1]){
+
                             addListener(new ClickListener(){
                                 @Override
                                 public void clicked(InputEvent event, float x, float y) {
@@ -71,6 +72,15 @@ public class LevelSelectStage extends MyStage {
                                     currentLevel = cl;
                                     if(cl == 1) game.setScreen(new DemoScreen(game));
                                     else game.setScreen(new GameScreen(game),false);
+                                }
+                            });
+                        }else{
+                            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.REDX)){
+                                @Override
+                                public void init() {
+                                    super.init();
+                                    setSize(100, 100);
+                                    setPosition(firstX+co*200, firstY-cs*200);
                                 }
                             });
                         }

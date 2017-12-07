@@ -60,6 +60,26 @@ public class MyGdxGame extends Game {
 		textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
 		return textButtonStyle;
 	}
+	public TextButton.TextButtonStyle getBlackTextButtonStyle() {
+
+		TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+		textButtonStyle.fontColor = Color.BLACK;
+		textButtonStyle.font = Assets.manager.get(Assets.CALIBRIL_FONT);
+
+		Pixmap p = new Pixmap(1, 1, Pixmap.Format.RGB888);
+		p.setColor(0, 0, 0, 1);
+		p.fill();
+		textButtonStyle.up = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
+
+		p.setColor(0.3f, 0.5f, 0.8f, 0.5f);
+		p.fill();
+		textButtonStyle.over = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
+
+		p.setColor(1f, 0.5f, 0.8f, 1f);
+		p.fill();
+		textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
+		return textButtonStyle;
+	}
 
 	@Override
 	public void create() {

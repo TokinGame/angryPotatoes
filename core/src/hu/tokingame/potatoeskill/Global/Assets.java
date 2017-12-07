@@ -33,6 +33,7 @@ public class Assets {
 	}
 	public static final AssetDescriptor<BitmapFont> CALIBRIL_FONT = new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
+
 	public static final AssetDescriptor<TextureAtlas> EXPLOSION_TEXTUREATLAS = new AssetDescriptor<TextureAtlas>("GameTextures/explosion.txt", TextureAtlas.class);
 
 
@@ -49,6 +50,7 @@ public class Assets {
 	public static final AssetDescriptor<Texture> POWERBAR = new AssetDescriptor<Texture>("GameTextures/powerbar.png", Texture.class);
 	public static final AssetDescriptor<Texture> PREV_POWERBAR = new AssetDescriptor<Texture>("GameTextures/prevpowerbar.png", Texture.class);
 	public static final AssetDescriptor<Texture> BANANA= new AssetDescriptor<Texture>("GameTextures/banana_for_scale.png", Texture.class);
+	public static final AssetDescriptor<Texture> REDX= new AssetDescriptor<Texture>("GameTextures/redx.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);
 	public static final AssetDescriptor<Texture> POTATO_FAMILY = new AssetDescriptor<Texture>("GameTextures/potatoes.png", Texture.class);
@@ -104,6 +106,7 @@ public class Assets {
 		manager.load(POWERBAR_BG);
         manager.load(PREV_POWERBAR);
 		manager.load(BANANA);
+		manager.load(REDX);
 
 		manager.load(NUKE);
 		manager.load(POTATO_FAMILY);

@@ -55,6 +55,10 @@ import hu.tokingame.potatoeskill.Global.Assets;
             super(text, textButtonStyle);
             init();
         }
+        public MyTextButton(String text, TextButtonStyle tbs) {
+            super(text, tbs);
+            init();
+        }
 
         public MyTextButton(String text, Texture texture, boolean enable) {
             super(text, textButtonStyle);

@@ -8,6 +8,7 @@ import com.badlogic.gdx.scenes.scene2d.Touchable;
 
 import hu.tokingame.potatoeskill.Game.GameStage;
 import hu.tokingame.potatoeskill.Global.Assets;
+import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
 import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
@@ -110,6 +111,10 @@ public class Potato extends ExploadableActor {
             if (removeTime > 1){
                 removeFromStage();
             }
+        }
+        if(getBody()!= null && Globals.hard){
+            this.getBody().applyForceToCenter(Globals.windDirection, 0, false);
+            System.out.println("applying "+Globals.windDirection+" wind");
         }
     }
 

@@ -26,7 +26,7 @@ public class OptionsStage extends MyStage {
     private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
-    private static final String SOUDNFX_LABEL = "Sound FX: ";
+    private static final String SOUDNFX_LABEL = "Sound FX: ", HARDNESS_LABEL = "Nehézség: ";
 
     public OptionsStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
@@ -48,7 +48,7 @@ public class OptionsStage extends MyStage {
             protected void init() {
                 super.init();
                 this.setText(SOUDNFX_LABEL + (Globals.soundFX ? "Be" : "Ki"));
-                this.setPosition(0, Globals.WORLD_HEIGHT - this.getY());
+                this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 500);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
@@ -57,6 +57,24 @@ public class OptionsStage extends MyStage {
                         Globals.getPrefs().putBoolean("soundFX", Globals.soundFX);
                         Globals.getPrefs().flush();
                         setText(SOUDNFX_LABEL + (Globals.soundFX ? "Be" : "Ki"));
+                    }
+                });
+            }
+        });
+        addActor(new MyTextButton(HARDNESS_LABEL){
+            @Override
+            protected void init() {
+                super.init();
+                this.setText(HARDNESS_LABEL + (Globals.hard ? "Nehéz" : "Könnyű"));
+                this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 400);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        Globals.hard = !Globals.hard;
+                        Globals.getPrefs().putBoolean("hard", Globals.hard);
+                        Globals.getPrefs().flush();
+                        setText(HARDNESS_LABEL + (Globals.hard ? "Nehéz" : "Könnyű"));
                     }
                 });
             }

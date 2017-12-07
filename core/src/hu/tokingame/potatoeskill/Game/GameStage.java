@@ -71,10 +71,18 @@ public class GameStage extends MyStage {
     private boolean easterEggActive = false;
 
 
+    int random(int a, int b){return (int)(Math.random()*((b-a+1)+a));}
+
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         ez = this;
+
+        if(Globals.hard){
+            Globals.windDirection = random(0,1)==1 ? random(100, 800) : -random(100, 800);
+        }
+
         // TODO: 12/5/2017 Megvan hogy mért crashelt! 2 stage használta ugyan azt a sprite batch-et !!!!!
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
         lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);

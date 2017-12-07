@@ -16,7 +16,9 @@ public class Globals {
 
     public static boolean DEBUG_ALL = false;
 
-    public static boolean soundFX = true, music = true;
+    public static boolean soundFX = true, music = true, hard = prefs.getBoolean("hard",false);
+
+    public static float windDirection = 0;
 
     public static int currentLevel = 1;
 

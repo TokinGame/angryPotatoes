@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import hu.tokingame.potatoeskill.GameElements.WindDirectionActor;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Menu.MenuScreen;
@@ -115,6 +116,16 @@ public class ControlStage extends MyStage {
                     super.init();
                     setPosition(100, 100);
                     setSize(200, 200);
+                }
+            });
+        }
+
+        if(Globals.hard){
+            addActor(new WindDirectionActor(){
+                @Override
+                public void init() {
+                    super.init();
+                    setWindIntensity(Globals.windDirection);
                 }
             });
         }

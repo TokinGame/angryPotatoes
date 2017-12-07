@@ -53,6 +53,25 @@ public class Assets {
 	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);
 	public static final AssetDescriptor<Texture> POTATO_FAMILY = new AssetDescriptor<Texture>("GameTextures/potatoes.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> L1 = new AssetDescriptor<Texture>("LevelIcons/1.png", Texture.class);
+	public static final AssetDescriptor<Texture> L2 = new AssetDescriptor<Texture>("LevelIcons/2.png", Texture.class);
+	public static final AssetDescriptor<Texture> L3 = new AssetDescriptor<Texture>("LevelIcons/3.png", Texture.class);
+	public static final AssetDescriptor<Texture> L4 = new AssetDescriptor<Texture>("LevelIcons/4.png", Texture.class);
+	public static final AssetDescriptor<Texture> L5 = new AssetDescriptor<Texture>("LevelIcons/5.png", Texture.class);
+	public static final AssetDescriptor<Texture> L6 = new AssetDescriptor<Texture>("LevelIcons/6.png", Texture.class);
+	public static final AssetDescriptor<Texture> L7 = new AssetDescriptor<Texture>("LevelIcons/7.png", Texture.class);
+	public static final AssetDescriptor<Texture> L8 = new AssetDescriptor<Texture>("LevelIcons/8.png", Texture.class);
+	public static final AssetDescriptor<Texture> L9 = new AssetDescriptor<Texture>("LevelIcons/9.png", Texture.class);
+	public static final AssetDescriptor<Texture> L10 = new AssetDescriptor<Texture>("LevelIcons/10.png", Texture.class);
+	public static final AssetDescriptor<Texture> L11 = new AssetDescriptor<Texture>("LevelIcons/11.png", Texture.class);
+	public static final AssetDescriptor<Texture> L12 = new AssetDescriptor<Texture>("LevelIcons/12.png", Texture.class);
+	public static final AssetDescriptor<Texture> L13 = new AssetDescriptor<Texture>("LevelIcons/13.png", Texture.class);
+	public static final AssetDescriptor<Texture> L14 = new AssetDescriptor<Texture>("LevelIcons/14.png", Texture.class);
+	public static final AssetDescriptor<Texture> L15 = new AssetDescriptor<Texture>("LevelIcons/15.png", Texture.class);
+	public static final AssetDescriptor<Texture>[] ICONS = new AssetDescriptor[]{
+
+	};
+
 
 
     public static final AssetDescriptor<Sound> LAUNCH_SOUND = new AssetDescriptor<Sound>("Sounds/rpg_cut.wav", Sound.class);
@@ -89,6 +108,22 @@ public class Assets {
 		manager.load(NUKE);
 		manager.load(POTATO_FAMILY);
 
+		manager.load(L1);
+		manager.load(L2);
+		manager.load(L3);
+		manager.load(L4);
+		manager.load(L5);
+		manager.load(L6);
+		manager.load(L7);
+		manager.load(L8);
+		manager.load(L9);
+		manager.load(L10);
+		manager.load(L11);
+		manager.load(L12);
+		manager.load(L13);
+		manager.load(L14);
+		manager.load(L15);
+
         manager.load(LAUNCH_SOUND);
         manager.load(EXPLOSION_SOUND1);
         manager.load(EXPLOSION_SOUND2);
@@ -99,6 +134,9 @@ public class Assets {
 
 		manager.load(CALIBRIL_FONT);
 		manager.load(ZOLISCREENSHOT);
+
+
+
 	}
 
     public static void afterLoaded() {

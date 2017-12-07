@@ -62,7 +62,7 @@ public class LevelSelectStage extends MyStage {
                         super.init();
                         setSize(100, 100);
                         setPosition(firstX+co*200, firstY-cs*200);
-                        setTexture(unlocked[cl-1] ? Assets.manager.get(Assets.CRATE) : Assets.manager.get(Assets.ENEMY));
+                        setTexture(unlocked[cl-1] ? Assets.manager.get(Assets.) : Assets.manager.get(Assets.ENEMY));
                         if(unlocked[cl-1]){
                             addListener(new ClickListener(){
                                 @Override

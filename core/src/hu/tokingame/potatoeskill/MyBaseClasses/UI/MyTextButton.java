@@ -34,7 +34,7 @@ import hu.tokingame.potatoeskill.Global.Assets;
         {
             textButtonStyle = new TextButtonStyle();
             textButtonStyle.font = Assets.manager.get(Assets.CALIBRIL_FONT);
-
+/*
             Pixmap p = new Pixmap(1,1, Pixmap.Format.Alpha);
             p.setColor(1);
             p.fill();
@@ -47,7 +47,7 @@ import hu.tokingame.potatoeskill.Global.Assets;
             //p.setColor(0f,1f,0.1f, 0);
             //p.fill();
             textButtonStyle.down = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
-
+*/
         }
 
 
@@ -113,12 +113,12 @@ import hu.tokingame.potatoeskill.Global.Assets;
         protected void init() {
             style = new TextButtonStyle();
             style.font = Assets.manager.get(Assets.CALIBRIL_FONT);
-            Pixmap p = new Pixmap(1,1, Pixmap.Format.Alpha);
+            /*Pixmap p = new Pixmap(1,1, Pixmap.Format.Alpha);
             p.setColor(1);
             p.fill();
             style.up = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
             style.over = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
-            style.down = new TextureRegionDrawable(new TextureRegion(new Texture(p)));
+            style.down = new TextureRegionDrawable(new TextureRegion(new Texture(p)));*/
             empty = style;
             this.setStyle(style);
         }

@@ -80,7 +80,7 @@ public class GameStage extends MyStage {
         ez = this;
 
         if(Globals.hard){
-            Globals.windDirection = random(0,1)==1 ? random(100, 1000) : -random(100, 1000);
+            Globals.windDirection = random(0,1)==1 ? random(100, 800) : -random(100, 800);
         }
 
         // TODO: 12/5/2017 Megvan hogy mért crashelt! 2 stage használta ugyan azt a sprite batch-et !!!!!

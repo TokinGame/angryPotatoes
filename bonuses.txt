@@ -1,0 +1,23 @@
+Ütközésmodelles box2D használata a fizikai számításokhoz
+Egyedi, intuitív irányítás
+Több féle terep (15+1 féle, fájlból beolvasható, bõvíthetõ)
+Egyszerre több ellenfél, megsemmisíthetõ pálya
+Kétféle építõelem, melybõl bonyolult erõdítmények építhetõk
+Könnyû és nehéz játékfokozat (nehéz módban van szél, az irányát és erejét kék nyíl jelzi)
+Zene
+Hangeffektek
+Speciális effektek
+Változó hátterek
+Feloldható pályák
+A program a feloldott pályákat és a beállításokat elmenti
+Pontszámítás, korlátozott mennyiségû lõszer
+Háttértörténet, az animáció az elsõ pálya megnyitásakor játszódik le
+Az elsõ szint segít az irányítás elsajátításában
+Easter egg, mely a menüben lévõ krumpli, majd a megjelenõ macska kétszeri megnyomásával érhetõ el (bónusz pálya)
+Még az elõzõ forduló programjánál is több krumpli ;)
+
+Pontozás:
+	láda: 1000 pont
+	széles láda: 3000 pont
+	ellenség(mikró): 5000 pont
+	minden megmaradó krumpli: 10000 pont

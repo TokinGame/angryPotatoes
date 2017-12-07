@@ -33,6 +33,7 @@ public class LevelEndScreen extends MyScreen {
     @Override
     public void render(float delta) {
         super.render(delta);
+        levelEndStage.act(delta);
         levelEndStage.draw();
     }
 }

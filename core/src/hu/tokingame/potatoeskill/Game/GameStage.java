@@ -142,7 +142,6 @@ public class GameStage extends MyStage {
 
             @Override
             public void onTouchUp(float x, float y) {
-                // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
                 if(potatoesLeft > 0) {
                     addActor(potato = new Potato(world, loader, 2000, 10, easterEggActive));
                     potato.setLaunchAngle(this.getRadAngle());
@@ -267,7 +266,6 @@ public class GameStage extends MyStage {
         if(finishedLoading){
             if(enemyCount == 0 && enemiesAlive){
                 enemiesAlive = false;
-                //TODO a staget átállítani
                 System.out.println("end game");
                 if(currentLevel < 15){
                     Globals.unlocked[currentLevel] = true;

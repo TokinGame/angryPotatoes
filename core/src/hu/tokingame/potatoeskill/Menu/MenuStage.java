@@ -68,7 +68,6 @@ public class MenuStage extends MyStage {
                                 setSize(1000, 1000);
                                 setX(Globals.WORLD_WIDTH / 2 - getWidth() / 2);
                                 if(big){
-                                    //TODO macskás stage
                                     Globals.currentLevel = 99;
                                     game.setScreen(new GameScreen(game), false);
                                 }else big = true;
@@ -149,7 +148,6 @@ public class MenuStage extends MyStage {
 
 
     void triggerEasterEgg(){
-        System.out.println("easter egg");
         falling = true;
     }
 }

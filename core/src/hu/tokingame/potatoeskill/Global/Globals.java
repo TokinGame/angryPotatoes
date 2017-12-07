@@ -18,6 +18,8 @@ public class Globals {
 
     public static boolean soundFX = true, music = true, hard = false;
 
+    public static float windDirection = 0;
+
     public static int currentLevel = 1;
 
     public static boolean[] unlocked = {true, false, false, false, false, false, false, false, false, false, false, false, false, false, false};

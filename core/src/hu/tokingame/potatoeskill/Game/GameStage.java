@@ -71,6 +71,9 @@ public class GameStage extends MyStage {
     private boolean easterEggActive = false;
 
 
+    int random(int a, int b){return (int)(Math.random()*((b-a+1)+a));}
+
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -180,6 +183,10 @@ public class GameStage extends MyStage {
         });
 
         load(Globals.currentLevel);
+
+        if(Globals.hard){
+            Globals.windDirection = random(0,1)==1 ? random(100, 1000) : -random(100, 1000);
+        }
 
         //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN nem működik
     }

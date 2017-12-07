@@ -66,6 +66,9 @@ public class GameStage extends MyStage {
     private int potatoesLeft = 0, potatoesStillAlive = 0;
 
 
+    private boolean easterEggActive = false;
+
+
 
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
@@ -73,6 +76,8 @@ public class GameStage extends MyStage {
         // TODO: 12/5/2017 Megvan hogy mért crashelt! 2 stage használta ugyan azt a sprite batch-et !!!!!
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
         lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
+
+        if(currentLevel == 99) easterEggActive = true;
 
 
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
@@ -139,7 +144,7 @@ public class GameStage extends MyStage {
             public void onTouchUp(float x, float y) {
                 // TODO: 11/21/2017 Krúplííí lenní kíná úrhájjyó mint kina vezztőj a ókÓr ban. vagyis ki kell löni e
                 if(potatoesLeft > 0) {
-                    addActor(potato = new Potato(world, loader, 2000, 10));
+                    addActor(potato = new Potato(world, loader, 2000, 10, easterEggActive));
                     potato.setLaunchAngle(this.getRadAngle());
                     try {
                         Vector2 vector2 = new Vector2(13, 0);
@@ -228,6 +233,7 @@ public class GameStage extends MyStage {
         }finally{
             finishedLoading = true;
             controlStage.setCounter(potatoesLeft);
+
         }
 
     }

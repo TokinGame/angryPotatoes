@@ -35,12 +35,12 @@ public class Potato extends ExploadableActor {
 
     private int rand(int a, int b){return (int)(Math.random()*(b-a+1)+a);}
 
-    public Potato(World world, WorldBodyEditorLoader loader, float x, float y) {
+    public Potato(World world, WorldBodyEditorLoader loader, float x, float y, boolean cat) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 100, 0.1f, 25, false);
-        actor = new OneSpriteStaticActor(Assets.manager.get(Assets.POTATO));
-        setSize(5, 5);
+        actor = new OneSpriteStaticActor(cat ? Assets.manager.get(Assets.BANANA) : Assets.manager.get(Assets.POTATO));
+        if(cat) setSize(15, 15); else setSize(5, 5);
         addActor(actor);
-        actor.setSize(5,5);
+        if(cat) actor.setSize(15, 15); else actor.setSize(5, 5);
         addToWorld();
         setPosition(x, y);
         setTouchable(Touchable.disabled);

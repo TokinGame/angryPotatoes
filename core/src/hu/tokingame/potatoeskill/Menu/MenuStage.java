@@ -66,8 +66,12 @@ public class MenuStage extends MyStage {
                             public void clicked(InputEvent event, float x, float y) {
                                 super.clicked(event, x, y);
                                 setSize(1000, 1000);
-                                big = true;
                                 setX(Globals.WORLD_WIDTH / 2 - getWidth() / 2);
+                                if(big){
+                                    //TODO macskás stage
+                                    Globals.currentLevel = 99;
+                                    game.setScreen(new GameScreen(game), false);
+                                }else big = true;
                             }
                         });
                     }
@@ -75,7 +79,7 @@ public class MenuStage extends MyStage {
                     @Override
                     public void act(float delta) {
                         super.act(delta);
-                        if (falling) setY(getY() - 10);
+                        if (falling) setY(getY() - 15);
                         if ((getY() < -400 && !big) || (big && getY() < -1000)) {
                             setSize(400, 400);
                             setY(800);

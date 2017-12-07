@@ -26,7 +26,7 @@ public class OptionsStage extends MyStage {
     private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
-    private static final String SOUDNFX_LABEL = "Sound FX: ", HARDNESS_LABEL = "Nehézség: ";
+    private static final String SOUDNFX_LABEL = "Hang effektek: ", HARDNESS_LABEL = "Nehézség: ";
 
     public OptionsStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
@@ -81,7 +81,7 @@ public class OptionsStage extends MyStage {
         });
 
 
-        addActor(new MyTextButton("Back"){
+        addActor(new MyTextButton("Vissza"){
             @Override
             protected void init() {
                 super.init();

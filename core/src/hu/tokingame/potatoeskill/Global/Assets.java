@@ -56,11 +56,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> TILTARROW = new AssetDescriptor<Texture>("GameTextures/tilt_arrow.png", Texture.class);
 	public static final AssetDescriptor<Texture> WIND_ARROW = new AssetDescriptor<Texture>("GameTextures/arrow.png", Texture.class);
 
+
 	public static final AssetDescriptor<Texture> TABLET = new AssetDescriptor<Texture>("GameTextures/how_to_tablet.png", Texture.class);
 	public static final AssetDescriptor<Texture> WOOD_BG = new AssetDescriptor<Texture>("GameTextures/woodd.jpg", Texture.class);
-
-	public static final AssetDescriptor<Texture> TABLET = new AssetDescriptor<Texture>("GameTextures/how_to_table.png", Texture.class);
-	public static final AssetDescriptor<Texture> WOOD_BG = new AssetDescriptor<Texture>("GameTextures/arrow.png", Texture.class);
 
 
 	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);

@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
+import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
@@ -70,11 +71,26 @@ public class ControlStage extends MyStage {
                 setPosition(Globals.WORLD_WIDTH-getWidth()-score.getWidth(), Globals.WORLD_HEIGHT-getHeight());
             }
         });
-        addActor(new MyTextButton("Újraindítás"){
+        addActor(new MyTextButton("Kilépés"){
             @Override
             protected void init() {
                 super.init();
                 setPosition(10, Globals.WORLD_HEIGHT-getHeight());
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        System.out.println("kilépés menübe");
+                        ControlStage.this.game.setScreen(new MenuScreen(ControlStage.this.game),false);
+                    }
+                });
+            }
+        });
+        addActor(new MyTextButton("Újraindítás"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(10, Globals.WORLD_HEIGHT-getHeight()*2);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
@@ -85,6 +101,23 @@ public class ControlStage extends MyStage {
                 });
             }
         });
+        if(Globals.currentLevel == 1){
+            addActor(new MyLabel("Ezen a területen belül lehet\nirányítani az ágyút", game.getLabelStyle()){
+                @Override
+                public void init() {
+                    super.init();
+                    setPosition(20, 450);
+                }
+            });
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TILTARROW)){
+                @Override
+                protected void init() {
+                    super.init();
+                    setPosition(100, 100);
+                    setSize(200, 200);
+                }
+            });
+        }
 
     }
 

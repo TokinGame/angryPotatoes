@@ -32,6 +32,7 @@ import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
 import hu.tokingame.potatoeskill.MyGdxGame;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
 
@@ -89,6 +90,17 @@ public class GameStage extends MyStage {
                 setSize(ez.getWidth(), ez.getHeight());
             }
         });
+        if(Globals.currentLevel == 1){
+            addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.REDBOX)){
+                @Override
+                public void init() {
+                    super.init();
+                    setSize(61, 61);
+                    setPosition(0,0);
+                }
+            });
+
+        }
 
         world = new World(new Vector2(0,-20), false);
         box2DDebugRenderer = new Box2DDebugRenderer();
@@ -126,6 +138,8 @@ public class GameStage extends MyStage {
             public void postSolve(Contact contact, ContactImpulse impulse) {
             }
         });
+
+
 
 
         addActor(cannon = new Cannon(world, loader, 0, 0));
@@ -209,16 +223,16 @@ public class GameStage extends MyStage {
                 String[] thisLine = br.readLine().split(" ");
                 switch(thisLine[0].charAt(0)){
                     case '@':
-                        addActor(new Crate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        addActor(new Crate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])-5));
                         System.out.println("placed crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     case '#':
-                        addActor(new Enemy(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        addActor(new Enemy(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])-5));
                         System.out.println("placed microwave at " + thisLine[1] + " " + thisLine[2]);
                         enemyCount++;
                         break;
                     case '&':
-                        addActor(new LongCrate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])));
+                        addActor(new LongCrate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])-5));
                         System.out.println("placed triple crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     default:

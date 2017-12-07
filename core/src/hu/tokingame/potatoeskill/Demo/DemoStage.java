@@ -19,6 +19,7 @@ import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
+import jdk.nashorn.internal.objects.Global;
 
 
 /**
@@ -186,7 +187,7 @@ public class DemoStage extends MyStage {
                         game.setScreen(new GameScreen(game), false);
                     }
                 });
-                setVisible(false);
+                if(!Globals.DEBUG_ALL)setVisible(false);
             }
         });
     }

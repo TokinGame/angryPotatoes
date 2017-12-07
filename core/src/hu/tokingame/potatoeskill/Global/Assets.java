@@ -52,6 +52,8 @@ public class Assets {
 	public static final AssetDescriptor<Texture> BANANA= new AssetDescriptor<Texture>("GameTextures/banana_for_scale.png", Texture.class);
 	public static final AssetDescriptor<Texture> CAT= new AssetDescriptor<Texture>("GameTextures/cat_cut.png", Texture.class);
 	public static final AssetDescriptor<Texture> REDX= new AssetDescriptor<Texture>("GameTextures/redx.png", Texture.class);
+	public static final AssetDescriptor<Texture> REDBOX= new AssetDescriptor<Texture>("GameTextures/control_area.png", Texture.class);
+	public static final AssetDescriptor<Texture> TILTARROW = new AssetDescriptor<Texture>("GameTextures/tilt_arrow.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);
 	public static final AssetDescriptor<Texture> POTATO_FAMILY = new AssetDescriptor<Texture>("GameTextures/potatoes.png", Texture.class);
@@ -109,6 +111,8 @@ public class Assets {
 		manager.load(BANANA);
 		manager.load(CAT);
 		manager.load(REDX);
+		manager.load(REDBOX);
+		manager.load(TILTARROW);
 
 		manager.load(NUKE);
 		manager.load(POTATO_FAMILY);

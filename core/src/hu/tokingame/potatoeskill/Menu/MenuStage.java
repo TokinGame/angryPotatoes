@@ -134,20 +134,7 @@ public class MenuStage extends MyStage {
                 });
             }
         });
-        addActor(new MyTextButton("Demo"){
-            @Override
-            protected void init() {
-                super.init();
-                setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 450);
-                addListener(new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        super.clicked(event, x, y);
-                        game.setScreen(new DemoScreen(game));
-                    }
-                });
-            }
-        });
+
     }
 
     @Override

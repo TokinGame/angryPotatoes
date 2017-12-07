@@ -5,6 +5,7 @@ import com.badlogic.gdx.assets.AssetDescriptor;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.assets.loaders.FileHandleResolver;
 import com.badlogic.gdx.assets.loaders.resolvers.InternalFileHandleResolver;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
@@ -91,6 +92,8 @@ public class Assets {
     public static final AssetDescriptor<Sound> EXPLOSION_SOUND2 = new AssetDescriptor<Sound>("Sounds/grenade_explosion_alt.wav", Sound.class);
     public static final AssetDescriptor<Sound> EXPLOSION_SOUND3 = new AssetDescriptor<Sound>("Sounds/grenade_explosion.wav", Sound.class);
 
+	public static final AssetDescriptor<Music> MAIN_MUSIC = new AssetDescriptor<Music>("Sounds/bensound-instinct.mp3", Music.class);
+
     public static void prepare() {
 		manager = new AssetManager();
 		Texture.setAssetManager(manager);
@@ -137,6 +140,8 @@ public class Assets {
         manager.load(EXPLOSION_SOUND2);
         manager.load(EXPLOSION_SOUND3);
 
+		manager.load(MAIN_MUSIC);
+
 		manager.load(EXPLOSION_TEXTUREATLAS);
 
 
@@ -149,8 +154,9 @@ public class Assets {
 	}
 
     public static void afterLoaded() {
+		manager.get(MAIN_MUSIC).setLooping(true);
 		if(Globals.music){
-			// TODO: 12/7/2017 MUzzzixxx
+			manager.get(MAIN_MUSIC).play();
 		}
         //manager.get(MUSIC).setLooping(true);
     }

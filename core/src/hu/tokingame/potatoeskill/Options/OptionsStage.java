@@ -14,7 +14,7 @@ import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
-
+import jdk.nashorn.internal.objects.Global;
 
 
 /**
@@ -26,7 +26,7 @@ public class OptionsStage extends MyStage {
     private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
-    private static final String SOUDNFX_LABEL = "Hang effektek: ", HARDNESS_LABEL = "Nehézség: ";
+    private static final String SOUDNFX_LABEL = "Hangeffektek: ", HARDNESS_LABEL = "Nehézség: ", MUSIC_LABEL = "Zene: ";
 
     public OptionsStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
@@ -61,12 +61,32 @@ public class OptionsStage extends MyStage {
                 });
             }
         });
+        addActor(new MyTextButton(MUSIC_LABEL){
+            @Override
+            protected void init() {
+                super.init();
+                this.setText(MUSIC_LABEL + (Globals.music ? "Be" : "Ki"));
+                this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 400);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        Globals.music = !Globals.music;
+                        if(Globals.music)Assets.manager.get(Assets.MAIN_MUSIC).play();
+                        else Assets.manager.get(Assets.MAIN_MUSIC).pause();
+                        Globals.getPrefs().putBoolean("soundFX", Globals.music);
+                        Globals.getPrefs().flush();
+                        setText(MUSIC_LABEL + (Globals.music ? "Be" : "Ki"));
+                    }
+                });
+            }
+        });
         addActor(new MyTextButton(HARDNESS_LABEL){
             @Override
             protected void init() {
                 super.init();
                 this.setText(HARDNESS_LABEL + (Globals.hard ? "Nehéz" : "Könnyű"));
-                this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 400);
+                this.setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 250);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {

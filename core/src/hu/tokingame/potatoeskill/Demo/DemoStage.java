@@ -129,7 +129,7 @@ public class DemoStage extends MyStage {
         });
 
 
-        addActor(t1 = new MyLabel("A krumplik békében éltek,\nmindenki frissen sütötte őket.", game.getLabelStyle()){
+        addActor(t1 = new MyLabel("A krumplik békében éltek,\nmindenki frissen sütve ette őket.", game.getLabelStyle()){
             @Override
             public void init() {
                 super.init();
@@ -138,7 +138,7 @@ public class DemoStage extends MyStage {
                 setAlignment(2);
             }
         });
-        addActor(t2 = new MyLabel("Egyszer csak megjelentek a gonosz mikrók,\nés elkezdték újra melegíteni a kumplikat.", game.getLabelStyle()){
+        addActor(t2 = new MyLabel("Egyszer csak megjelentek a gonosz mikrók, és\nelkezdtek terjedni az újramelegített krumplik", game.getLabelStyle()){
             @Override
             public void init() {
                 super.init();

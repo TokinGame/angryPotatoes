@@ -32,6 +32,15 @@ public class MenuStage extends MyStage {
 
         game = gam;
 
+        addActor(new hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_1)){
+            @Override
+            protected void init() {
+                super.init();
+                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+                setPosition(0,0);
+            }
+        });
+
         addActor(flyingPotato = new OneSpriteStaticActor(Assets.manager.get(Assets.POTATO)){
             @Override
             public void init() {
@@ -92,7 +101,7 @@ public class MenuStage extends MyStage {
         });
 
 
-        addActor(new MyTextButton("Jatek"){
+        addActor(new MyTextButton("Játék"){
             @Override
             protected void init() {
                 super.init();
@@ -106,7 +115,7 @@ public class MenuStage extends MyStage {
                 });
             }
         });
-        addActor(new MyTextButton("Exit"){
+        addActor(new MyTextButton("Kilépés"){
             @Override
             protected void init() {
                 super.init();

@@ -33,6 +33,15 @@ public class OptionsStage extends MyStage {
 
         game = gam;
 
+        addActor(new hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_1)){
+            @Override
+            protected void init() {
+                super.init();
+                setSize(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT);
+                setPosition(0,0);
+            }
+        });
+
 
         addActor(new MyTextButton(SOUDNFX_LABEL){
             @Override

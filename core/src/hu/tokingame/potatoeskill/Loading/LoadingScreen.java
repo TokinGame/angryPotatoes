@@ -26,6 +26,8 @@ public class LoadingScreen extends MyScreen {
 
     @Override
     public void show() {
+        Globals.soundFX = Globals.getPrefs().getBoolean("soundFX",true);
+        Globals.music = Globals.getPrefs().getBoolean("music", true);
         Assets.manager.finishLoading();
         Assets.load();
         for (int i = 1; i < unlocked.length; i++) {

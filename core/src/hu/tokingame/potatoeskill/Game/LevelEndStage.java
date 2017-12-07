@@ -11,6 +11,7 @@ import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Menu.LevelSelectScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
+import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyLabel;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
 import hu.tokingame.potatoeskill.MyGdxGame;
 
@@ -34,9 +35,9 @@ public class LevelEndStage extends MyStage {
                 this.setSize(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT);
             }
         });
-        addActor(new MyTextButton( finalScore + " pontot értél el."){
+        addActor(new MyLabel(finalScore + " pontot értél el.", game.getLabelStyle()){
             @Override
-            protected void init() {
+            public void init() {
                 super.init();
                 setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
             }

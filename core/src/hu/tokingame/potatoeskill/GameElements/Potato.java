@@ -12,6 +12,8 @@ import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
 import hu.tokingame.potatoeskill.World.WorldBodyEditorLoader;
 
+import static hu.tokingame.potatoeskill.Global.Globals.soundFX;
+
 /**
  * Created by davim on 2017. 11. 09..
  */
@@ -122,10 +124,12 @@ public class Potato extends ExploadableActor {
     }
 
     void explosionSound(){
-        switch(rand(0, 2)){
-            case 0: Assets.manager.get(Assets.EXPLOSION_SOUND1).play(); break;
-            case 1: Assets.manager.get(Assets.EXPLOSION_SOUND2).play(); break;
-            case 2: Assets.manager.get(Assets.EXPLOSION_SOUND3).play(); break;
+        if(soundFX){
+            switch(rand(0, 2)){
+                case 0: Assets.manager.get(Assets.EXPLOSION_SOUND1).play(); break;
+                case 1: Assets.manager.get(Assets.EXPLOSION_SOUND2).play(); break;
+                case 2: Assets.manager.get(Assets.EXPLOSION_SOUND3).play(); break;
+            }
         }
     }
 

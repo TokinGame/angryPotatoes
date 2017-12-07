@@ -88,6 +88,9 @@ public class Assets {
 	}
 
     public static void afterLoaded() {
+		if(Globals.music){
+			// TODO: 12/7/2017 MUzzzixxx
+		}
         //manager.get(MUSIC).setLooping(true);
     }
 

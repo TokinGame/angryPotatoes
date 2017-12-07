@@ -101,12 +101,12 @@ public class ControlStage extends MyStage {
         if(gameStage.getPressedState()) {
             forceTimer += delta;
             speedIndicator.setSize(50*Math.abs((float)Math.sin(forceTimer)*8), 50);
-            currenLaunchMultiplier = speedIndicator.getWidth()/2/50;
+            currenLaunchMultiplier = speedIndicator.getWidth()/2f/50f;
             prev_power = currenLaunchMultiplier;
         }
         else{
             currenLaunchMultiplier = 0.5f;
-            prevSpeedIndicator.setWidth(prev_power * 2 * 50);
+            prevSpeedIndicator.setWidth(prev_power * 2f * 50f);
             speedIndicator.setWidth(50);
             forceTimer = 0;
         }

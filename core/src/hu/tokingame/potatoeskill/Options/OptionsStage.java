@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 import hu.tokingame.potatoeskill.Exit.ExitScreen;
 import hu.tokingame.potatoeskill.Game.GameScreen;
+import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
@@ -25,11 +26,31 @@ public class OptionsStage extends MyStage {
     private OneSpriteStaticActor baglogic;
     MyGdxGame game;
 
+    private static final String SOUDNFX_LABEL = "Sound FX: ";
+
     public OptionsStage(Viewport viewport, Batch batch, MyGdxGame gam) {
         super(viewport, batch, gam);
 
         game = gam;
 
+
+        addActor(new MyTextButton(SOUDNFX_LABEL){
+            @Override
+            protected void init() {
+                super.init();
+                this.setText(SOUDNFX_LABEL + (Globals.soundFX ? "Be" : "Ki"));
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        Globals.soundFX = !Globals.soundFX;
+                        Globals.getPrefs().putBoolean("soundFX", Globals.soundFX);
+                        Globals.getPrefs().flush();
+                        setText(SOUDNFX_LABEL + (Globals.soundFX ? "Be" : "Ki"));
+                    }
+                });
+            }
+        });
 
 
         addActor(new MyTextButton("Back"){

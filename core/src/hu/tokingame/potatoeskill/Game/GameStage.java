@@ -36,6 +36,7 @@ import hu.tokingame.potatoeskill.MyGdxGame;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
 
 import static hu.tokingame.potatoeskill.Global.Globals.currentLevel;
+import static hu.tokingame.potatoeskill.Global.Globals.soundFX;
 
 /**
  * Created by M on 11/9/2017.
@@ -153,7 +154,7 @@ public class GameStage extends MyStage {
                         potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
                         System.out.println(controlStage.getCurrenLaunchMultiplier());
                         potato.shootMe();
-                        Assets.manager.get(Assets.LAUNCH_SOUND).play();
+                        if(soundFX) Assets.manager.get(Assets.LAUNCH_SOUND).play();
                     } catch (Exception e) {
                         e.printStackTrace();
                     } finally {

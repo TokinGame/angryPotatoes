@@ -41,6 +41,7 @@ public class LevelEndStage extends MyStage {
             public void init() {
                 super.init();
                 setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
+                setAlignment(2);
             }
         });
         addActor(new MyTextButton("Kilépés"){
@@ -73,7 +74,7 @@ public class LevelEndStage extends MyStage {
                 });
             }
         });
-        setDebugAll(true);
+        setDebugAll(Globals.DEBUG_ALL);
     }
 
     @Override

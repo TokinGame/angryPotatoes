@@ -298,7 +298,7 @@ public class GameStage extends MyStage {
         }else{
             lostStage.draw();
         }
-        if (world != null) {
+        if (world != null && Globals.DEBUG_ALL) {
             box2DDebugRenderer.render(world, debugMatrix);
         }
     }

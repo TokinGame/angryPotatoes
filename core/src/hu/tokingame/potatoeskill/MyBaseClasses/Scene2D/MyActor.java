@@ -4,6 +4,7 @@ import com.badlogic.gdx.math.Circle;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.MyBaseClasses.Game.InitableInterface;
 
 /**
@@ -17,7 +18,7 @@ abstract public class MyActor extends Actor implements InitableInterface {
 
     public MyActor() {
         super();
-        debug();
+        if( Globals.DEBUG_ALL)debug();
     }
 
     @Override

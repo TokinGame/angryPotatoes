@@ -40,6 +40,7 @@ public class LostStage extends MyStage {
                 super.init();
                 setSize(400,100);
                 setPosition(Globals.WORLD_WIDTH/2f-getWidth()/2f, Globals.WORLD_HEIGHT/2f-getHeight()/2f);
+                setAlignment(2);
             }
         });
         addActor(new MyTextButton("Újra"){

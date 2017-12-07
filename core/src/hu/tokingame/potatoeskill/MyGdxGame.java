@@ -64,6 +64,7 @@ public class MyGdxGame extends Game {
 	@Override
 	public void create() {
 		Assets.prepare();
+		Gdx.input.setCatchBackKey(true);
 		setScreen(new LoadingScreen(this));
 	}
 

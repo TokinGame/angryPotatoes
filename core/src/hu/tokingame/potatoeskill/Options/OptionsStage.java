@@ -74,7 +74,7 @@ public class OptionsStage extends MyStage {
                         Globals.music = !Globals.music;
                         if(Globals.music)Assets.manager.get(Assets.MAIN_MUSIC).play();
                         else Assets.manager.get(Assets.MAIN_MUSIC).pause();
-                        Globals.getPrefs().putBoolean("soundFX", Globals.music);
+                        Globals.getPrefs().putBoolean("music", Globals.music);
                         Globals.getPrefs().flush();
                         setText(MUSIC_LABEL + (Globals.music ? "Be" : "Ki"));
                     }

@@ -10,6 +10,7 @@ import hu.tokingame.potatoeskill.Exit.ExitScreen;
 import hu.tokingame.potatoeskill.Game.GameScreen;
 import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.Global.Globals;
+import hu.tokingame.potatoeskill.HowTo.HowToScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.OneSpriteStaticActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.MyTextButton;
@@ -129,16 +130,30 @@ public class MenuStage extends MyStage {
                 });
             }
         });
-        addActor(new MyTextButton("Options"){
+        addActor(new MyTextButton("Beállítások"){
             @Override
             protected void init() {
                 super.init();
-                setPosition(Globals.WORLD_WIDTH-170, 10);
+                setPosition(Globals.WORLD_WIDTH-getWidth()-10, 10);
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
                         game.setScreen(new OptionsScreen(game));
+                    }
+                });
+            }
+        });
+        addActor(new MyTextButton("Hogyan Játssz"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(Globals.WORLD_WIDTH-getWidth()-10, 110);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        super.clicked(event, x, y);
+                        game.setScreen(new HowToScreen(game));
                     }
                 });
             }

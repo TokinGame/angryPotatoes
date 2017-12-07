@@ -54,9 +54,11 @@ public class Assets {
 	public static final AssetDescriptor<Texture> REDX= new AssetDescriptor<Texture>("GameTextures/redx.png", Texture.class);
 	public static final AssetDescriptor<Texture> REDBOX= new AssetDescriptor<Texture>("GameTextures/control_area.png", Texture.class);
 	public static final AssetDescriptor<Texture> TILTARROW = new AssetDescriptor<Texture>("GameTextures/tilt_arrow.png", Texture.class);
+	public static final AssetDescriptor<Texture> WIND_ARROW = new AssetDescriptor<Texture>("GameTextures/arrow.png", Texture.class);
 
 	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);
 	public static final AssetDescriptor<Texture> POTATO_FAMILY = new AssetDescriptor<Texture>("GameTextures/potatoes.png", Texture.class);
+
 
 
 	public static final AssetDescriptor<Texture>[] ICONS = new AssetDescriptor[]{
@@ -117,6 +119,8 @@ public class Assets {
 		manager.load(NUKE);
 		manager.load(POTATO_FAMILY);
 
+		manager.load(WIND_ARROW);
+
 		for (AssetDescriptor<Texture> texture: ICONS) {
 			manager.load(texture);
 		}
@@ -127,6 +131,7 @@ public class Assets {
         manager.load(EXPLOSION_SOUND3);
 
 		manager.load(EXPLOSION_TEXTUREATLAS);
+
 
 
 		manager.load(CALIBRIL_FONT);

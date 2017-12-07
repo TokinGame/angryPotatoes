@@ -78,6 +78,11 @@ public class GameStage extends MyStage {
     public GameStage(Viewport viewport, Batch batch, MyGdxGame game) {
         super(viewport, batch, game);
         ez = this;
+
+        if(Globals.hard){
+            Globals.windDirection = random(0,1)==1 ? random(100, 1000) : -random(100, 1000);
+        }
+
         // TODO: 12/5/2017 Megvan hogy mért crashelt! 2 stage használta ugyan azt a sprite batch-et !!!!!
         controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
         lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
@@ -183,10 +188,6 @@ public class GameStage extends MyStage {
         });
 
         load(Globals.currentLevel);
-
-        if(Globals.hard){
-            Globals.windDirection = random(0,1)==1 ? random(100, 1000) : -random(100, 1000);
-        }
 
         //getCamera().combined.translate(viewport.getScreenX()/10, viewport.getScreenY()/10, 0);   //CAMERA ZOOM IN nem működik
     }

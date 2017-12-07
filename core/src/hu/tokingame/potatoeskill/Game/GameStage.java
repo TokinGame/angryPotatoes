@@ -13,6 +13,7 @@ import com.badlogic.gdx.physics.box2d.ContactImpulse;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.Manifold;
 import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -61,7 +62,7 @@ public class GameStage extends MyStage {
     boolean finishedLoading = false;
 
     private int enemyCount = 0;
-    private boolean enemiesAlive = true;
+    private boolean gameWon = false;
     private int score = 0;
     private int potatoesLeft = 0, potatoesStillAlive = 0;
 
@@ -251,6 +252,9 @@ public class GameStage extends MyStage {
         return false;
     }
 
+
+    private float winTime = 0f;
+
     @Override
     public void act(float delta) {
         super.act(delta);
@@ -265,22 +269,25 @@ public class GameStage extends MyStage {
         }
 
         if(finishedLoading){
-            if(enemyCount == 0 && enemiesAlive){
-                enemiesAlive = false;
+            if(enemyCount == 0){
                 System.out.println("end game");
-                if(currentLevel < 15){
-                    Globals.unlocked[currentLevel] = true;
-                    Globals.getPrefs().putBoolean("l"+currentLevel, true);
-                    Globals.getPrefs().flush();
-                    currentLevel++;
+                angleActor.setTouchable(Touchable.disabled);
+                winTime += delta;
+                gameWon = true;
+                if(winTime > 2.5f){
+                    if(currentLevel < 15){
+                        Globals.unlocked[currentLevel] = true;
+                        Globals.getPrefs().putBoolean("l"+currentLevel, true);
+                        Globals.getPrefs().flush();
+                        currentLevel++;
+                    }
+                    game.setScreen(new LevelEndScreen(game,score), false);
                 }
-                game.setScreen(new LevelEndScreen(game,score), false);
             }
-            if(potatoesStillAlive == 0){
+            if(potatoesStillAlive == 0 && !gameWon){
                 lostStage.lostGame(enemyCount);
             }
         }
-
     }
 
     @Override

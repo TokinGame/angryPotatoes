@@ -27,7 +27,7 @@ public class LevelEndStage extends MyStage {
         super(viewport, batch, game);
         this.game = game;
         Gdx.input.setInputProcessor(this);
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_1)){
             @Override
             public void init() {
                 super.init();

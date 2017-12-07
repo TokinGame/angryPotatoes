@@ -33,6 +33,8 @@ public class Assets {
 	}
 	public static final AssetDescriptor<BitmapFont> CALIBRIL_FONT = new AssetDescriptor<BitmapFont>(fontParameter.fontFileName, BitmapFont.class, fontParameter);
 
+	public static final AssetDescriptor<TextureAtlas> EXPLOSION_TEXTUREATLAS = new AssetDescriptor<TextureAtlas>("GameTextures/explosion.txt", TextureAtlas.class);
+
 
 	public static final AssetDescriptor<Texture> BADLOGIC_TEXTURE = new AssetDescriptor<Texture>("badlogic.jpg", Texture.class);
 	public static final AssetDescriptor<Texture> CANNON = new AssetDescriptor<Texture>("GameTextures/cannon.png", Texture.class);
@@ -81,6 +83,8 @@ public class Assets {
         manager.load(EXPLOSION_SOUND1);
         manager.load(EXPLOSION_SOUND2);
         manager.load(EXPLOSION_SOUND3);
+
+		manager.load(EXPLOSION_TEXTUREATLAS);
 
 
 		manager.load(CALIBRIL_FONT);

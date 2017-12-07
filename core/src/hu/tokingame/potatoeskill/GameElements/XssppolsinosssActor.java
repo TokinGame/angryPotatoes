@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 
+import hu.tokingame.potatoeskill.Global.Assets;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.OneSpriteAnimatedActor;
 import hu.tokingame.potatoeskill.MyBaseClasses.UI.ShapeType;
 import hu.tokingame.potatoeskill.World.WorldActorGroup;
@@ -33,7 +34,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
 
     public XssppolsinosssActor(World world, float X, float Y, float width, float height, boolean decorative, float projVelocity) {
         super(world, ShapeType.Circle, BodyDef.BodyType.StaticBody, 1, 1, 1, true);
-        actor = new OneSpriteAnimatedActor("GameTextures/explosion.txt");
+        actor = new OneSpriteAnimatedActor(Assets.manager.get(Assets.EXPLOSION_TEXTUREATLAS));
         this.decorative = decorative;
         setSize(width, height);
         actor.setSize(width, height);

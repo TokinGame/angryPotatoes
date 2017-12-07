@@ -26,7 +26,7 @@ public class LevelEndStage extends MyStage {
     public LevelEndStage(Viewport viewport, Batch batch, MyGdxGame game, int finalScore) {
         super(viewport, batch, game);
         this.game = game;
-        System.out.println("------------------------------Level End Stage");
+        //System.out.println("------------------------------Level End Stage");
         Gdx.input.setInputProcessor(this);
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_1)){
             @Override
@@ -52,7 +52,7 @@ public class LevelEndStage extends MyStage {
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
-                        System.out.println("--------------------KILÉPÉS");
+                        //System.out.println("--------------------KILÉPÉS");
                         LevelEndStage.this.game.setScreen(new LevelSelectScreen(LevelEndStage.this.game),false);
                         super.clicked(event, x, y);
                     }
@@ -67,7 +67,7 @@ public class LevelEndStage extends MyStage {
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
-                        System.out.println("--------------------------KÖVETKEZŐ");
+                        //System.out.println("--------------------------KÖVETKEZŐ");
                         LevelEndStage.this.game.setScreen(new GameScreen(LevelEndStage.this.game),false);
                         super.clicked(event, x, y);
                     }

@@ -28,7 +28,7 @@ public class WindDirectionActor extends OneSpriteStaticActor {
 
     public void setWindIntensity(float intensity){
         this.windIntensity = intensity;
-        System.out.println("wind intensity>>>>>>>>>"+Math.signum(intensity));
+        //System.out.println("wind intensity>>>>>>>>>"+Math.signum(intensity));
         switch ((int)Math.signum(intensity)){
             case -1: this.setRotation(180); break;
             case 1: this.setRotation(0); break;

@@ -81,7 +81,7 @@ public class ControlStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        System.out.println("kilépés menübe");
+                        //System.out.println("kilépés menübe");
                         ControlStage.this.game.setScreen(new MenuScreen(ControlStage.this.game),false);
                     }
                 });
@@ -96,7 +96,7 @@ public class ControlStage extends MyStage {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         super.clicked(event, x, y);
-                        System.out.println("restart");
+                        //System.out.println("restart");
                         ControlStage.this.game.setScreen(new GameScreen(ControlStage.this.game),false);
                     }
                 });

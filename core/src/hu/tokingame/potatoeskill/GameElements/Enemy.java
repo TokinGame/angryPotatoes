@@ -48,14 +48,14 @@ public class Enemy extends ExploadableActor {
     }
 
     public void die(){
-        System.out.println("ded");
+        //System.out.println("ded");
     }
 
     @Override
     public void contact(WorldActorGroup another) {
         super.contact(another);
         if (another instanceof Potato){
-            System.out.println("Mikró");
+            //System.out.println("Mikró");
         }
     }
 }

@@ -160,7 +160,7 @@ public class GameStage extends MyStage {
             @Override
             public void onAngleUpdate(float angle) {
                 setCannonAngle(angle);
-                System.out.println(angle);
+                //System.out.println(angle);
             }
 
             @Override
@@ -174,7 +174,7 @@ public class GameStage extends MyStage {
                         potato.setPosition(rotateVector2.x, rotateVector2.y);
                         addActor(new XssppolsinosssActor(world, rotateVector2.x, rotateVector2.y, 5, 5, true, 0f));
                         potato.setSpeedMultiplier(10f * controlStage.getCurrenLaunchMultiplier());
-                        System.out.println(controlStage.getCurrenLaunchMultiplier());
+                        //System.out.println(controlStage.getCurrenLaunchMultiplier());
                         potato.shootMe();
                         if(soundFX) Assets.manager.get(Assets.LAUNCH_SOUND).play();
                     } catch (Exception e) {
@@ -212,7 +212,7 @@ public class GameStage extends MyStage {
 
     public void load(int level){
         String current = "Loader/";
-        System.out.println("loading "+level);
+        //System.out.println("loading "+level);
         switch(level){
             case 0:
                 current += "test.txt";
@@ -232,19 +232,19 @@ public class GameStage extends MyStage {
                 switch(thisLine[0].charAt(0)){
                     case '@':
                         addActor(new Crate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])-5));
-                        System.out.println("placed crate at " + thisLine[1] + " " + thisLine[2]);
+                        //System.out.println("placed crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     case '#':
                         addActor(new Enemy(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])-5));
-                        System.out.println("placed microwave at " + thisLine[1] + " " + thisLine[2]);
+                        //System.out.println("placed microwave at " + thisLine[1] + " " + thisLine[2]);
                         enemyCount++;
                         break;
                     case '&':
                         addActor(new LongCrate(world, loader, Float.parseFloat(thisLine[1]), Float.parseFloat(thisLine[2])-5));
-                        System.out.println("placed triple crate at " + thisLine[1] + " " + thisLine[2]);
+                        //System.out.println("placed triple crate at " + thisLine[1] + " " + thisLine[2]);
                         break;
                     default:
-                        System.out.println("!!!!!!!!unknown input!!!!!!!!!!");
+                        //System.out.println("!!!!!!!!unknown input!!!!!!!!!!");
                         break;
                 }
 
@@ -292,7 +292,7 @@ public class GameStage extends MyStage {
 
         if(finishedLoading){
             if(enemyCount == 0){
-                System.out.println("end game");
+                //System.out.println("end game");
                 angleActor.setTouchable(Touchable.disabled);
                 winTime += delta;
                 gameWon = true;

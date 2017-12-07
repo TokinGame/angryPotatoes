@@ -47,7 +47,7 @@ public class Crate extends ExploadableActor {
     public void hitByExplosion(XssppolsinosssActor actor) {
         //super.hitByExplosion();
         hp -= actor.getHitStrength();
-        System.out.println("Strength: >>> " + actor.getHitStrength());
+        //System.out.println("Strength: >>> " + actor.getHitStrength());
         if(hp <= 0){
             this.removeFromWorld();
         }

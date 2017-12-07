@@ -51,7 +51,7 @@ public class Potato extends ExploadableActor {
 
     public void launch(float xForce, float yForce){
         this.getBody().applyForceToCenter(new Vector2(xForce, yForce), true);
-        System.out.println("potato launched with "+xForce+" ; "+yForce+" forces");
+        //System.out.println("potato launched with "+xForce+" ; "+yForce+" forces");
     }
 
 
@@ -67,9 +67,9 @@ public class Potato extends ExploadableActor {
 
     public void setLaunchAngle(float radAngle){
         y = underHundredify(Math.abs((float) Math.tan(radAngle) / x));
-        System.out.println("asdklfjkl;asdfj   "  + Math.toDegrees(radAngle));
+        //System.out.println("asdklfjkl;asdfj   "  + Math.toDegrees(radAngle));
         if(Math.toDegrees(radAngle) >= 90.0)  x = 0f;
-        System.out.println("Krumpli: " + x + " ------ " + y);
+        //System.out.println("Krumpli: " + x + " ------ " + y);
     }
 
     public float underHundredify(float n){
@@ -96,7 +96,7 @@ public class Potato extends ExploadableActor {
     public void act(float delta) {
         super.act(delta);
         if(getX() > getStage().getViewport().getWorldWidth()){
-            System.out.println("szar>>>>>>>>>>>>>>>>>>>>>>>>> " + (getX() - getStage().getViewport().getWorldWidth()));
+            //System.out.println("szar>>>>>>>>>>>>>>>>>>>>>>>>> " + (getX() - getStage().getViewport().getWorldWidth()));
         }
         if (getBody()!= null && getBody().getLinearVelocity().len()<0.01f || getBody()!= null && getX() > getStage().getViewport().getWorldWidth()+35){
             setVisibilityControl(false);
@@ -114,7 +114,7 @@ public class Potato extends ExploadableActor {
         }
         if(getBody()!= null && Globals.hard){
             this.getBody().applyForceToCenter(Globals.windDirection, 0, false);
-            System.out.println("applying "+Globals.windDirection+" wind");
+            //System.out.println("applying "+Globals.windDirection+" wind");
         }
     }
 
@@ -122,7 +122,7 @@ public class Potato extends ExploadableActor {
     public void contact(WorldActorGroup another) {
         super.contact(another);
         if (another instanceof Enemy || another instanceof Crate || another instanceof LongCrate){
-            System.out.println("Krumpli");
+            //System.out.println("Krumpli");
             setupXplosion(this.getBody().getLinearVelocity().len());
             explosionSound();
         }

@@ -43,21 +43,6 @@ public class LevelEndStage extends MyStage {
                 setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, Globals.WORLD_HEIGHT/2-this.getHeight()/2);
             }
         });
-        addActor(new MyTextButton("Következő"){
-            @Override
-            protected void init() {
-                super.init();
-                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 250);
-                addListener(new ClickListener(){
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        System.out.println("--------------------------KÖVETKEZŐ");
-                        LevelEndStage.this.game.setScreen(new GameScreen(LevelEndStage.this.game),false);
-                        super.clicked(event, x, y);
-                    }
-                });
-            }
-        });
         addActor(new MyTextButton("Kilépés"){
             @Override
             protected void init() {
@@ -73,17 +58,26 @@ public class LevelEndStage extends MyStage {
                 });
             }
         });
+        addActor(new MyTextButton("Következő"){
+            @Override
+            protected void init() {
+                super.init();
+                setPosition(Globals.WORLD_WIDTH/2-this.getWidth()/2, 250);
+                addListener(new ClickListener(){
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        System.out.println("--------------------------KÖVETKEZŐ");
+                        LevelEndStage.this.game.setScreen(new GameScreen(LevelEndStage.this.game),false);
+                        super.clicked(event, x, y);
+                    }
+                });
+            }
+        });
         setDebugAll(true);
     }
 
     @Override
     public void init() {
-
-    }
-
-    @Override
-    public void act(float delta) {
-        super.act(delta);
 
     }
 }

@@ -74,8 +74,8 @@ public class GameStage extends MyStage {
         super(viewport, batch, game);
         ez = this;
         // TODO: 12/5/2017 Megvan hogy mért crashelt! 2 stage használta ugyan azt a sprite batch-et !!!!!
-        controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), getBatch(), game, this);
-        lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), getBatch(), game, this);
+        controlStage = new ControlStage(new ExtendViewport(Globals.WORLD_WIDTH, Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
+        lostStage = new LostStage(new ExtendViewport(Globals.WORLD_WIDTH,Globals.WORLD_HEIGHT), new SpriteBatch(), game, this);
 
         if(currentLevel == 99) easterEggActive = true;
 
@@ -250,6 +250,7 @@ public class GameStage extends MyStage {
         }
         return false;
     }
+
     @Override
     public void act(float delta) {
         super.act(delta);

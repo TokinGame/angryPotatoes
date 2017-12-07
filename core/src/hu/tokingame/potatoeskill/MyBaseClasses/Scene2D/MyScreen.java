@@ -17,7 +17,7 @@ abstract public class MyScreen implements Screen, InitableInterface {
 
     //Todo: valószínűleg jó
     // -- Ha esetleg gond lenne, akkor ez ne legyen static
-    protected static SpriteBatch spriteBatch = new SpriteBatch();
+    protected SpriteBatch spriteBatch = new SpriteBatch();
 
     public float r=0,g=0,b=0;
 
@@ -34,7 +34,7 @@ abstract public class MyScreen implements Screen, InitableInterface {
     public void dispose() {
         //Todo: egyelőre vissza van kapcsolva
         // --kiszedve...
-        //spriteBatch.dispose();
+        spriteBatch.dispose();
     }
 
     @Override

@@ -5,6 +5,7 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+import hu.tokingame.potatoeskill.Demo.DemoScreen;
 import hu.tokingame.potatoeskill.Exit.ExitScreen;
 import hu.tokingame.potatoeskill.Game.GameScreen;
 import hu.tokingame.potatoeskill.Global.Assets;
@@ -68,7 +69,8 @@ public class LevelSelectStage extends MyStage {
                                 public void clicked(InputEvent event, float x, float y) {
                                     super.clicked(event, x, y);
                                     currentLevel = cl;
-                                    game.setScreen(new GameScreen(game),false);
+                                    if(cl == 1) game.setScreen(new DemoScreen(game));
+                                    else game.setScreen(new GameScreen(game),false);
                                 }
                             });
                         }

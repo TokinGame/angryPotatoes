@@ -50,6 +50,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> PREV_POWERBAR = new AssetDescriptor<Texture>("GameTextures/prevpowerbar.png", Texture.class);
 	public static final AssetDescriptor<Texture> BANANA= new AssetDescriptor<Texture>("GameTextures/banana_for_scale.png", Texture.class);
 
+	public static final AssetDescriptor<Texture> NUKE = new AssetDescriptor<Texture>("GameTextures/nuke.png", Texture.class);
+	public static final AssetDescriptor<Texture> POTATO_FAMILY = new AssetDescriptor<Texture>("GameTextures/potatoes.png", Texture.class);
+
 
 
     public static final AssetDescriptor<Sound> LAUNCH_SOUND = new AssetDescriptor<Sound>("Sounds/rpg_cut.wav", Sound.class);
@@ -82,6 +85,9 @@ public class Assets {
 		manager.load(POWERBAR_BG);
         manager.load(PREV_POWERBAR);
 		manager.load(BANANA);
+
+		manager.load(NUKE);
+		manager.load(POTATO_FAMILY);
 
         manager.load(LAUNCH_SOUND);
         manager.load(EXPLOSION_SOUND1);

@@ -6,7 +6,9 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+
 import hu.tokingame.potatoeskill.Global.Assets;
+
 import hu.tokingame.potatoeskill.Global.Globals;
 import hu.tokingame.potatoeskill.Menu.MenuScreen;
 import hu.tokingame.potatoeskill.MyBaseClasses.Scene2D.MyStage;
@@ -31,6 +33,7 @@ public class HowToStage extends MyStage {
         game = gam;
 
 
+
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.WOOD_BG)){
             @Override
             public void init() {
@@ -48,6 +51,7 @@ public class HowToStage extends MyStage {
                 setPosition(Globals.WORLD_WIDTH/2-getWidth()/2, 600);
             }
         });
+
         addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.TABLET)){
             @Override
             public void init() {

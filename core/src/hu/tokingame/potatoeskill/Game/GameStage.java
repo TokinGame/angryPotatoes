@@ -80,7 +80,7 @@ public class GameStage extends MyStage {
         if(currentLevel == 99) easterEggActive = true;
 
 
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_1)){
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Globals.currentLevel <= 5 ? Assets.BACKGROUND_1 : Globals.currentLevel <= 10 ? Assets.BACKGROUND_2 : Assets.BACKGROUND_3)){
             @Override
             public void init() {
                 super.init();

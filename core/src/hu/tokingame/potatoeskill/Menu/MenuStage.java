@@ -69,7 +69,7 @@ public class MenuStage extends MyStage {
                                 setX(Globals.WORLD_WIDTH / 2 - getWidth() / 2);
                                 if(big){
                                     Globals.currentLevel = 99;
-                                    game.setScreen(new GameScreen(game), false);
+                                    game.setScreen(new GameScreen(game));
                                 }else big = true;
                             }
                         });

@@ -39,6 +39,7 @@ public class OptionsStage extends MyStage {
             protected void init() {
                 super.init();
                 this.setText(SOUDNFX_LABEL + (Globals.soundFX ? "Be" : "Ki"));
+                this.setPosition(0, Globals.WORLD_HEIGHT - this.getY());
                 addListener(new ClickListener(){
                     @Override
                     public void clicked(InputEvent event, float x, float y) {

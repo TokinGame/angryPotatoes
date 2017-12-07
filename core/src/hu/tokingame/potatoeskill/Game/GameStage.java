@@ -17,7 +17,6 @@ import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
 import java.io.InputStreamReader;
 
 import hu.tokingame.potatoeskill.GameElements.AngleActor;
@@ -81,7 +80,7 @@ public class GameStage extends MyStage {
         if(currentLevel == 99) easterEggActive = true;
 
 
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.EARTH_BG)){
+        addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.BACKGROUND_1)){
             @Override
             public void init() {
                 super.init();

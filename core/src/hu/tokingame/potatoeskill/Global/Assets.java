@@ -42,7 +42,9 @@ public class Assets {
 	public static final AssetDescriptor<Texture> CRATE = new AssetDescriptor<Texture>("GameTextures/wooden-crate.png", Texture.class);
 	public static final AssetDescriptor<Texture> ZOLISCREENSHOT = new AssetDescriptor<Texture>("GameTextures/empty.png", Texture.class);
     public static final AssetDescriptor<Texture> ENEMY = new AssetDescriptor<Texture>("GameTextures/enemy.png", Texture.class);
-	public static final AssetDescriptor<Texture> EARTH_BG = new AssetDescriptor<Texture>("GameTextures/earth_bg.jpg", Texture.class);
+	public static final AssetDescriptor<Texture> BACKGROUND_1 = new AssetDescriptor<Texture>("GameTextures/bg_1.png", Texture.class);
+	public static final AssetDescriptor<Texture> BACKGROUND_2 = new AssetDescriptor<Texture>("GameTextures/bg_2.jpg", Texture.class);
+	public static final AssetDescriptor<Texture> BACKGROUND_3 = new AssetDescriptor<Texture>("GameTextures/bg_3.jpg", Texture.class);
 	public static final AssetDescriptor<Texture> POWERBAR_BG = new AssetDescriptor<Texture>("GameTextures/powerbar_bg.png", Texture.class);
 	public static final AssetDescriptor<Texture> POWERBAR = new AssetDescriptor<Texture>("GameTextures/powerbar.png", Texture.class);
 	public static final AssetDescriptor<Texture> PREV_POWERBAR = new AssetDescriptor<Texture>("GameTextures/prevpowerbar.png", Texture.class);
@@ -73,7 +75,9 @@ public class Assets {
 		manager.load(POTATO);
 		manager.load(CRATE);
         manager.load(ENEMY);
-		manager.load(EARTH_BG);
+		manager.load(BACKGROUND_1);
+		manager.load(BACKGROUND_2);
+		manager.load(BACKGROUND_3);
 		manager.load(POWERBAR);
 		manager.load(POWERBAR_BG);
         manager.load(PREV_POWERBAR);

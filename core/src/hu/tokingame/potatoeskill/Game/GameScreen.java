@@ -18,8 +18,6 @@ public class GameScreen extends MyScreen {
         super(game);
         gameStage = new GameStage(new ExtendViewport(Globals.WORLD_WIDTH/10, Globals.WORLD_HEIGHT/10), spriteBatch, game);
         gameStage.addBackEventStackListener();
-        Gdx.input.setInputProcessor(gameStage);
-
     }
 
     @Override

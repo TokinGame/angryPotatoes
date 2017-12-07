@@ -40,9 +40,9 @@ public class Potato extends ExploadableActor {
     public Potato(World world, WorldBodyEditorLoader loader, float x, float y, boolean cat) {
         super(world, loader, "potato.png", BodyDef.BodyType.DynamicBody, 100, 0.1f, 25, false);
         actor = new OneSpriteStaticActor(cat ? Assets.manager.get(Assets.CAT) : Assets.manager.get(Assets.POTATO));
-        if(cat) setSize(15, 15); else setSize(5, 5);
+        if(cat) setSize(10, 10); else setSize(5, 5);
         addActor(actor);
-        if(cat) actor.setSize(15, 15); else actor.setSize(5, 5);
+        if(cat) actor.setSize(10, 10); else actor.setSize(5, 5);
         addToWorld();
         setPosition(x, y);
         setTouchable(Touchable.disabled);

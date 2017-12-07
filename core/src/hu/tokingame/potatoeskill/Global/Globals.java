@@ -16,7 +16,7 @@ public class Globals {
 
     public static boolean DEBUG_ALL = false;
 
-    public static boolean soundFX = true, music = true;
+    public static boolean soundFX = true, music = true, hard = false;
 
     public static int currentLevel = 1;
 

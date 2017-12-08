@@ -66,6 +66,7 @@ public class GameStage extends MyStage {
     private boolean gameWon = false;
     private int score = 0;
     private int potatoesLeft = 0, potatoesStillAlive = 0;
+    private OneSpriteStaticActor bg;
 
 
     private boolean easterEggActive = false;
@@ -89,15 +90,17 @@ public class GameStage extends MyStage {
 
         if(currentLevel == 99) easterEggActive = true;
 
-
-        addActor(new OneSpriteStaticActor(Assets.manager.get(Globals.currentLevel <= 5 ? Assets.BACKGROUND_1 : Globals.currentLevel <= 10 ? Assets.BACKGROUND_2 : Assets.BACKGROUND_3)){
+        addActor(bg = new OneSpriteStaticActor(Assets.manager.get(Globals.currentLevel <= 5 ? Assets.BACKGROUND_1 : Globals.currentLevel <= 10 ? Assets.BACKGROUND_2 : Assets.BACKGROUND_3)){
             @Override
             public void init() {
                 super.init();
                 setPosition(0, 0);
-                setSize(ez.getWidth(), ez.getHeight());
+                //setSize(ez.getWidth(), ez.getHeight());
             }
         });
+        bg.fitToViewportRealWorldSizeWithoutBlackBars();
+        bg.setPositionCenterOfActorToCenterOfViewport();
+        setCameraResetToLeftBottomOfScreen();
         if(Globals.currentLevel == 1){
             addActor(new OneSpriteStaticActor(Assets.manager.get(Assets.REDBOX)){
                 @Override
@@ -330,6 +333,7 @@ public class GameStage extends MyStage {
     @Override
     public void resize(int screenWidth, int screenHeight) {
         super.resize(screenWidth, screenHeight);
+        bg.fitToViewportRealWorldSizeWithoutBlackBars();
     }
 
     public void addToScore(int scoreToAdd){

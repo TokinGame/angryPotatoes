@@ -39,6 +39,7 @@ public class XssppolsinosssActor extends WorldActorGroup {
         setSize(width, height);
         actor.setSize(width, height);
         actor.setFps(24);
+        actor.setFrame(1);
         addActor(actor);
         setPosition(X, Y);
         addToWorld();
